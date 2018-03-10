@@ -5,25 +5,27 @@
         </div>
         <!--  -->
         <div class="w3-panel">
-            <div class="w3-half w3-padding">
+            <div class="w3-col w3-padding w3-padding-24" style="width:600px">
                 <img :src="imgp" alt="" class="w3-block w3-border">
             </div>
-            <div class="w3-half w3-padding">
-                <h3 class="w3-border-bottom w3-padding-16">产品名称</h3>
-                <div class="w3-border-bottom w3-padding-16">
-                    <h5>产品简介：</h5>
-                    <p>产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介</p>
+            <div class="w3-rest w3-padding">
+                <h3 class="w3-border-bottom">产品名称</h3>
+                <div class="w3-border-bottom">
+                    <p>产品简介：产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简简介产品简介</p>
                 </div>
                 <div class="w3-border-bottom w3-padding-16">
                     <h5>详细参数</h5>
                     <p>产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介</p>
-                    <p>产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介</p>
-                    <p>产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介</p>
-                    <p>产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介</p>
-                    <p>产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介</p>
+
                 </div>
             </div>
             <div class="w3-clear"></div>
+            <!--  -->
+            <div class="w3-padding">
+                <p style="padding:0 100px">
+                    <img :src="imgp" alt="" class="w3-block">
+                </p>
+            </div>
             <!--  -->
             <div class="w3-padding">
                 <h3 class="w3-border-bottom w3-padding-16 w3-center">更多产品</h3>
@@ -50,4 +52,10 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+    p {
+        line-height: 30px;
+        font-size: 16px;
+        text-indent: 32px;
+    }
+</style>

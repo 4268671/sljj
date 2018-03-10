@@ -1,5 +1,5 @@
 <template>
-    <div class="w3-center w3-panel w3-text-gray" style="padding:10px 0">
+    <div class="w3-center w3-panel w3-text-gray" style="padding:20px 0">
         <router-link :to="{name: 'page1'}">
             <span class="w3-large w3-padding w3-round">网站首页</span>
         </router-link>
