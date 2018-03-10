@@ -27,7 +27,7 @@
 
 <script>
     export default {
-        name: "page3",
+        name: "page6",
         data() {
             return {
                 imgsrc: Mock.Random.image("1800x300", "#eeeeee"),

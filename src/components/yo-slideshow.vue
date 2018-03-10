@@ -5,9 +5,9 @@
         <div class="swiper-wrapper">
             <!-- Slides -->
             <!-- <div class="swiper-slide" v-for="item in 3">Slide {{item}}</div> -->
-            <div class="swiper-slide w3-light-gray">Slide1</div>
-            <div class="swiper-slide w3-light-gray">Slide2</div>
-            <div class="swiper-slide w3-light-gray">Slide3</div>
+            <div class="swiper-slide w3-gray">Slide1</div>
+            <div class="swiper-slide w3-gray">Slide2</div>
+            <div class="swiper-slide w3-gray">Slide3</div>
         </div>
         <!-- If we need pagination -->
         <div class="swiper-pagination"></div>
