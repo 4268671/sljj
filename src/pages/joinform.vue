@@ -47,7 +47,7 @@
 
 <script>
     export default {
-        name: "page5",
+        name: "joinform",
         data() {
             return {
                 imgsrc: Mock.Random.image("1800x500", "#eeeeee"),

@@ -32,10 +32,10 @@
                     path: "/"
                 }, {
                     name: "link 2",
-                    path: "/page2"
+                    path: "/productlist"
                 }, {
                     name: "link 3",
-                    path: "/page3"
+                    path: "/productdetail"
                 }],
                 activeName: ""
             };

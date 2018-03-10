@@ -29,7 +29,7 @@
 <script>
 import yoBar from '../components/yo-bar.vue'
 export default {
-    name: "page7",
+    name: "articlelist",
     data() {
         return {
             imgsrc: Mock.Random.image("1800x300", "#eeeeee"),

@@ -1,12 +1,12 @@
 import Vue from "vue";
 import Router from "vue-router";
-import page1 from "@/pages/page1";
-import page2 from "@/pages/page2";
-import page3 from "@/pages/page3";
+import slindex from "@/pages/slindex";
+import productlist from "@/pages/productlist";
+import productdetail from "@/pages/productdetail";
 import page4 from "@/pages/page4";
-import page5 from "@/pages/page5";
-import page6 from "@/pages/page6";
-import page7 from "@/pages/page7";
+import joinform from "@/pages/joinform";
+import articledetail from "@/pages/articledetail";
+import articlelist from "@/pages/articlelist";
 
 Vue.use(Router);
 
@@ -15,22 +15,22 @@ export default new Router({
     routes: [{
             path: "/",
             name: "index",
-            redirect: "/page1"
+            redirect: "/slindex"
         },
         {
-            path: "/page1",
-            name: "page1",
-            component: page1
+            path: "/slindex",
+            name: "slindex",
+            component: slindex
         },
         {
-            path: "/page2",
-            name: "page2",
-            component: page2
+            path: "/productlist",
+            name: "productlist",
+            component: productlist
         },
         {
-            path: "/page3",
-            name: "page3",
-            component: page3
+            path: "/productdetail",
+            name: "productdetail",
+            component: productdetail
         },
         {
             path: "/page4",
@@ -38,19 +38,19 @@ export default new Router({
             component: page4
         },
         {
-            path: "/page5",
-            name: "page5",
-            component: page5
+            path: "/joinform",
+            name: "joinform",
+            component: joinform
         },
         {
-            path: "/page6",
-            name: "page6",
-            component: page6
+            path: "/articledetail",
+            name: "articledetail",
+            component: articledetail
         },
         {
-            path: "/page7",
-            name: "page7",
-            component: page7
+            path: "/articlelist",
+            name: "articlelist",
+            component: articlelist
         }
     ],
     scrollBehavior(to, from, savedPosition) {

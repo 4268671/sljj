@@ -4,11 +4,11 @@
             <i class="fa fa-2x fa-home w3-red" aria-hidden="true">
             </i>
         </router-link>
-        <!-- <router-link :to="{name: 'page1'}"><i class="fa fa-2x fa-columns w3-text-gray" aria-hidden="true"></i></router-link> -->
-        <!-- <router-link :to="{name: 'page2'}">
+        <!-- <router-link :to="{name: 'slindex'}"><i class="fa fa-2x fa-columns w3-text-gray" aria-hidden="true"></i></router-link> -->
+        <!-- <router-link :to="{name: 'productlist'}">
             <i class="fa fa-2x fa-navicon w3-green" aria-hidden="true"></i>
         </router-link>
-        <router-link :to="{name: 'page3'}">
+        <router-link :to="{name: 'productdetail'}">
             <i class="fa fa-2x fa-share-alt-square w3-green" aria-hidden="true"></i>
         </router-link> -->
         <a href="javascript:fasle" @click="retop()" title="回到顶部">

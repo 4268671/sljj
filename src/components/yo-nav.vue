@@ -1,24 +1,24 @@
 <template>
     <div class="w3-center w3-panel w3-text-gray" style="padding:20px 0">
-        <router-link :to="{name: 'page1'}">
+        <router-link :to="{name: 'slindex'}">
             <span class="w3-large w3-padding w3-round">网站首页</span>
         </router-link>
         <router-link :to="{name: 'page4'}">
             <span class="w3-large w3-margin-left w3-padding w3-round">舒览品牌</span>
         </router-link>
-        <router-link :to="{name: 'page3'}">
+        <router-link :to="{name: 'productdetail'}">
             <span class="w3-large w3-margin-left w3-padding w3-round">最新动态</span>
         </router-link>
-        <router-link :to="{name: 'page2'}">
+        <router-link :to="{name: 'productlist'}">
             <span class="w3-large w3-margin-left w3-padding w3-round">产品中心</span>
         </router-link>
-        <router-link :to="{name: 'page7'}">
+        <router-link :to="{name: 'articlelist'}">
             <span class="w3-large w3-margin-left w3-padding w3-round">实体店铺</span>
         </router-link>
-        <router-link :to="{name: 'page5'}">
+        <router-link :to="{name: 'joinform'}">
             <span class="w3-large w3-margin-left w3-padding w3-round">加盟招商</span>
         </router-link>
-        <router-link :to="{name: 'page6'}">
+        <router-link :to="{name: 'articledetail'}">
             <span class="w3-large w3-margin-left w3-padding w3-round">旗舰店购买
                 <span class="w3-tag w3-red w3-tiny w3-round-xlarge">hot</span>
             </span>

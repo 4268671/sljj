@@ -1,8 +1,5 @@
 <template>
   <div id="main">
-    <p>{{articleLoading}}</p>
-    <p>{{userLoading}}</p>
-    <span @click="handleClick">点击</span>
     <yo-sidebar :style="sidebarstyle"></yo-sidebar>
     <yo-top :style="topstyle" class="w3-card"></yo-top>
     <yo-nav :style="navstyle"></yo-nav>

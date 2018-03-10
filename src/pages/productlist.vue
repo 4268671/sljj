@@ -6,7 +6,7 @@
     <!--  -->
     <div class="w3-padding-24">
       <ul class="w3-ul w3-row">
-        <router-link :to="{name: 'page3'}">
+        <router-link :to="{name: 'productdetail'}">
           <li class="w3-third" v-for="item in 12" :key="item">
             <img :src="imgp" alt="" class="w3-block">
             <p class="w3-center">产品名称</p>
