@@ -1,4 +1,4 @@
 // 接口
-export const API_DOMAIN = 'http://192.168.0.101:7003';
+export const API_DOMAIN = "http://127.0.0.1:7003";
 // localStorage
-export const LOCALSTORAGENAME = 'STORE-NAME';
+export const LOCALSTORAGENAME = "STORE-NAME";
