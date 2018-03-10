@@ -7,15 +7,15 @@
             </h3>
             <ul class="w3-ul">
                 
-                <li v-for="n in 10" :key="n" class="w3-light-gray w3-border-bottom ">
+                <li v-for="item in articlelistArr" :key="item.id" class="w3-light-gray w3-border-bottom ">
                         <a href="">
                     
         <img :src="imgp" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
                 <div class="w3-light-gray" style="padding:0 50px;height:196px;overflow: hidden">
-                        <h2>标题标题标题标题标题标题</h2>
+                        <h2>{{item.title}}</h2>
                         <i class="w3-text-gray">
                         <i class="fa fa-quote-left"></i>
-                        简介：{{textp}}<i class="fa fa-quote-right"></i>                
+                        简介：{{item.subtitle}}<i class="fa fa-quote-right"></i>                
                         </i>
                     </div>
                 </a>
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import yoBar from '../components/yo-bar.vue'
 export default {
     name: "articlelist",
@@ -36,6 +37,16 @@ export default {
             imgp: Mock.Random.image("800x600", "#eeeeee"),
             textp: Mock.mock("@cparagraph(5, 10)")
         };
+    },
+    computed: mapState({
+        articlelistArr:({article})=>article.articlelist
+    }),
+    mounted(){
+        const {dispatch}=this.$store;
+        dispatch({
+            type:'article/getArticleList'
+        })
+        console.log(1)
     },
     components: {yoBar}
 };

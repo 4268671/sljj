@@ -1,40 +1,38 @@
 // 接口
-import { getChannelTypes } from "@/services/api";
+import { getArticleList } from "@/services/api";
 // 方法
 import { parseResponse } from "@/utils/parse";
 
 export const article = {
-  namespaced: true,
+    namespaced: true,
 
-  state: {
-    loading: "article default"
-  },
+    state: {
+        articlelist: []
+    },
 
-  getters: {},
+    getters: {},
 
-  // 异步
-  actions: {
-    async getArticles({ commit }, { payload }) {
-      commit({
-        type: "changeLoading",
-        payload: "article loading"
-      });
-      const response = await getChannelTypes(payload);
-      const { status, message, count, data } = await parseResponse(response);
-      await console.log({ status, message, count, data }, "parse response");
-      await console.log(response, "article response");
-      commit({
-        type: "changeLoading",
-        payload: "article finished"
-      });
+    // 异步
+    actions: {
+        async getArticleList({ commit }) {
+            const resp = await getArticleList();
+            const { status, message, count, data } = await parseResponse(resp);
+            await console.log(data)
+            if (status > 0) {
+                commit({
+                    type: 'changeArticleList',
+                    payload: data
+                })
+            }
+
+        }
+    },
+
+    // 同步
+    /* eslint-disable no-param-reassign */
+    mutations: {
+        changeArticleList(state, { payload }) {
+            state.articlelist = payload
+        }
     }
-  },
-
-  // 同步
-  /* eslint-disable no-param-reassign */
-  mutations: {
-    changeLoading(state, { payload }) {
-      state.loading = payload;
-    }
-  }
 };

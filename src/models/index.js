@@ -12,12 +12,10 @@ Vue.use(Vuex);
 
 // modules
 import { article } from './article';
-import { user } from './user';
 
 export default new Vuex.Store({
-  // 模块分组
-  modules: {
-    article,
-    user
-  }
+    // 模块分组
+    modules: {
+        article
+    }
 });

@@ -1,7 +1,7 @@
 <template>
-    <div class="w3-center w3-panel w3-text-gray" style="padding:20px 0">
+    <div class="w3-center w3-panel w3-text-gray animated fadeInDown" style="padding:20px 0">
         <router-link :to="{name: 'slindex'}">
-            <span class="w3-large w3-padding w3-round">网站首页</span>
+            <span class="w3-large w3-padding w3-round active">网站首页</span>
         </router-link>
         <router-link :to="{name: 'page4'}">
             <span class="w3-large w3-margin-left w3-padding w3-round">舒览品牌</span>
@@ -41,7 +41,7 @@
         transition: all 1s;
     }
     
-    a:hover>span {
+    .active,a:hover>span {
         background-color: #e94441;
         transition: all 0.5s;
         color: white;
