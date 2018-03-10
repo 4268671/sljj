@@ -2,7 +2,7 @@
  * @Author: Kevin Bolton
  * @Date: 2018-02-05 22:04:50
  * @Last Modified by: Kevin Bolton
- * @Last Modified time: 2018-03-10 14:15:20
+ * @Last Modified time: 2018-03-10 17:14:53
  */
 // 常量
 import { URL_PREFIX, API_DOMAIN } from "@/utils/consts";
@@ -99,5 +99,13 @@ export const base64UrlToBlob = urlData => {
       .split(":")[1]
       .split(";")[0]
   });
+};
+// >> 分页
+// arr: 数组  cur: 当前页码  size: 当前页条数
+export const getCurArr = (arr, cur, size) => {
+  const start = (cur - 1) * size; // 开始的索引
+  const end = cur * size; // 结束的索引
+
+  return arr.slice(start, end);
 };
 // --- END ---
