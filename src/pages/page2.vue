@@ -37,5 +37,14 @@ import yoBar from '../components/yo-bar.vue'
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+ul li{
+        transition: all 0.5s;
+  
+}
+ul li:hover{
+        transition: all 0.5s;
+        box-shadow: 0 2px 20px #aaaaaa;
+        /* background-color: #eeeeee!important; */
+        
+}
 </style>

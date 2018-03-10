@@ -3,17 +3,22 @@
         <yo-slideshow style="height:500px" class="wow flipInX"></yo-slideshow>
         <!--  -->
         <div class="w3-padding-32 w3-row">
+            <a href="">
             <div class="w3-third w3-center w3-tag w3-white wow bounceInUp">
                     <h1><i class="fa fa-align-center"></i></h1>
                 <h2>来自法国
                 </h2>
                 <p>Brand Introduction</p>
             </div>
+            </a>
+            <a href="">
             <div class="w3-third w3-center w3-tag w3-white wow bounceInUp" data-wow-delay="0.3s">
                     <h1><i class="fa fa-th-large"></i></h1>
                 <h2>产品中心</h2>
                 <p>Product Center</p>
             </div>
+            </a>
+            <a href="">
             <div class="w3-third w3-center w3-tag w3-white wow bounceInUp" data-wow-delay="0.6s">
                 <h1><i class="fa fa-sitemap"></i></h1>
                 <h2>
@@ -21,6 +26,8 @@
                 </h2>
                 <p>Merchants Joined</p>
             </div>
+            </a>
+            
         </div>
         <!--  -->
         <div class="w3-padding-32">
