@@ -13,10 +13,10 @@
         </div>
         <div class="w3-row w3-red">
             <div class="w3-quarter w3-block w3-padding wow bounceInLeft" data-wow-delay="0.6s">
-                <h3 class="w3-border-bottom w3-padding-24">实体店2</h3>
-                <p><i class="fa fa-address-card-o w3-margin-right"></i>地址：</p>
-                <p><i class="fa fa-fax w3-margin-right"></i>电话：</p>
-                <p><i class="fa fa-automobile w3-margin-right"></i>交通：</p>
+                <h3 class="w3-border-bottom w3-padding-24">蜀都·成都店体验馆</h3>
+                <p><i class="fa fa-address-card-o w3-margin-right"></i>地址：成都市武侯区南沈路南桥村一组395号</p>
+                <p><i class="fa fa-fax w3-margin-right"></i>电话：028-65052524</p>
+                <p><i class="fa fa-automobile w3-margin-right"></i>交通：848路 509路 306路 南桥村站下 或 地铁10号线 簇锦站 （D口出） 下车</p>
             </div>
             <div class="w3-rest w3-padding w3-margin-bottom w3-margin-top">
                 <img :src="imgp" alt="" class="w3-block w3-card wow bounceInRight" data-wow-delay="0.3s">
