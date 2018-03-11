@@ -4,7 +4,7 @@
         <div style="width:1200px;margin:auto">
             <h3 class="w3-border-bottom w3-padding-16">
                 <span class="w3-bottombar w3-border-red" style="padding-bottom:13px">舒览动态</span>
-                <button class="w3-right w3-button w3-medium w3-light-gray w3-round">返 回</button>
+                <button class="w3-right w3-button w3-medium w3-light-gray w3-round" @click="clickback">返 回</button>
             </h3>
             <div class="w3-padding-16 w3-border-bottom w3-light-gray" style="padding:0 100px">
                 <h2 class="w3-center">标题标题标题标题标题标题</h2>
@@ -34,6 +34,11 @@
                 imgp: Mock.Random.image("800x600", "#eeeeee"),
                 textp: Mock.mock("@cparagraph(5, 10)")
             };
+        },
+        methods:{
+            clickback(){
+                this.$router.go(-1)
+            }
         },
         components: {}
     };

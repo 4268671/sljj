@@ -7,13 +7,14 @@ import page4 from "@/pages/page4";
 import joinform from "@/pages/joinform";
 import articledetail from "@/pages/articledetail";
 import articlelist from "@/pages/articlelist";
+import shop from "@/pages/shop";
 
 Vue.use(Router);
 
 export default new Router({
-    // mode: 'history',
+    mode: 'history',
     routes: [{
-            path: "/",
+            path: "*",
             name: "index",
             redirect: "/slindex"
         },
@@ -25,10 +26,10 @@ export default new Router({
         {
             path: "/productlist",
             name: "productlist",
-            component: productlist
+            component: productlist,
         },
         {
-            path: "/productdetail",
+            path: "/productlist/productdetail/:id",
             name: "productdetail",
             component: productdetail
         },
@@ -43,14 +44,19 @@ export default new Router({
             component: joinform
         },
         {
-            path: "/articledetail",
-            name: "articledetail",
-            component: articledetail
-        },
-        {
             path: "/articlelist",
             name: "articlelist",
-            component: articlelist
+            component: articlelist,
+        },
+        {
+            path: "/shop",
+            name: "shop",
+            component: shop,
+        },
+        {
+            path: '/articlelist/articledetail/:id',
+            name: 'articledetail',
+            component: articledetail
         }
     ],
     scrollBehavior(to, from, savedPosition) {

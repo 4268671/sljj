@@ -8,10 +8,10 @@
             <div class="w3-col w3-padding w3-padding-24" style="width:600px">
                 <img :src="imgp" alt="" class="w3-block w3-border">
             </div>
-            <div class="w3-rest w3-padding">
-                <h3 class="w3-border-bottom">产品名称</h3>
+            <div class="w3-rest w3-padding w3-text-gray">
+                <h3 class="w3-border-bottom w3-padding-16">产品名称 / Product name</h3>
                 <div class="w3-border-bottom">
-                    <p>产品简介：产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简简介产品简介</p>
+                    <p class="">产品简介：产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简简介产品简介</p>
                 </div>
                 <div class="w3-border-bottom w3-padding-16">
                     <h5>详细参数</h5>

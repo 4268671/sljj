@@ -1,7 +1,7 @@
 <template>
     <div class="w3-center">
         <div>
-            <img :src="imgsrc" alt="" class="w3-block">
+            <img :src="imgsrc" alt="" class="w3-block wow bounceIn">
         </div>
         <div class="" style="padding:50px 120px">
             <h2>

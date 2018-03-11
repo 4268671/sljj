@@ -5,33 +5,33 @@
         <div class="w3-padding-32 w3-row">
             <a href="">
             <div class="w3-third w3-center w3-tag w3-white wow bounceInUp">
-                    <h1><i class="fa fa-align-center"></i></h1>
+                    <h1><img src="/static/France.png" alt=""></h1>
                 <h2>来自法国
                 </h2>
                 <p>Brand Introduction</p>
             </div>
             </a>
-            <a href="">
+        <router-link :to="{name: 'productlist'}">
             <div class="w3-third w3-center w3-tag w3-white wow bounceInUp" data-wow-delay="0.3s">
-                    <h1><i class="fa fa-th-large"></i></h1>
+                    <h1><img src="/static/product.png" alt="" style="width:40px"></h1>
                 <h2>产品中心</h2>
                 <p>Product Center</p>
             </div>
-            </a>
-            <a href="">
+            </router-link>
+        <router-link :to="{name: 'joinform'}">
             <div class="w3-third w3-center w3-tag w3-white wow bounceInUp" data-wow-delay="0.6s">
-                <h1><i class="fa fa-sitemap"></i></h1>
+                <h1><img src="/static/join.png" alt=""></h1>
                 <h2>
                     招商加盟
                 </h2>
                 <p>Merchants Joined</p>
             </div>
-            </a>
+            </router-link>
             
         </div>
         <!--  -->
-        <div class="w3-padding-32">
-            <img :src="imgsrc" alt="" class="w3-block wow bounceIn">
+        <div class="w3-padding-32 w3-row">
+            <img :src="imgsrc" alt="" class="w3-block wow bounceIn" data-wow-delay="0.6s">
         </div>
         <!--  -->
         <div class="w3-row w3-margin-top wow flipInY">
@@ -67,11 +67,11 @@
     new WOW().init();
     import yoSlideshow from "../components/yo-slideshow.vue";
     export default {
-        name: "page1",
+        name: "slindex",
         data() {
             return {
-                imgsrc: Mock.Random.image("1800x500", "#eeeeee"),
-                imgp: Mock.Random.image("400x530", "#eeeeee")
+                imgsrc: Mock.Random.image("1800x500", "#cccccc"),
+                imgp: Mock.Random.image("400x530", "#cccccc")
             };
         },
         components: {
