@@ -18,7 +18,7 @@
         <router-link :to="{name: 'joinform'}">
             <span class="w3-large">加盟招商</span>
         </router-link>
-        <a href="http://www.taobao.com" target="_">
+        <a href="" target="_">
             <span class="w3-large">旗舰店购买
                 <span class="w3-tag w3-red w3-tiny w3-round-xlarge">hot</span>
             </span>
@@ -27,32 +27,29 @@
 </template>
 
 <script>
-    export default {
-
-    };
+export default {};
 </script>
 
 <style scoped>
-    a > span {
-        transition: all 0.3s;
-        padding:8px 18px;
-        
-    }
-    .router-link-active{
-        background-color: #e94441;
-        color: white;
-        padding:11px 0 9px 0;
-        border-radius:4px
-    }    
-   a:hover>span {
-        background-color: #e94441;
-        color: white;
-        padding:8px 18px;
-        border-radius:4px;
-        transition: all 0.5s;
-        /* box-shadow: 0 2px 8px #cccccc; */
-    }
-    .w3-tag {
-        position: absolute;
-    }
+a > span {
+  transition: all 0.3s;
+  padding: 8px 18px;
+}
+.router-link-active {
+  background-color: #e94441;
+  color: white;
+  padding: 11px 0 9px 0;
+  border-radius: 4px;
+}
+a:hover > span {
+  background-color: #e94441;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 4px;
+  transition: all 0.5s;
+  /* box-shadow: 0 2px 8px #cccccc; */
+}
+.w3-tag {
+  position: absolute;
+}
 </style>

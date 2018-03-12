@@ -6,20 +6,21 @@
                 <span class="w3-bottombar w3-border-red" style="padding-bottom:13px">舒览最新动态</span>
             </h3>
             <ul class="w3-ul">
-                
-                <li v-for="item in 6" :key="item.id" class="w3-light-gray w3-border-bottom ">
-                        <router-link :to="{name: 'articledetail', params: { id: item }}">
-                    
-        <img :src="imgp" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
-                <div class="w3-light-gray" style="padding:0 50px;height:196px;overflow: hidden">
-                        <h2>{{item.title}}</h2>
-                        <i class="w3-text-gray">
-                        <i class="fa fa-quote-left"></i>
-                        简介：{{item.subtitle}}<i class="fa fa-quote-right"></i>                
-                        </i>
-                    </div>
-                </router-link>
-            </li>
+
+                <li v-for="item in 6" :key="item.id" class="w3-light-gray w3-border-bottom  wow fadeInUp" data-wow-delay="0.2s">
+                    <router-link :to="{name: 'articledetail', params: { id: item }}">
+
+                        <img :src="imgp" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
+                        <div class="w3-light-gray" style="padding:0 50px;height:196px;overflow: hidden">
+                            <h2>{{item.title}}</h2>
+                            <i class="w3-text-gray">
+                                <i class="fa fa-quote-left"></i>
+                                简介：{{item.subtitle}}
+                                <i class="fa fa-quote-right"></i>
+                            </i>
+                        </div>
+                    </router-link>
+                </li>
             </ul>
             <yo-bar :propbars="10"></yo-bar>
         </div>
@@ -27,49 +28,49 @@
 </template>
 
 <script>
-import { getCurArr } from '../utils/fns'
-import { mapState } from 'vuex'
-import yoBar from '../components/yo-bar.vue'
+import { getCurArr } from "../utils/fns";
+import { mapState } from "vuex";
+import yoBar from "../components/yo-bar.vue";
 export default {
-    name: "articlelist",
-    data() {
-        return {
-            imgsrc: Mock.Random.image("1800x300", "#eeeeee"),
-            imgp: Mock.Random.image("800x600", "#eeeeee"),
-            textp: Mock.mock("@cparagraph(5, 10)")
-        };
-    },
-    computed: mapState({
-        // articlelistArr:({article})=>getCurArr(article.articlelist,2,1),
-        articlelistArr:({article})=>article.articlelist
-    }),
-    mounted(){
-        const {dispatch}=this.$store;
-        dispatch({
-            type:'article/getArticleList'
-        })
-        console.log(1)
-    },
-    components: {yoBar}
+  name: "articlelist",
+  data() {
+    return {
+      imgsrc: Mock.Random.image("1800x300", "#eeeeee"),
+      imgp: Mock.Random.image("800x600", "#eeeeee"),
+      textp: Mock.mock("@cparagraph(5, 10)")
+    };
+  },
+  computed: mapState({
+    // articlelistArr:({article})=>getCurArr(article.articlelist,2,1),
+    articlelistArr: ({ article }) => article.articlelist
+  }),
+  mounted() {
+    const { dispatch } = this.$store;
+    dispatch({
+      type: "article/getArticleList"
+    });
+    console.log(1);
+  },
+  components: { yoBar }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    a div {
-        transition: all 0.5s;
-    }
-    
-    a:hover div {
-        color: #e94441 !important;
-        transition: all 0.5s;
-        /* box-shadow: 0 2px 10px #cccccc; */
-    }
-    
-    i,
-    p {
-        line-height: 30px;
-        font-size: 16px;
-        text-indent: 32px;
-    }
+a div {
+  transition: all 0.5s;
+}
+
+a:hover div {
+  color: #e94441 !important;
+  transition: all 0.5s;
+  /* box-shadow: 0 2px 10px #cccccc; */
+}
+
+i,
+p {
+  line-height: 30px;
+  font-size: 16px;
+  text-indent: 32px;
+}
 </style>

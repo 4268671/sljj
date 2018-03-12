@@ -8,7 +8,7 @@
             <div class="w3-rest w3-margin-left">
                 <div class="w3-threequarter w3-text-light-gray">
                     <p class="w3-left w3-container">
-                        <span>关于我们<br>About Shulan</span>
+                        <span>品牌介绍<br>About Shulan</span>
                     </p>
                     <p class="w3-left w3-container">
                         <span>舒览产品<br>Shulan Product</span>

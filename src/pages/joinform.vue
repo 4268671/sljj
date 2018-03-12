@@ -3,14 +3,14 @@
         <div>
             <img :src="imgsrc" alt="" class="w3-block wow bounceIn">
         </div>
-        <div class="" style="padding:50px 120px">
+        <div class="wow fadeInUp" style="padding:50px 120px">
             <h2>
                 加盟
                 <span class="w3-text-red">申请</span>
             </h2>
             <p class="w3-panel w3-padding-24" style="width:900px;margin:auto">
                 感谢您关注舒览家具，如您已基本了解并确认合作意向，请填写并提交以下内容，工作人员将及时与您取得联系，谢谢您的合作！ 如果您再加盟过程中有任何不明白之处，可随时咨询：
-                <span class="w3-text-red">028-xxxxx-xxxx</span>（周一至周五9：00—17：00）
+                <span class="w3-text-red w3-large">028-6505-2524</span>（周一至周五9：00—17：00）
             </p>
 
             <div class="w3-row w3-panel">
@@ -56,7 +56,7 @@ export default {
   name: "joinform",
   data() {
     return {
-      imgsrc: Mock.Random.image("1800x500", "#eeeeee"),
+      imgsrc: Mock.Random.image("1920x500", "#eeeeee"),
       imgp: Mock.Random.image("400x300", "#eeeeee"),
       apiData: {
         name: "",
