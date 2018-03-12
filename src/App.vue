@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
 import yoTop from "./components/yo-top.vue";
 import yoSidebar from "./components/yo-sidebar.vue";
 import yoFooter from "./components/yo-footer.vue";
@@ -52,35 +51,13 @@ export default {
       }
     };
   },
-  computed: mapState({
-    articleLoading: ({ article }) => article.loading,
-    userLoading: ({ user }) => user.loading
-  }),
   components: {
     yoTop,
     yoSidebar,
     yoFooter,
     yoNav
   },
-  methods: {
-    async handleClick() {
-      const { dispatch } = this.$store;
-
-      await dispatch({
-        type: "article/getArticles",
-        payload: {
-          sid: "59607e3c682e090ca074ecfd"
-        }
-      });
-      const sid = this.articleLoading;
-      await dispatch({
-        type: "user/getUsers",
-        payload: {
-          sid
-        }
-      });
-    }
-  }
+  methods: {}
 };
 </script>
 
