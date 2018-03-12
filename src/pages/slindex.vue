@@ -72,7 +72,7 @@ export default {
   name: "slindex",
   data() {
     return {
-      imgsrc: Mock.Random.image("1800x500", "#cccccc"),
+      imgsrc: Mock.Random.image("1920x500", "#cccccc"),
       imgp: Mock.Random.image("400x530", "#cccccc")
     };
   },

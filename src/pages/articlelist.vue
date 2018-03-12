@@ -35,7 +35,7 @@ export default {
   name: "articlelist",
   data() {
     return {
-      imgsrc: Mock.Random.image("1800x300", "#eeeeee"),
+      imgsrc: Mock.Random.image("1920x300", "#eeeeee"),
       imgp: Mock.Random.image("800x600", "#eeeeee"),
       textp: Mock.mock("@cparagraph(5, 10)")
     };

@@ -3,7 +3,7 @@
         <router-link :to="{name: 'slindex'}">
             <span class="w3-large">网站首页</span>
         </router-link>
-        <router-link :to="{name: 'page4'}">
+        <router-link :to="{name: 'brand'}">
             <span class="w3-large">舒览品牌</span>
         </router-link>
         <router-link :to="{name: 'articlelist'}">

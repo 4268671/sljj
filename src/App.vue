@@ -32,7 +32,7 @@ export default {
       },
       sidebarstyle: {
         // 侧边样式
-        width: "36px",
+        width: "40px",
         top: 0,
         right: 0,
         "z-index": "2",

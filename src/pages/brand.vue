@@ -20,10 +20,10 @@
 
 <script>
     export default {
-        name: "page4",
+        name: "brand",
         data() {
             return {
-                imgsrc: Mock.Random.image("1800x500", "#eeeeee"),
+                imgsrc: Mock.Random.image("1920x500", "#eeeeee"),
                 imgp: Mock.Random.image("400x300", "#eeeeee")
             };
         },
