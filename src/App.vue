@@ -40,7 +40,7 @@ export default {
       },
       routerstyle: {
         margin: "auto",
-        width: "1652px",
+        width: "1920px",
         "min-width": "1200px"
         // "padding-top": "30px"
       },

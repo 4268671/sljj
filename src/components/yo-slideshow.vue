@@ -1,20 +1,20 @@
 <template>
-    <!-- Slider main container -->
-    <div class="w3-margin-top swiper-container w3-round-large">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            <!-- Slides -->
-            <!-- <div class="swiper-slide" v-for="item in 3">Slide {{item}}</div> -->
-            <div class="swiper-slide w3-gray">Slide1</div>
-            <div class="swiper-slide w3-gray">Slide2</div>
-            <div class="swiper-slide w3-gray">Slide3</div>
-        </div>
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev swiper-button-black"></div>
-        <div class="swiper-button-next swiper-button-black"></div>
+  <!-- Slider main container -->
+  <div class="w3-margin-top swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <!-- <div class="swiper-slide" v-for="item in 3">Slide {{item}}</div> -->
+      <div class="swiper-slide w3-gray">Slide1</div>
+      <div class="swiper-slide w3-gray">Slide2</div>
+      <div class="swiper-slide w3-gray">Slide3</div>
     </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev swiper-button-black"></div>
+    <div class="swiper-button-next swiper-button-black"></div>
+  </div>
 </template>
 
 <script>

@@ -6,25 +6,25 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Microsoft YaHei" !important;
+  font-family: "Times New Roman", "Microsoft YaHei" !important;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .w3-red {
-    background-color: #e94441 !important;
+  background-color: #e94441 !important;
 }
 
 .w3-text-red {
-    color: #e94441;
+  color: #e94441;
 }
 
 .w3-light-gray {
-    background-color: #f8f8f8 !important;
+  background-color: #f8f8f8 !important;
 }
 
 .w3-ul li {
-    border-bottom: none;
+  border-bottom: none;
 }

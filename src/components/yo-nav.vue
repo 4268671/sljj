@@ -44,7 +44,7 @@ a > span {
 a:hover > span {
   background-color: #e94441;
   color: white;
-  padding: 8px 18px;
+  padding: 8px 18px 9px 18px;
   border-radius: 4px;
   transition: all 0.5s;
   /* box-shadow: 0 2px 8px #cccccc; */
