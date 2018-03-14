@@ -5,7 +5,7 @@
         <div class="w3-padding-32 w3-row" style="max-width:1500px;margin:auto">
             <router-link :to="{name: 'brand'}">
                 <div class="w3-third w3-center w3-tag w3-white wow bounceInUp">
-                    <h1><img src="/static/France.png" alt=""></h1>
+                    <h1><img src="/static/tubiao-01.png" alt=""></h1>
                     <h2>来自法国
                     </h2>
                     <p>—— Brand Introduction ——</p>
@@ -13,14 +13,14 @@
             </router-link>
             <router-link :to="{name: 'productlist'}">
                 <div class="w3-third w3-center w3-tag w3-white wow bounceInUp" data-wow-delay="0.3s">
-                    <h1><img src="/static/product.png" alt="" style="width:40px"></h1>
+                    <h1><img src="/static/tubiao-02.png" alt=""></h1>
                     <h2>产品中心</h2>
                     <p>—— Product Center ——</p>
                 </div>
             </router-link>
             <router-link :to="{name: 'joinform'}">
                 <div class="w3-third w3-center w3-tag w3-white wow bounceInUp" data-wow-delay="0.6s">
-                    <h1><img src="/static/join.png" alt=""></h1>
+                    <h1><img src="/static/tubiao-03.png" alt=""></h1>
                     <h2>
                         招商加盟
                     </h2>
@@ -31,7 +31,7 @@
         </div>
         <!--  -->
         <div class="w3-padding-32 w3-row">
-            <img :src="imgsrc" alt="" class="w3-block wow bounceIn" data-wow-delay="0.6s">
+            <img src="/static/sulan1920x500.jpg" alt="" class="w3-block wow bounceIn" data-wow-delay="0.6s">
         </div>
         <!--  -->
         <div class="w3-row w3-margin-top" style="max-width:1500px;margin:auto">
@@ -98,7 +98,7 @@ a {
 
 #newslist:hover {
   color: white !important;
-  background-color: #e94441;
+  background-color: #e84441;
   transition: all 0.5s;
   /* box-shadow: 2px 2px 10px #aaaaaa; */
 }
@@ -107,7 +107,7 @@ a {
 }
 .w3-tag:hover {
   background-color: #eeeeee !important;
-  color: #e94441 !important;
+  color: #e84441 !important;
   transition: all 0.5s;
 }
 </style>

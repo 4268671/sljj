@@ -36,13 +36,13 @@ a > span {
   padding: 8px 18px;
 }
 .router-link-active {
-  background-color: #e94441;
+  background-color: #e84441;
   color: white;
   padding: 11px 0 9px 0;
   border-radius: 4px;
 }
 a:hover > span {
-  background-color: #e94441;
+  background-color: #e84441;
   color: white;
   padding: 8px 18px 9px 18px;
   border-radius: 4px;

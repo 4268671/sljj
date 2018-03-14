@@ -1,8 +1,6 @@
 <template>
     <div>
         <div>
-            <div>
-            </div>
             <img src="/static/sulan1920x360.jpg" alt="" class="w3-block w3-border w3-border-red">
         </div>
 

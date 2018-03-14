@@ -1,7 +1,8 @@
 <template>
   <div>
     <div>
-      <img :src="imgsrc" alt="" class="w3-block">
+      <!-- <img :src="imgsrc" alt="" class="w3-block"> -->
+      <img src="/static/sulan1920x360.jpg" alt="" class="w3-block w3-border w3-border-red">
 
     </div>
 
@@ -10,9 +11,9 @@
         <span class="w3-bottombar w3-border-red" style="padding-bottom:15px">舒览最新动态</span>
         <span class="w3-margin-left w3-medium">/ Latest News</span>
       </h3>
-      <ul class="w3-ul">
+      <ul class="w3-ul wow fadeInUp">
         <yo-loading></yo-loading>
-        <li v-for="item in 6" :key="item.id" class="w3-light-gray w3-border-bottom  wow fadeInUp" data-wow-delay="0.2s">
+        <li v-for="item in 6" :key="item.id" class="w3-light-gray w3-border-bottom" data-wow-delay="0.2s">
           <router-link :to="{name: 'articledetail', params: { id: item }}">
 
             <img :src="imgp" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
@@ -69,7 +70,7 @@ a div {
 }
 
 a:hover div {
-  color: #e94441 !important;
+  color: #e84441 !important;
   transition: all 0.5s;
   /* box-shadow: 0 2px 10px #cccccc; */
 }

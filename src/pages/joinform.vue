@@ -1,7 +1,7 @@
 <template>
     <div class="w3-center">
         <div>
-            <img :src="imgsrc" alt="" class="w3-block wow bounceIn">
+            <img src="/static/join.jpg" alt="" class="w3-block wow bounceIn w3-border-bottom">
         </div>
         <div class="wow fadeInUp" style="padding:50px 120px;max-width:1500px;margin:auto">
             <h2>

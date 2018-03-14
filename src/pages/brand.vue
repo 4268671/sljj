@@ -11,7 +11,7 @@
             </div>
             <div class="w3-row w3-padding-16">
                 <div class="w3-col w3-right w3-padding wow fadeInRight" style="width:560px">
-                    <img :src="imgp" alt="" class="w3-block">
+                    <img src="/static/brand01.jpg" alt="" class="w3-block w3-card">
                 </div>
                 <div class="w3-rest w3-padding wow fadeInUp">
                     <h1>BRAND INTRODUCTION</h1>
@@ -37,7 +37,7 @@
             <div class="w3-clear"></div>
             <div class="w3-padding-32">
                 <div class="w3-col w3-right w3-padding wow fadeInRight" style="width:560px">
-                    <img :src="imgp" alt="" class="w3-block">
+                    <img src="/static/brand02.jpg" alt="" class="w3-block w3-card">
                 </div>
                 <div class="w3-rest w3-padding wow fadeInLeft">
                     <h1>PRODUCT ORIENTATION</h1>
@@ -61,7 +61,8 @@
             <div class="w3-clear"></div>
             <div class="w3-padding-32">
                 <div class="w3-col w3-right w3-padding wow fadeInRight" style="width:560px">
-                    <img :src="imgp" alt="" class="w3-block">
+                    <img src="/static/brand03.jpg" alt="" class="w3-block w3-card">
+
                 </div>
                 <div class="w3-rest w3-padding wow fadeInUp">
                     <h1>BRAND ATTITUDE</h1>
@@ -83,7 +84,8 @@
             <div class="w3-clear"></div>
             <div class="w3-padding-32">
                 <div class="w3-half w3-right w3-padding wow fadeInRight">
-                    <img :src="imgp" alt="" class="w3-block">
+                    <img src="/static/brand04.jpg" alt="" class="w3-block w3-card">
+
                 </div>
                 <div class="w3-rest w3-padding wow fadeInRight">
                     <h1>INSPECTION REPORT</h1>

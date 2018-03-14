@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <img :src="imgsrc" alt="" class="w3-block wow fadeIn w3-card">
+            <img src="/static/brand.jpg" alt="" class="w3-block wow fadeIn w3-border w3-border-red">
         </div>
         <!--  -->
         <div class="w3-padding-24" style="max-width:1500px;margin:auto">
@@ -14,9 +14,9 @@
                 <yo-loading></yo-loading>
                 <li class="w3-third wow fadeInUp" v-for="item in 10" :key="item.id" data-wow-delay="0.2s">
                     <router-link :to="{name: 'productdetail', params: { id: item }}">
-                        <img :src="imgp" alt="" class="w3-block">
-                        <p class="w3-center">产品名称</p>
-                        <p class="w3-text-gray">产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介</p>
+                        <img src="/static/480x360.jpg" alt="" class="w3-block w3-border">
+                        <p class="w3-center">普罗旺斯</p>
+                        <p class="w3-text-gray">普罗旺斯普罗旺斯普罗旺斯普罗旺斯普罗旺斯普罗旺斯普罗旺斯普罗旺斯普罗旺斯普罗旺斯普罗旺斯普罗旺斯</p>
                     </router-link>
                 </li>
             </ul>
@@ -43,10 +43,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-ul li {
+ul li img {
   transition: all 0.5s;
 }
-ul li:hover {
+ul li:hover img {
   transition: all 0.5s;
   box-shadow: 0 2px 20px #aaaaaa;
   /* background-color: #eeeeee!important; */
