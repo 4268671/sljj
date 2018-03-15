@@ -48,7 +48,7 @@ export default {
         prevEl: ".swiper-button-prev"
       },
       loop: true,
-      lazy: true
+      lazy: true,
     });
   }
 };
