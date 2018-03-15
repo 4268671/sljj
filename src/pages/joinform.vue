@@ -95,7 +95,7 @@ export default {
       setTimeout(() => {
         this.openMessage = false;
         this.resetForm();
-      }, 3000);
+      }, 1500);
     },
     checkCommit() {
       const { name, telphone, email, qq, city, message } = this.apiData;
