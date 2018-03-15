@@ -5,9 +5,15 @@
     <div class="swiper-wrapper">
       <!-- Slides -->
       <!-- <div class="swiper-slide" v-for="item in 3">Slide {{item}}</div> -->
-      <div class="swiper-slide w3-gray">Slide1</div>
-      <div class="swiper-slide w3-gray">Slide2</div>
-      <div class="swiper-slide w3-gray">Slide3</div>
+      <div class="swiper-slide">
+        <img src="/static/bigpic01.jpg" class="w3-block animated pulse infinite" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="/static/bigpic06.jpg" class="w3-block animated pulse infinite" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="/static/bigpic03.jpg" class="w3-block animated pulse infinite" alt="">
+      </div>
     </div>
     <!-- If we need pagination -->
     <div class="swiper-pagination"></div>
@@ -28,9 +34,9 @@ export default {
   },
   mounted() {
     const mySwiper = new Swiper(".swiper-container", {
-      centeredSlides: true,
+      // centeredSlides: true,
       autoplay: {
-        delay: 2500,
+        delay: 5000,
         disableOnInteraction: false
       },
       pagination: {
@@ -41,7 +47,8 @@ export default {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev"
       },
-      loop: true
+      loop: true,
+      lazy: true
     });
   }
 };
@@ -70,5 +77,9 @@ export default {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+}
+.pulse {
+  animation-duration: 12s;
+  animation-fill-mode: both;
 }
 </style>

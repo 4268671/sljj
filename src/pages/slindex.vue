@@ -1,6 +1,6 @@
 <template>
     <div>
-        <yo-slideshow style="height:500px" class="wow flipInX"></yo-slideshow>
+        <yo-slideshow class="wow flipInX"></yo-slideshow>
         <!--  -->
         <div class="w3-padding-32 w3-row" style="max-width:1500px;margin:auto">
             <router-link :to="{name: 'brand'}">
@@ -30,7 +30,7 @@
 
         </div>
         <!--  -->
-        <div class="w3-padding-32 w3-row">
+        <div class="w3-padding-32 w3-row" style="max-width:1500px;margin:auto">
             <img src="/static/sulan1920x500.jpg" alt="" class="w3-block wow bounceIn" data-wow-delay="0.6s">
         </div>
         <!--  -->
@@ -41,7 +41,7 @@
                 </h2>
             </div>
             <div class="w3-quarter w3-padding">
-                <img :src="imgp" alt="" class="w3-block wow fadeInLeft">
+                <img src="/static/400x580a.jpg" alt="" class="w3-block wow fadeInLeft">
             </div>
             <div class="w3-half">
                 <ul class="w3-ul w3-padding wow fadeInUp">
@@ -59,7 +59,7 @@
                 </ul>
             </div>
             <div class="w3-quarter w3-padding">
-                <img :src="imgp" alt="" class="w3-block wow fadeInRight">
+                <img src="/static/400x580b.jpg" alt="" class="w3-block wow fadeInRight">
             </div>
         </div>
     </div>

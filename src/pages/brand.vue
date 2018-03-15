@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="w3-margin-bottom">
-            <img :src="imgsrc" alt="" class="w3-block wow fadeInUp w3-card">
+            <img src="/static/bigpic02.jpg" alt="" class="w3-block wow fadeInUp w3-card">
         </div>
         <div style="max-width:1500px;margin:auto">
             <div class="w3-padding-24 wow fadeInUp">

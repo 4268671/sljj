@@ -21,7 +21,7 @@
             <div class="w3-text-gray" style="padding:0 100px">
                 <p class="w3-padding-24">{{textp}}{{textp}}</p>
                 <p class="w3-center">
-                    <img :src="imgp" alt="" class="">
+                    <img src="/static/news.jpg" alt="" class="">
                 </p>
                 <p class="w3-padding-24">{{textp}}{{textp}}</p>
             </div>

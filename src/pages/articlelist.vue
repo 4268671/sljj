@@ -16,12 +16,12 @@
         <li v-for="item in 6" :key="item.id" class="w3-light-gray w3-border-bottom" data-wow-delay="0.2s">
           <router-link :to="{name: 'articledetail', params: { id: item }}">
 
-            <img :src="imgp" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
+            <img src="/static/news.jpg" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
             <div class="w3-light-gray" style="padding:0 50px;height:196px;overflow: hidden">
-              <h2>{{item.title}}</h2>
+              <h2>标题标题标题标题标题标题标题标题</h2>
               <i class="w3-text-gray">
                 <i class="fa fa-quote-left"></i>
-                简介：{{item.subtitle}}
+                简介：新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介
                 <i class="fa fa-quote-right"></i>
               </i>
             </div>
