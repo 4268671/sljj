@@ -4,9 +4,9 @@
             <img :src="imgsrc" alt="" class="w3-block">
         </div>
         <!--  -->
-        <div class="w3-panel">
+        <div class="w3-panel" style="max-width:1500px;margin:auto">
             <div class="w3-col w3-padding w3-padding-24" style="width:600px">
-                <img :src="imgp" alt="" class="w3-block w3-border">
+                <img src="/static/480x360.jpg" alt="" class="w3-block w3-border">
             </div>
             <div class="w3-rest w3-padding w3-text-gray">
                 <h3 class="w3-border-bottom w3-padding-16">产品名称 / Product name</h3>
@@ -28,9 +28,11 @@
             </div>
             <!--  -->
             <div class="w3-padding">
-                <h3 class="w3-border-bottom w3-padding-16 w3-center">更多产品</h3>
+                <h3 class="w3-border-bottom w3-padding-16 w3-center">更多产品 /
+                    <span class="w3-large">More Product</span>
+                </h3>
                 <div v-for="item in 5" :key="item" style="width:20%" class="w3-left">
-                    <img :src="imgp" alt="" class="w3-block w3-padding">
+                    <img src="/static/480x360.jpg" alt="" class="w3-block w3-padding">
                 </div>
             </div>
         </div>
@@ -39,23 +41,23 @@
 </template>
 
 <script>
-    export default {
-        name: "productdetail",
-        data() {
-            return {
-                imgsrc: Mock.Random.image("1800x500", "#eeeeee"),
-                imgp: Mock.Random.image("400x300", "#eeeeee")
-            };
-        },
-        components: {}
+export default {
+  name: "productdetail",
+  data() {
+    return {
+      imgsrc: Mock.Random.image("1920x500", "#eeeeee"),
+      imgp: Mock.Random.image("400x300", "#eeeeee")
     };
+  },
+  components: {}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    p {
-        line-height: 30px;
-        font-size: 16px;
-        text-indent: 32px;
-    }
+p {
+  line-height: 30px;
+  font-size: 16px;
+  text-indent: 32px;
+}
 </style>

@@ -31,7 +31,7 @@ export default {
       },
       sidebarstyle: {
         // 侧边样式
-        width: "36px",
+        width: "40px",
         top: 0,
         right: 0,
         "z-index": "2",
@@ -39,7 +39,7 @@ export default {
       },
       routerstyle: {
         margin: "auto",
-        width: "1652px",
+        width: "1920px",
         "min-width": "1200px"
         // "padding-top": "30px"
       },

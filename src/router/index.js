@@ -3,7 +3,7 @@ import Router from "vue-router";
 import slindex from "@/pages/slindex";
 import productlist from "@/pages/productlist";
 import productdetail from "@/pages/productdetail";
-import page4 from "@/pages/page4";
+import brand from "@/pages/brand";
 import joinform from "@/pages/joinform";
 import articledetail from "@/pages/articledetail";
 import articlelist from "@/pages/articlelist";
@@ -34,9 +34,9 @@ export default new Router({
             component: productdetail
         },
         {
-            path: "/page4",
-            name: "page4",
-            component: page4
+            path: "/brand",
+            name: "brand",
+            component: brand
         },
         {
             path: "/joinform",

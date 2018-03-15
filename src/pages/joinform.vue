@@ -1,13 +1,15 @@
 <template>
     <div class="w3-center">
         <div>
-            <img :src="imgsrc" alt="" class="w3-block wow bounceIn">
+            <img src="/static/join.jpg" alt="" class="w3-block wow bounceIn w3-border-bottom">
         </div>
-        <div class="wow fadeInUp" style="padding:50px 120px">
+        <div class="wow fadeInUp" style="padding:50px 120px;max-width:1500px;margin:auto">
             <h2>
                 加盟
                 <span class="w3-text-red">申请</span>
             </h2>
+            <p>Merchants Joined</p>
+
             <p class="w3-panel w3-padding-24" style="width:900px;margin:auto">
                 感谢您关注舒览家具，如您已基本了解并确认合作意向，请填写并提交以下内容，工作人员将及时与您取得联系，谢谢您的合作！ 如果您再加盟过程中有任何不明白之处，可随时咨询：
                 <span class="w3-text-red w3-large">028-6505-2524</span>（周一至周五9：00—17：00）

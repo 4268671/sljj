@@ -3,7 +3,7 @@
         <router-link :to="{name: 'slindex'}">
             <span class="w3-large">网站首页</span>
         </router-link>
-        <router-link :to="{name: 'page4'}">
+        <router-link :to="{name: 'brand'}">
             <span class="w3-large">舒览品牌</span>
         </router-link>
         <router-link :to="{name: 'articlelist'}">
@@ -36,15 +36,15 @@ a > span {
   padding: 8px 18px;
 }
 .router-link-active {
-  background-color: #e94441;
+  background-color: #e84441;
   color: white;
   padding: 11px 0 9px 0;
   border-radius: 4px;
 }
 a:hover > span {
-  background-color: #e94441;
+  background-color: #e84441;
   color: white;
-  padding: 8px 18px;
+  padding: 8px 18px 9px 18px;
   border-radius: 4px;
   transition: all 0.5s;
   /* box-shadow: 0 2px 8px #cccccc; */
