@@ -2,7 +2,7 @@
   <div>
     <div>
       <!-- <img :src="imgsrc" alt="" class="w3-block"> -->
-      <img src="/static/sulan1920x360.jpg" alt="" class="w3-block w3-border w3-border-red">
+      <img :src="`${URLPREFIX}/static/sulan1920x360.jpg`" alt="" class="w3-block w3-border w3-border-red">
 
     </div>
 
@@ -16,7 +16,7 @@
         <li v-for="item in 6" :key="item.id" class="w3-light-gray w3-border-bottom" data-wow-delay="0.2s">
           <router-link :to="{name: 'articledetail', params: { id: item }}">
 
-            <img src="/static/news.jpg" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
+            <img :src="`${URLPREFIX}/static/news.jpg`" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
             <div class="w3-light-gray" style="padding:0 50px;height:196px;overflow: hidden">
               <h2>标题标题标题标题标题标题标题标题</h2>
               <i class="w3-text-gray">
@@ -38,6 +38,7 @@ import { getCurArr } from "../utils/fns";
 import { mapState } from "vuex";
 import yoBar from "../components/yo-bar.vue";
 import yoLoading from "../components/yo-loading";
+import { URL_PREFIX } from "../utils/consts";
 
 export default {
   name: "articlelist",
@@ -45,7 +46,8 @@ export default {
     return {
       imgsrc: Mock.Random.image("1920x300", "#eeeeee"),
       imgp: Mock.Random.image("800x600", "#eeeeee"),
-      textp: Mock.mock("@cparagraph(5, 10)")
+      textp: Mock.mock("@cparagraph(5, 10)"),
+      URLPREFIX: URL_PREFIX
     };
   },
   computed: mapState({

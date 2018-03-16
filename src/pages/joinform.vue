@@ -1,7 +1,7 @@
 <template>
     <div class="w3-center">
         <div>
-            <img src="/static/join.jpg" alt="" class="w3-block wow bounceIn w3-border-bottom">
+            <img :src="`${URLPREFIX}/static/join.jpg`" alt="" class="w3-block wow bounceIn w3-border-bottom">
         </div>
         <div class="wow fadeInUp" style="padding:50px 120px;max-width:1500px;margin:auto">
             <h2>
@@ -54,12 +54,15 @@
 <script>
 import { mapState } from "vuex";
 import { setTimeout } from "timers";
+import { URL_PREFIX } from "../utils/consts";
+
 export default {
   name: "joinform",
   data() {
     return {
       imgsrc: Mock.Random.image("1920x500", "#eeeeee"),
       imgp: Mock.Random.image("400x300", "#eeeeee"),
+      URLPREFIX: URL_PREFIX,
       apiData: {
         name: "",
         telphone: "",
