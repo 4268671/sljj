@@ -5,7 +5,7 @@
         <div class="w3-padding-32 w3-row" style="max-width:1500px;margin:auto">
             <router-link :to="{name: 'brand'}">
                 <div class="w3-third w3-center w3-tag w3-white wow bounceInUp">
-                    <h1><img src="/static/tubiao-01.png" alt=""></h1>
+                    <h1><img :src="`${URLPREFIX}/static/tubiao-01.png`" alt=""></h1>
                     <h2>来自法国
                     </h2>
                     <p>—— Brand Introduction ——</p>
@@ -13,14 +13,14 @@
             </router-link>
             <router-link :to="{name: 'productlist'}">
                 <div class="w3-third w3-center w3-tag w3-white wow bounceInUp" data-wow-delay="0.3s">
-                    <h1><img src="/static/tubiao-02.png" alt=""></h1>
+                    <h1><img :src="`${URLPREFIX}/static/tubiao-02.png`" alt=""></h1>
                     <h2>产品中心</h2>
                     <p>—— Product Center ——</p>
                 </div>
             </router-link>
             <router-link :to="{name: 'joinform'}">
                 <div class="w3-third w3-center w3-tag w3-white wow bounceInUp" data-wow-delay="0.6s">
-                    <h1><img src="/static/tubiao-03.png" alt=""></h1>
+                    <h1><img :src="`${URLPREFIX}/static/tubiao-03.png`" alt=""></h1>
                     <h2>
                         招商加盟
                     </h2>
@@ -31,7 +31,7 @@
         </div>
         <!--  -->
         <div class="w3-padding-32 w3-row" style="max-width:1500px;margin:auto">
-            <img src="/static/sulan1920x500.jpg" alt="" class="w3-block wow bounceIn" data-wow-delay="0.6s">
+            <img :src="`${URLPREFIX}/static/sulan1920x500.jpg`" alt="" class="w3-block wow bounceIn" data-wow-delay="0.6s">
         </div>
         <!--  -->
         <div class="w3-row w3-margin-top" style="max-width:1500px;margin:auto">
@@ -41,7 +41,7 @@
                 </h2>
             </div>
             <div class="w3-quarter w3-padding">
-                <img src="/static/400x580a.jpg" alt="" class="w3-block wow fadeInLeft">
+                <img :src="`${URLPREFIX}/static/400x580a.jpg`" alt="" class="w3-block wow fadeInLeft">
             </div>
             <div class="w3-half">
                 <ul class="w3-ul w3-padding wow fadeInUp">
@@ -59,7 +59,7 @@
                 </ul>
             </div>
             <div class="w3-quarter w3-padding">
-                <img src="/static/400x580b.jpg" alt="" class="w3-block wow fadeInRight">
+                <img :src="`${URLPREFIX}/static/400x580b.jpg`" alt="" class="w3-block wow fadeInRight">
             </div>
         </div>
     </div>
@@ -67,13 +67,16 @@
 
 <script>
 new WOW().init();
+// 常量
+import { URL_PREFIX } from "../utils/consts";
 import yoSlideshow from "../components/yo-slideshow.vue";
 export default {
   name: "slindex",
   data() {
     return {
       imgsrc: Mock.Random.image("1920x500", "#cccccc"),
-      imgp: Mock.Random.image("400x580", "#cccccc")
+      imgp: Mock.Random.image("400x580", "#cccccc"),
+      URLPREFIX: URL_PREFIX
     };
   },
   components: {

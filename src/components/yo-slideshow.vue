@@ -6,13 +6,13 @@
       <!-- Slides -->
       <!-- <div class="swiper-slide" v-for="item in 3">Slide {{item}}</div> -->
       <div class="swiper-slide">
-        <img src="/static/bigpic01.jpg" class="w3-block animated pulse infinite" alt="">
+        <img :src="`${URLPREFIX}/static/bigpic01.jpg`" class="w3-block animated pulse infinite" alt="">
       </div>
       <div class="swiper-slide">
-        <img src="/static/bigpic06.jpg" class="w3-block animated pulse infinite" alt="">
+        <img :src="`${URLPREFIX}/static/bigpic06.jpg`" class="w3-block animated pulse infinite" alt="">
       </div>
       <div class="swiper-slide">
-        <img src="/static/bigpic03.jpg" class="w3-block animated pulse infinite" alt="">
+        <img :src="`${URLPREFIX}/static/bigpic03.jpg`" class="w3-block animated pulse infinite" alt="">
       </div>
     </div>
     <!-- If we need pagination -->
@@ -27,10 +27,13 @@
 import Swiper from "swiper";
 import "swiper/dist/js/swiper.min.js";
 import "swiper/dist/css/swiper.min.css";
+import { URL_PREFIX } from "../utils/consts";
 
 export default {
   data() {
-    return {};
+    return {
+      URLPREFIX: URL_PREFIX
+    };
   },
   mounted() {
     const mySwiper = new Swiper(".swiper-container", {

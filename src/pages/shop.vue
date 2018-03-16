@@ -2,7 +2,7 @@
     <div style="max-width:1500px;margin:auto">
         <div class="w3-row w3-red wow fadeInUp">
             <div class="w3-threequarter w3-padding w3-margin-bottom w3-margin-top">
-                <img src="/static/shop01.jpg" alt="" class="w3-block wow fadeInLeft w3-card" data-wow-delay="0.6s">
+                <img :src="`${URLPREFIX}/static/shop01.jpg`" alt="" class="w3-block wow fadeInLeft w3-card" data-wow-delay="0.6s">
             </div>
             <div class="w3-rest w3-padding wow fadeInRight" data-wow-delay="0.6s">
                 <h3 class="w3-border-bottom w3-padding-24">红星美凯龙
@@ -27,7 +27,7 @@
                     <i class="fa fa-automobile w3-margin-right"></i>交通：848路 509路 306路 南桥村站下 或 地铁10号线 簇锦站 （D口出） 下车</p>
             </div>
             <div class="w3-rest w3-padding w3-margin-bottom w3-margin-top">
-                <img src="/static/shop02.jpg" alt="" class="w3-block w3-card wow fadeInRight" data-wow-delay="0.5s">
+                <img :src="`${URLPREFIX}/static/shop02.jpg`" alt="" class="w3-block w3-card wow fadeInRight" data-wow-delay="0.5s">
 
             </div>
         </div>
@@ -35,12 +35,14 @@
 </template>
 
 <script>
+import { URL_PREFIX } from "../utils/consts";
 export default {
   name: "brand",
   data() {
     return {
       imgsrc: Mock.Random.image("1920x500", "#eeeeee"),
-      imgp: Mock.Random.image("400x300", "#eeeeee")
+      imgp: Mock.Random.image("400x300", "#eeeeee"),
+      URLPREFIX: URL_PREFIX
     };
   },
   components: {}

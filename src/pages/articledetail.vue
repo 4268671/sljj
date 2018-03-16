@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <img src="/static/sulan1920x360.jpg" alt="" class="w3-block w3-border w3-border-red">
+            <img :src="`${URLPREFIX}/static/sulan1920x360.jpg`" alt="" class="w3-block w3-border w3-border-red">
         </div>
 
         <div style="width:1200px;margin:auto">
@@ -21,7 +21,7 @@
             <div class="w3-text-gray" style="padding:0 100px">
                 <p class="w3-padding-24">{{textp}}{{textp}}</p>
                 <p class="w3-center">
-                    <img src="/static/news.jpg" alt="" class="">
+                    <img :src="`${URLPREFIX}/static/news.jpg`" alt="" class="">
                 </p>
                 <p class="w3-padding-24">{{textp}}{{textp}}</p>
             </div>
@@ -31,13 +31,16 @@
 </template>
 
 <script>
+import { URL_PREFIX } from "../utils/consts";
+
 export default {
   name: "articledetail",
   data() {
     return {
       imgsrc: Mock.Random.image("1920x300", "#eeeeee"),
       imgp: Mock.Random.image("800x600", "#eeeeee"),
-      textp: Mock.mock("@cparagraph(5, 10)")
+      textp: Mock.mock("@cparagraph(5, 10)"),
+      URLPREFIX: URL_PREFIX
     };
   },
   methods: {

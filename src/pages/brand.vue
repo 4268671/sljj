@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="w3-margin-bottom">
-            <img src="/static/bigpic02.jpg" alt="" class="w3-block wow fadeInUp w3-card">
+            <img :src="`${URLPREFIX}/static/bigpic02.jpg`" alt="" class="w3-block wow fadeInUp w3-card">
         </div>
         <div style="max-width:1500px;margin:auto">
             <div class="w3-padding-24 wow fadeInUp">
@@ -11,7 +11,7 @@
             </div>
             <div class="w3-row w3-padding-16">
                 <div class="w3-col w3-right w3-padding wow fadeInRight" style="width:560px">
-                    <img src="/static/brand01.jpg" alt="" class="w3-block w3-card">
+                    <img :src="`${URLPREFIX}/static/brand01.jpg`" alt="" class="w3-block w3-card">
                 </div>
                 <div class="w3-rest w3-padding wow fadeInUp">
                     <h1>BRAND INTRODUCTION</h1>
@@ -37,7 +37,7 @@
             <div class="w3-clear"></div>
             <div class="w3-padding-32">
                 <div class="w3-col w3-right w3-padding wow fadeInRight" style="width:560px">
-                    <img src="/static/brand02.jpg" alt="" class="w3-block w3-card">
+                    <img :src="`${URLPREFIX}/static/brand02.jpg`" alt="" class="w3-block w3-card">
                 </div>
                 <div class="w3-rest w3-padding wow fadeInLeft">
                     <h1>PRODUCT ORIENTATION</h1>
@@ -61,7 +61,7 @@
             <div class="w3-clear"></div>
             <div class="w3-padding-32">
                 <div class="w3-col w3-right w3-padding wow fadeInRight" style="width:560px">
-                    <img src="/static/brand03.jpg" alt="" class="w3-block w3-card">
+                    <img :src="`${URLPREFIX}/static/brand03.jpg`" alt="" class="w3-block w3-card">
 
                 </div>
                 <div class="w3-rest w3-padding wow fadeInUp">
@@ -84,7 +84,7 @@
             <div class="w3-clear"></div>
             <div class="w3-padding-32">
                 <div class="w3-half w3-right w3-padding wow fadeInRight">
-                    <img src="/static/brand04.jpg" alt="" class="w3-block w3-card">
+                    <img :src="`${URLPREFIX}/static/brand04.jpg`" alt="" class="w3-block w3-card">
 
                 </div>
                 <div class="w3-rest w3-padding wow fadeInRight">
@@ -101,12 +101,15 @@
 </template>
 
 <script>
+import { URL_PREFIX } from "../utils/consts";
+
 export default {
   name: "brand",
   data() {
     return {
       imgsrc: Mock.Random.image("1920x500", "#eeeeee"),
-      imgp: Mock.Random.image("400x300", "#eeeeee")
+      imgp: Mock.Random.image("400x300", "#eeeeee"),
+      URLPREFIX: URL_PREFIX
     };
   },
   components: {}
