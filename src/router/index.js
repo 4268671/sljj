@@ -1,13 +1,81 @@
 import Vue from "vue";
 import Router from "vue-router";
-// const slindex = require("@/pages/slindex");
-// import productlist from "@/pages/productlist";
-// import productdetail from "@/pages/productdetail";
-// import brand from "@/pages/brand";
-// import joinform from "@/pages/joinform";
-// import articledetail from "@/pages/articledetail";
-// import articlelist from "@/pages/articlelist";
-// import shop from "@/pages/shop";
+
+// 按需加载异步(页面)组件
+// require.ensure 是 Webpack 的特殊语法，用来设置 code-split point
+/* eslint-disable  global-require */
+const slindex = resolve => {
+  require.ensure(
+    [],
+    () => {
+      resolve(require("@/pages/slindex"));
+    },
+    "Group-Index"
+  );
+};
+const productlist = resolve => {
+  require.ensure(
+    [],
+    () => {
+      resolve(require("@/pages/productlist"));
+    },
+    "Group-Product"
+  );
+};
+const productdetail = resolve => {
+  require.ensure(
+    [],
+    () => {
+      resolve(require("@/pages/productdetail"));
+    },
+    "Group-Product"
+  );
+};
+const brand = resolve => {
+  require.ensure(
+    [],
+    () => {
+      resolve(require("@/pages/brand"));
+    },
+    "Group-Other"
+  );
+};
+const joinform = resolve => {
+  require.ensure(
+    [],
+    () => {
+      resolve(require("@/pages/joinform"));
+    },
+    "Group-Other"
+  );
+};
+const articlelist = resolve => {
+  require.ensure(
+    [],
+    () => {
+      resolve(require("@/pages/articlelist"));
+    },
+    "Group-Article"
+  );
+};
+const shop = resolve => {
+  require.ensure(
+    [],
+    () => {
+      resolve(require("@/pages/shop"));
+    },
+    "Group-Other"
+  );
+};
+const articledetail = resolve => {
+  require.ensure(
+    [],
+    () => {
+      resolve(require("@/pages/articledetail"));
+    },
+    "Group-Article"
+  );
+};
 
 Vue.use(Router);
 
@@ -22,42 +90,42 @@ export default new Router({
     {
       path: "/slindex",
       name: "slindex",
-      component: resolve => require(["@/pages/slindex.vue"], resolve)
+      component: slindex
     },
     {
       path: "/productlist",
       name: "productlist",
-      component: resolve => require(["@/pages/productlist.vue"], resolve)
+      component: productlist
     },
     {
       path: "/productlist/productdetail/:id",
       name: "productdetail",
-      component: resolve => require(["@/pages/productdetail.vue"], resolve)
+      component: productdetail
     },
     {
       path: "/brand",
       name: "brand",
-      component: resolve => require(["@/pages/brand.vue"], resolve)
+      component: brand
     },
     {
       path: "/joinform",
       name: "joinform",
-      component: resolve => require(["@/pages/joinform.vue"], resolve)
+      component: joinform
     },
     {
       path: "/articlelist",
       name: "articlelist",
-      component: resolve => require(["@/pages/articlelist.vue"], resolve)
+      component: articlelist
     },
     {
       path: "/shop",
       name: "shop",
-      component: resolve => require(["@/pages/shop.vue"], resolve)
+      component: shop
     },
     {
       path: "/articlelist/articledetail/:id",
       name: "articledetail",
-      component: resolve => require(["@/pages/articledetail.vue"], resolve)
+      component: articledetail
     }
   ],
   scrollBehavior(to, from, savedPosition) {
