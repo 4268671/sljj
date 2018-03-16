@@ -24,9 +24,6 @@
 </template>
 
 <script>
-import Swiper from "swiper";
-import "swiper/dist/js/swiper.min.js";
-import "swiper/dist/css/swiper.min.css";
 import { URL_PREFIX } from "../utils/consts";
 
 export default {

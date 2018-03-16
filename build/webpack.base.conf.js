@@ -17,7 +17,7 @@ module.exports = {
     path: config.build.assetsRoot,
     filename:
       process.env.NODE_ENV === "production"
-        ? "static/js/commons[id]-[chunkhash:8].js"
+        ? "static/js/commons-[name]-[chunkhash:8].js"
         : "commons-[name].js",
     publicPath:
       process.env.NODE_ENV === "production"
@@ -25,11 +25,11 @@ module.exports = {
         : config.dev.assetsPublicPath,
     chunkFilename:
       process.env.NODE_ENV === "production"
-        ? "static/js/chunks[id]-[chunkhash:8].js"
+        ? "static/js/chunks-[id]-[chunkhash:8].js"
         : "chunks-[name].js"
   },
   resolve: {
-    extensions: [".js", ".vue", ".json"],
+    extensions: [".css", ".js", ".vue", ".json"],
     alias: {
       vue$: "vue/dist/vue.esm.js",
       "@": resolve("src")
