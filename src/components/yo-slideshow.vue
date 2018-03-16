@@ -35,6 +35,7 @@ export default {
   mounted() {
     const mySwiper = new Swiper(".swiper-container", {
       // centeredSlides: true,
+      spaceBetween: 30,
       autoplay: {
         delay: 5000,
         disableOnInteraction: false
@@ -47,8 +48,7 @@ export default {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev"
       },
-      loop: true,
-      lazy: true
+      loop: true
     });
   }
 };
