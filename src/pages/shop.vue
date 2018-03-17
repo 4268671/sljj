@@ -29,7 +29,6 @@
             <div class="w3-rest w3-padding w3-margin-bottom w3-margin-top">
                 <img :src="`${URLPREFIX}/static/shop02.jpg`" alt="" class="w3-block w3-card wow fadeInRight" data-wow-delay="0.5s">
             </div>
-            {{ channelist }}
         </div>
     </div>
 </template>

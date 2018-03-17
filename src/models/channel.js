@@ -4,34 +4,34 @@ import { getChannelList } from "@/services/api";
 import { parseResponse } from "@/utils/parse";
 
 export const channel = {
-  namespaced: true,
+    namespaced: true,
 
-  state: {
-    channelist: []
-  },
+    state: {
+        channelist: []
+    },
 
-  getters: {},
+    getters: {},
 
-  // 异步
-  actions: {
-    async getChannelList({ commit }) {
-      const response = await getChannelList();
-      const { status, message, count, data } = await parseResponse(response);
-      await console.log(data, "data");
-      if (status > 0) {
-        commit({
-          type: "changeChanneList",
-          payload: data
-        });
-      }
+    // 异步
+    actions: {
+        async getChannelList({ commit }) {
+            const response = await getChannelList();
+            const { status, message, count, data } = await parseResponse(response);
+            // await console.log(data, "data");
+            if (status > 0) {
+                commit({
+                    type: "changeChanneList",
+                    payload: data
+                });
+            }
+        }
+    },
+
+    // 同步
+    /* eslint-disable no-param-reassign */
+    mutations: {
+        changeChanneList(state, { payload }) {
+            state.channelist = payload;
+        }
     }
-  },
-
-  // 同步
-  /* eslint-disable no-param-reassign */
-  mutations: {
-    changeChanneList(state, { payload }) {
-      state.channelist = payload;
-    }
-  }
 };
