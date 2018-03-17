@@ -15,8 +15,14 @@ export async function getChannelTypes(params = {}) {
 //     params
 //   });
 // }
-// 获取文章列表 getArticleListByid
+// 获取文章列表
 export async function getArticleListByid(params = {}) {
+  return request(`${API_DOMAIN}/api/front/articlebycid`, {
+    params
+  });
+}
+// 获取文章列表
+export async function getProductListByid(params = {}) {
   return request(`${API_DOMAIN}/api/front/articlebycid`, {
     params
   });
