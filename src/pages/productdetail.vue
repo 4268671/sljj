@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <img :src="imgsrc" alt="" class="w3-block">
+            <img :src="`${URLPREFIX}/static/bigpic05.jpg`" alt="" class="w3-block">
         </div>
         <!--  -->
         <div class="w3-panel" style="max-width:1500px;margin:auto">
@@ -23,7 +23,7 @@
             <!--  -->
             <div class="w3-padding">
                 <p style="padding:0 100px">
-                    <img :src="imgp" alt="" class="w3-block">
+                    <img :src="`${URLPREFIX}/static/480x360.jpg`" alt="" class="w3-block">
                 </p>
             </div>
             <!--  -->

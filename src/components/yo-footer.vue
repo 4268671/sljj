@@ -32,7 +32,7 @@
                     <p class="w3-text-gray w3-container">© 2018 舒览家居 版权所有 </p>
 
                 </div>
-                <div class="w3-rest w3-center">
+                <div class="w3-rest w3-right">
                     <img :src="qimg" alt="" class="w3-round-large" style="width:120px">
                     <span class="w3-text-light-gray w3-small w3-block">扫码关注 舒览服务号</span>
                 </div>
