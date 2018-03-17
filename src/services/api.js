@@ -15,6 +15,18 @@ export async function getArticleList(params = {}) {
     params
   });
 }
+// 获取实体店铺列表
+export async function getShopList(params = {}) {
+  return request(`${API_DOMAIN}/api/server/shops`, {
+    params
+  });
+}
+// 获取导航栏目列表
+export async function getChannelList(params = {}) {
+  return request(`${API_DOMAIN}/api/front/allchannels`, {
+    params
+  });
+}
 
 // [POST]
 // 添加加盟申请

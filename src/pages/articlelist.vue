@@ -34,8 +34,8 @@
 </template>
 
 <script>
-import { getCurArr } from "../utils/fns";
 import { mapState } from "vuex";
+import { getCurArr } from "../utils/fns";
 import yoBar from "../components/yo-bar.vue";
 import yoLoading from "../components/yo-loading";
 import { URL_PREFIX } from "../utils/consts";

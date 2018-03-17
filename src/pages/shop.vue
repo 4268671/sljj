@@ -28,24 +28,38 @@
             </div>
             <div class="w3-rest w3-padding w3-margin-bottom w3-margin-top">
                 <img :src="`${URLPREFIX}/static/shop02.jpg`" alt="" class="w3-block w3-card wow fadeInRight" data-wow-delay="0.5s">
-
             </div>
+            {{ channelist }}
         </div>
     </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 import { URL_PREFIX } from "../utils/consts";
 export default {
   name: "brand",
   data() {
     return {
-      imgsrc: Mock.Random.image("1920x500", "#eeeeee"),
-      imgp: Mock.Random.image("400x300", "#eeeeee"),
+      //   imgsrc: Mock.Random.image("1920x500", "#eeeeee"),
+      //   imgp: Mock.Random.image("400x300", "#eeeeee"),
       URLPREFIX: URL_PREFIX
     };
   },
-  components: {}
+  computed: mapState({
+    channelist: ({ channel }) => channel.channelist
+  }),
+  components: {},
+  mounted() {
+    this.$nextTick(() => {
+      const { dispatch } = this.$store;
+
+      // 请求api获取数据
+      dispatch({
+        type: "channel/getChannelList"
+      });
+    });
+  }
 };
 </script>
 
