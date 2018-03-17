@@ -3,7 +3,6 @@
     <div>
       <!-- <img :src="imgsrc" alt="" class="w3-block"> -->
       <img :src="`${URLPREFIX}/static/sulan1920x360.jpg`" alt="" class="w3-block w3-border w3-border-red">
-
     </div>
 
     <div style="width:1200px;margin:auto">
@@ -15,7 +14,7 @@
         <yo-loading v-show="isLoading"></yo-loading>
         <div v-show="!isLoading">
           <li v-for="(item,key) in articlelist" :key="key" class="w3-light-gray w3-border-bottom" data-wow-delay="0.2s">
-            <router-link :to="{name: 'articledetail', params: { id: item }}">
+            <router-link :to="{name: 'articledetail', params: { id: item.id }}">
 
               <img :src="`${URLPREFIX}/static/news.jpg`" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
               <div class="w3-light-gray" style="padding:0 50px;height:196px;overflow: hidden">
@@ -37,7 +36,6 @@
 
 <script>
 import { mapState } from "vuex";
-import { getCurArr } from "../utils/fns";
 import yoBar from "../components/yo-bar.vue";
 import yoLoading from "../components/yo-loading";
 import { URL_PREFIX } from "../utils/consts";
@@ -46,9 +44,6 @@ export default {
   name: "articlelist",
   data() {
     return {
-      imgsrc: Mock.Random.image("1920x300", "#eeeeee"),
-      imgp: Mock.Random.image("800x600", "#eeeeee"),
-      textp: Mock.mock("@cparagraph(5, 10)"),
       URLPREFIX: URL_PREFIX
     };
   },
@@ -61,9 +56,9 @@ export default {
       vm.getArticleData.apply(vm, [to.params.id]);
     });
   },
-  mounted() {},
   components: { yoBar, yoLoading },
   methods: {
+    // 获取article数据
     getArticleData(id) {
       const { dispatch } = this.$store;
       dispatch({
