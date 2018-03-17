@@ -95,12 +95,13 @@
                 </div>
             </div>
             <div class="w3-clear"></div>
-
+            {{ brandlist }}
         </div>
     </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 import { URL_PREFIX } from "../utils/consts";
 
 export default {
@@ -111,6 +112,19 @@ export default {
       imgp: Mock.Random.image("400x300", "#eeeeee"),
       URLPREFIX: URL_PREFIX
     };
+  },
+  computed: mapState({
+    brandlist: ({ brand }) => brand.brandlist
+  }),
+  mounted() {
+    this.$nextTick(() => {
+      const { dispatch } = this.$store;
+
+      // 请求api获取数据
+      dispatch({
+        type: "brand/getBrandList"
+      });
+    });
   },
   components: {}
 };

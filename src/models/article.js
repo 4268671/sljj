@@ -27,11 +27,11 @@ export const article = {
           type: "changeArticleList",
           payload: data
         });
-        await commit({
-          type: "changeLoading",
-          payload: false
-        });
       }
+      await commit({
+        type: "changeLoading",
+        payload: false
+      });
     }
   },
 
