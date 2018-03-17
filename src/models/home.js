@@ -1,31 +1,31 @@
 // 接口
-import { getBrandList } from "@/services/api";
+import { getHomeData } from "@/services/api";
 // 方法
 import { parseResponse } from "@/utils/parse";
 
-export const brand = {
+export const home = {
   namespaced: true,
 
   state: {
     isLoading: true,
-    brandlist: []
+    homeData: []
   },
 
   getters: {},
 
   // 异步
   actions: {
-    async getBrandList({ commit }) {
+    async getHomeData({ commit }) {
       await commit({
         type: "changeLoading",
         payload: true
       });
-      const response = await getBrandList();
+      const response = await getHomeData();
       const { status, message, count, data } = await parseResponse(response);
-      await console.log(data, "brand data");
+      await console.log(data, "home data");
       if (status > 0) {
         commit({
-          type: "changeBrandList",
+          type: "changeHomeData",
           payload: data
         });
       }
@@ -42,8 +42,8 @@ export const brand = {
     changeLoading(state, { payload }) {
       state.isLoading = payload;
     },
-    changeBrandList(state, { payload }) {
-      state.shoplist = payload;
+    changeHomeData(state, { payload }) {
+      state.homeData = payload;
     }
   }
 };

@@ -33,7 +33,9 @@ export default {
   props: {
     channelist: {
       type: Array,
-      default: []
+      default() {
+        return [];
+      }
     }
   },
   computed: {

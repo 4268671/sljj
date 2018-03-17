@@ -2,7 +2,7 @@
  * @Author: Kevin Bolton
  * @Date: 2018-03-09 15:40:56
  * @Last Modified by: Kevin Bolton
- * @Last Modified time: 2018-03-17 18:06:07
+ * @Last Modified time: 2018-03-18 00:03:15
  */
 import Vue from "vue";
 import Vuex from "vuex";
@@ -17,6 +17,7 @@ import { apply } from "./apply";
 import { shop } from "./shop";
 import { brand } from "./brand";
 import { channel } from "./channel";
+import { home } from "./home";
 
 export default new Vuex.Store({
   // 模块分组
@@ -26,6 +27,7 @@ export default new Vuex.Store({
     apply,
     shop,
     brand,
-    channel
+    channel,
+    home
   }
 });

@@ -2,8 +2,9 @@
  * @Author: Kevin Bolton
  * @Date: 2018-02-05 22:04:50
  * @Last Modified by: Kevin Bolton
- * @Last Modified time: 2018-03-10 17:14:53
+ * @Last Modified time: 2018-03-18 00:47:23
  */
+// 第三方库
 // 常量
 import { URL_PREFIX, API_DOMAIN } from "@/utils/consts";
 // 格式化数字
@@ -107,5 +108,16 @@ export const getCurArr = (arr, cur, size) => {
   const end = cur * size; // 结束的索引
 
   return arr.slice(start, end);
+};
+// 解析时间
+export const getDateFormat = value => {
+  const date = new Date(parseInt(value, 10));
+  let month = date.getMonth() + 1;
+  let day = date.getDate();
+
+  if (month < 9) month = "0" + month;
+  if (day < 9) day = "0" + day;
+
+  return `${month}/${day}`;
 };
 // --- END ---

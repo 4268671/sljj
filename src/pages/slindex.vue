@@ -1,6 +1,6 @@
 <template>
     <div>
-        <yo-slideshow class="wow flipInX"></yo-slideshow>
+        <yo-slideshow :slideData="homeData.slide" class="wow flipInX"></yo-slideshow>
         <!--  -->
         <div class="w3-padding-32 w3-row" style="max-width:1500px;margin:auto">
             <router-link :to="{name: 'brand'}">
@@ -31,7 +31,7 @@
         </div>
         <!--  -->
         <div class="w3-padding-32 w3-row" style="max-width:1500px;margin:auto">
-            <img :src="`${URLPREFIX}/static/sulan1920x500.jpg`" alt="" class="w3-block wow bounceIn" data-wow-delay="0.6s">
+            <img :src="`${URLPREFIX}${homeData.adv[0].url}`" alt="" class="w3-block wow bounceIn" data-wow-delay="0.6s">
         </div>
         <!--  -->
         <div class="w3-row w3-margin-top" style="max-width:1500px;margin:auto">
@@ -41,25 +41,23 @@
                 </h2>
             </div>
             <div class="w3-quarter w3-padding">
-                <img :src="`${URLPREFIX}/static/400x580a.jpg`" alt="" class="w3-block wow fadeInLeft">
+                <img :src="`${URLPREFIX}${homeData.adv[1].url}`" alt="" class="w3-block wow fadeInLeft">
             </div>
             <div class="w3-half">
                 <ul class="w3-ul w3-padding wow fadeInUp">
                     <a href="">
-                        <li id="newslist" class="w3-margin-bottom w3-text-gray" v-for="n in 4" :key="n">
-                            <h2 class="w3-col" style="width:100px;margin-top:24px">03/07</h2>
+                        <li id="newslist" class="w3-margin-bottom w3-text-gray" v-for="(item, key) in homeData.article" :key="key">
+                            <h2 class="w3-col" style="width:100px;margin-top:24px">{{item.updateDate | dateFormat}}</h2>
                             <div class="w3-rest w3-border-left w3-padding">
-                                <h4>文章标题文章标题文章标题文章标题文章标题</h4>
-                                <div>
-                                    简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
-                                </div>
+                                <h4>{{item.title}}</h4>
+                                <div>{{item.subtitle}}</div>
                             </div>
                         </li>
                     </a>
                 </ul>
             </div>
             <div class="w3-quarter w3-padding">
-                <img :src="`${URLPREFIX}/static/400x580b.jpg`" alt="" class="w3-block wow fadeInRight">
+                <img :src="`${URLPREFIX}${homeData.adv[2].url}`" alt="" class="w3-block wow fadeInRight">
             </div>
         </div>
     </div>
@@ -67,6 +65,9 @@
 
 <script>
 new WOW().init();
+import { mapState } from "vuex";
+// 方法
+import { getDateFormat } from "../utils/fns";
 // 常量
 import { URL_PREFIX } from "../utils/consts";
 import yoSlideshow from "../components/yo-slideshow.vue";
@@ -74,13 +75,34 @@ export default {
   name: "slindex",
   data() {
     return {
-      imgsrc: Mock.Random.image("1920x500", "#cccccc"),
-      imgp: Mock.Random.image("400x580", "#cccccc"),
+      //   imgsrc: Mock.Random.image("1920x500", "#cccccc"),
+      //   imgp: Mock.Random.image("400x580", "#cccccc"),
       URLPREFIX: URL_PREFIX
     };
   },
+  computed: mapState({
+    isLoading: ({ home }) => home.isLoading,
+    homeData: ({ home }) => home.homeData
+  }),
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      vm.getHomeData.apply(vm);
+    });
+  },
   components: {
     yoSlideshow
+  },
+  filters: {
+    dateFormat: value => getDateFormat(value)
+  },
+  methods: {
+    // 获取home数据
+    getHomeData() {
+      const { dispatch } = this.$store;
+      dispatch({
+        type: "home/getHomeData"
+      });
+    }
   }
 };
 </script>

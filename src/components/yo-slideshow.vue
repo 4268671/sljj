@@ -5,15 +5,15 @@
     <div class="swiper-wrapper">
       <!-- Slides -->
       <!-- <div class="swiper-slide" v-for="item in 3">Slide {{item}}</div> -->
-      <div class="swiper-slide">
-        <img :src="`${URLPREFIX}/static/bigpic01.jpg`" class="w3-block animated pulse infinite" alt="">
+      <div class="swiper-slide" v-for="(item, key) in slideData" :key="key">
+        <img :src="`${URLPREFIX}${item.url}`" class="w3-block animated pulse infinite" alt="">
       </div>
-      <div class="swiper-slide">
+      <!-- <div class="swiper-slide">
         <img :src="`${URLPREFIX}/static/bigpic06.jpg`" class="w3-block animated pulse infinite" alt="">
       </div>
       <div class="swiper-slide">
         <img :src="`${URLPREFIX}/static/bigpic03.jpg`" class="w3-block animated pulse infinite" alt="">
-      </div>
+      </div> -->
     </div>
     <!-- If we need pagination -->
     <div class="swiper-pagination"></div>
@@ -31,6 +31,14 @@ export default {
     return {
       URLPREFIX: URL_PREFIX
     };
+  },
+  props: {
+    slideData: {
+      type: Array,
+      default() {
+        return [];
+      }
+    }
   },
   mounted() {
     const mySwiper = new Swiper(".swiper-container", {
