@@ -20,12 +20,17 @@
                 </a>
             </li>
         </ul>
-        {{ $route.params.id }}
+        {{ navData }}
     </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      navData: []
+    };
+  },
   props: {
     channelist: {
       type: Array,
@@ -33,16 +38,24 @@ export default {
     }
   },
   computed: {
-    sortNav() {
+    // sortNav() {
+    //   return this.makearrChannel(this.channelist).sort(
+    //     (a, b) => (a.weight > b.weight ? 1 : -1)
+    //   );
+    // }
+  },
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      vm.navData = vm.getNavData();
+    });
+  },
+  methods: {
+    getNavData() {
       return this.makearrChannel(this.channelist).sort(
         (a, b) => (a.weight > b.weight ? 1 : -1)
       );
-    }
-  },
-  beforeRouteEnter(to, from, next) {
-    next(vm => {});
-  },
-  methods: {
+    },
+
     makearrChannel(arr) {
       const channelSort = {
         "5a9f87a9d2467c1d20c8ca63": { id: 0, name: "brand" },
