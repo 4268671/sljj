@@ -20,7 +20,6 @@
         </a>
       </li>
     </ul>
-    {{ navData }}
   </div>
 </template>
 
@@ -64,8 +63,6 @@ export default {
         weight: channelSort[item.channelid].id,
         topath: channelSort[item.channelid].name
       }));
-      console.log(newArr, "newArr");
-
       return newArr;
     }
   }
