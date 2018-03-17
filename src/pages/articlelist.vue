@@ -12,21 +12,23 @@
         <span class="w3-margin-left w3-medium">/ Latest News</span>
       </h3>
       <ul class="w3-ul wow fadeInUp">
-        <yo-loading></yo-loading>
-        <li v-for="item in 6" :key="item.id" class="w3-light-gray w3-border-bottom" data-wow-delay="0.2s">
-          <router-link :to="{name: 'articledetail', params: { id: item }}">
+        <yo-loading v-show="isLoading"></yo-loading>
+        <div v-show="!isLoading">
+          <li v-for="(item,key) in articlelist" :key="key" class="w3-light-gray w3-border-bottom" data-wow-delay="0.2s">
+            <router-link :to="{name: 'articledetail', params: { id: item }}">
 
-            <img :src="`${URLPREFIX}/static/news.jpg`" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
-            <div class="w3-light-gray" style="padding:0 50px;height:196px;overflow: hidden">
-              <h2>标题标题标题标题标题标题标题标题</h2>
-              <i class="w3-text-gray">
-                <i class="fa fa-quote-left"></i>
-                简介：新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介
-                <i class="fa fa-quote-right"></i>
-              </i>
-            </div>
-          </router-link>
-        </li>
+              <img :src="`${URLPREFIX}/static/news.jpg`" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
+              <div class="w3-light-gray" style="padding:0 50px;height:196px;overflow: hidden">
+                <h2>{{item.title}}</h2>
+                <i class="w3-text-gray">
+                  <i class="fa fa-quote-left"></i>
+                  {{ item.subtitle }}
+                  <i class="fa fa-quote-right"></i>
+                </i>
+              </div>
+            </router-link>
+          </li>
+        </div>
       </ul>
       <yo-bar :propbars="10"></yo-bar>
     </div>
@@ -51,17 +53,25 @@ export default {
     };
   },
   computed: mapState({
-    // articlelistArr:({article})=>getCurArr(article.articlelist,2,1),
-    articlelistArr: ({ article }) => article.articlelist
+    isLoading: ({ article }) => article.isLoading,
+    articlelist: ({ article }) => article.articlelist
   }),
-  mounted() {
-    const { dispatch } = this.$store;
-    dispatch({
-      type: "article/getArticleList"
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      vm.getArticleData.apply(vm, [to.params.id]);
     });
-    console.log(1);
   },
-  components: { yoBar, yoLoading }
+  mounted() {},
+  components: { yoBar, yoLoading },
+  methods: {
+    getArticleData(id) {
+      const { dispatch } = this.$store;
+      dispatch({
+        type: "article/getArticleListByid",
+        payload: { id }
+      });
+    }
+  }
 };
 </script>
 

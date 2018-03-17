@@ -43,6 +43,11 @@ export default {
       URLPREFIX: URL_PREFIX
     };
   },
+  beforeRouteEnter(to, from, next) {
+    console.log(to, "to");
+    console.log(from, "from");
+    next(vm => {});
+  },
   methods: {
     clickback() {
       this.$router.go(-1);

@@ -1,27 +1,27 @@
 <template>
-    <div class="w3-center w3-panel w3-text-gray animated fadeInDown" style="padding:20px 0">
-        <ul class="w3-ul w3-show-inline-block">
-            <li class="w3-left">
-                <router-link :to="{name: 'slindex'}">
-                    <span class="w3-large">网站首页</span>
-                </router-link>
-            </li>
+  <div class="w3-center w3-panel w3-text-gray animated fadeInDown" style="padding:20px 0">
+    <ul class="w3-ul w3-show-inline-block">
+      <li class="w3-left">
+        <router-link :to="{name: 'slindex'}">
+          <span class="w3-large">网站首页</span>
+        </router-link>
+      </li>
 
-            <li class="w3-left" v-for="(item,key) in sortNav" :key="key">
-                <router-link :to="{name: item.topath, params: { id: item.id }}">
-                    <span class="w3-large">{{item.name}}</span>
-                </router-link>
-            </li>
-            <li class="w3-left">
-                <a href="" target="_">
-                    <span class="w3-large">旗舰店购买
-                    </span>
-                    <div class="w3-tag w3-red w3-tiny w3-round-xlarge">hot</div>
-                </a>
-            </li>
-        </ul>
-        {{ navData }}
-    </div>
+      <li class="w3-left" v-for="(item,key) in sortNav" :key="key">
+        <router-link :to="{name: item.topath, params: { id: item.id }}">
+          <span class="w3-large">{{item.name}}</span>
+        </router-link>
+      </li>
+      <li class="w3-left">
+        <a href="" target="_">
+          <span class="w3-large">旗舰店购买
+          </span>
+          <div class="w3-tag w3-red w3-tiny w3-round-xlarge">hot</div>
+        </a>
+      </li>
+    </ul>
+    {{ navData }}
+  </div>
 </template>
 
 <script>
@@ -38,24 +38,18 @@ export default {
     }
   },
   computed: {
-    // sortNav() {
-    //   return this.makearrChannel(this.channelist).sort(
-    //     (a, b) => (a.weight > b.weight ? 1 : -1)
-    //   );
-    // }
-  },
-  beforeRouteEnter(to, from, next) {
-    next(vm => {
-      vm.navData = vm.getNavData();
-    });
-  },
-  methods: {
-    getNavData() {
+    sortNav() {
       return this.makearrChannel(this.channelist).sort(
         (a, b) => (a.weight > b.weight ? 1 : -1)
       );
-    },
-
+    }
+  },
+  methods: {
+    // getNavData() {
+    //   return this.makearrChannel(this.channelist).sort(
+    //     (a, b) => (a.weight > b.weight ? 1 : -1)
+    //   );
+    // },
     makearrChannel(arr) {
       const channelSort = {
         "5a9f87a9d2467c1d20c8ca63": { id: 0, name: "brand" },
