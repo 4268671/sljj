@@ -1,31 +1,31 @@
 <template>
+  <div>
     <div>
-        <div>
-            <img :src="`${URLPREFIX}/static/bigpic05.jpg`" alt="" class="w3-block wow fadeIn w3-border w3-border-red">
-        </div>
-        <!--  -->
-        <div class="w3-padding-24" style="max-width:1500px;margin:auto">
-            <div class=" wow fadeInUp">
-                <h2 class="w3-center w3-panel">舒览产品中心
-                    <p class="w3-medium">—— Product Center ——</p>
-                </h2>
-            </div>
-            <ul class="w3-ul w3-row">
-                <yo-loading v-show="isLoading"></yo-loading>
-                <div v-show="!isLoading">
-                    <li class="w3-third wow fadeInUp" v-for="(item,key) in productlist" :key="key" data-wow-delay="0.2s">
-                        <router-link :to="{name: 'productdetail', params: { id: item.id }}">
-                            <img :src="`${URLPREFIX}/static/480x360.jpg`" alt="" class="w3-block w3-border">
-                            <p class="w3-center">{{item.title}}</p>
-                            <p class="w3-text-gray">{{item.subtitle}}</p>
-                        </router-link>
-                    </li>
-                </div>
-            </ul>
-            {{productlist}}
-            <yo-bar :propbars="10"></yo-bar>
-        </div>
+      <img :src="`${URLPREFIX}/static/bigpic05.jpg`" alt="" class="w3-block wow fadeIn w3-border w3-border-red">
     </div>
+    <!--  -->
+    <div class="w3-padding-24" style="max-width:1500px;margin:auto">
+      <div class=" wow fadeInUp">
+        <h2 class="w3-center w3-panel">舒览产品中心
+          <p class="w3-medium">—— Product Center ——</p>
+        </h2>
+      </div>
+      <ul class="w3-ul w3-row">
+        <yo-loading v-show="isLoading"></yo-loading>
+        <div v-show="!isLoading">
+          <li class="w3-third wow fadeInUp" v-for="(item,key) in productlist" :key="key" data-wow-delay="0.2s">
+            <router-link :to="{name: 'productdetail', params: { id: item.id }}">
+              <img :src="`${URLPREFIX}/static/480x360.jpg`" alt="" class="w3-block w3-border">
+              <p class="w3-center">{{item.title}}</p>
+              <p class="w3-text-gray">{{item.subtitle}}</p>
+            </router-link>
+          </li>
+        </div>
+      </ul>
+      {{productlist}}
+      <yo-bar :propbars="10"></yo-bar>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -55,11 +55,15 @@ export default {
   methods: {
     // 获取product数据
     getProductData(id) {
-      const { dispatch } = this.$store;
+      const { dispatch, commit } = this.$store;
+      const channelid = id || localStorage.getItem("currentChannelid");
       dispatch({
         type: "product/getProductListByid",
-        payload: { id }
+        payload: { id: channelid }
       });
+      if (id) {
+        localStorage.setItem("currentChannelid", id);
+      }
     }
   }
 };

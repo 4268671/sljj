@@ -52,6 +52,8 @@ export default {
     articlelist: ({ article }) => article.articlelist
   }),
   beforeRouteEnter(to, from, next) {
+    // console.log(to, "to");
+    // console.log(from, "from");
     next(vm => {
       vm.getArticleData.apply(vm, [to.params.id]);
     });
@@ -60,11 +62,15 @@ export default {
   methods: {
     // 获取article数据
     getArticleData(id) {
-      const { dispatch } = this.$store;
+      const { dispatch, commit } = this.$store;
+      const channelid = id || localStorage.getItem("currentChannelid");
       dispatch({
         type: "article/getArticleListByid",
-        payload: { id }
+        payload: { id: channelid }
       });
+      if (id) {
+        localStorage.setItem("currentChannelid", id);
+      }
     }
   }
 };

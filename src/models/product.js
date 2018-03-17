@@ -8,7 +8,7 @@ export const product = {
 
   state: {
     isLoading: true,
-    productlist: []
+    productlist: [] // 产品列表数据
   },
 
   getters: {},
