@@ -27,11 +27,11 @@ export const product = {
           type: "changeProductList",
           payload: data
         });
-        await commit({
-          type: "changeLoading",
-          payload: false
-        });
       }
+      await commit({
+        type: "changeLoading",
+        payload: false
+      });
     }
   },
 
