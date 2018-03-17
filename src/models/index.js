@@ -2,7 +2,7 @@
  * @Author: Kevin Bolton
  * @Date: 2018-03-09 15:40:56
  * @Last Modified by: Kevin Bolton
- * @Last Modified time: 2018-03-17 14:24:19
+ * @Last Modified time: 2018-03-17 17:39:01
  */
 import Vue from "vue";
 import Vuex from "vuex";
@@ -14,6 +14,7 @@ Vue.use(Vuex);
 import { article } from "./article";
 import { apply } from "./apply";
 import { shop } from "./shop";
+import { brand } from "./brand";
 import { channel } from "./channel";
 
 export default new Vuex.Store({
@@ -22,6 +23,7 @@ export default new Vuex.Store({
     article,
     apply,
     shop,
+    brand,
     channel
   }
 });

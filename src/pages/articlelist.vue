@@ -3,7 +3,6 @@
     <div>
       <!-- <img :src="imgsrc" alt="" class="w3-block"> -->
       <img :src="`${URLPREFIX}/static/sulan1920x360.jpg`" alt="" class="w3-block w3-border w3-border-red">
-
     </div>
 
     <div style="width:1200px;margin:auto">
@@ -16,7 +15,6 @@
         <div v-show="!isLoading">
           <li v-for="(item,key) in articlelist" :key="key" class="w3-light-gray w3-border-bottom" data-wow-delay="0.2s">
             <router-link :to="{name: 'articledetail', params: { id: item }}">
-
               <img :src="`${URLPREFIX}/static/news.jpg`" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
               <div class="w3-light-gray" style="padding:0 50px;height:196px;overflow: hidden">
                 <h2>{{item.title}}</h2>

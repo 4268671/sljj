@@ -30,6 +30,7 @@
                 <img :src="`${URLPREFIX}/static/shop02.jpg`" alt="" class="w3-block w3-card wow fadeInRight" data-wow-delay="0.5s">
             </div>
         </div>
+        {{ shoplist }}
     </div>
 </template>
 
@@ -37,7 +38,7 @@
 import { mapState } from "vuex";
 import { URL_PREFIX } from "../utils/consts";
 export default {
-  name: "brand",
+  name: "shop",
   data() {
     return {
       //   imgsrc: Mock.Random.image("1920x500", "#eeeeee"),
@@ -46,19 +47,19 @@ export default {
     };
   },
   computed: mapState({
-    channelist: ({ channel }) => channel.channelist
+    shoplist: ({ shop }) => shop.shoplist
   }),
-  components: {},
   mounted() {
     this.$nextTick(() => {
       const { dispatch } = this.$store;
 
       // 请求api获取数据
       dispatch({
-        type: "channel/getChannelList"
+        type: "shop/getShopList"
       });
     });
-  }
+  },
+  components: {}
 };
 </script>
 

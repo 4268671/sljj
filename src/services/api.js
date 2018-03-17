@@ -29,7 +29,13 @@ export async function getProductListByid(params = {}) {
 }
 // 获取实体店铺列表
 export async function getShopList(params = {}) {
-  return request(`${API_DOMAIN}/api/server/shops`, {
+  return request(`${API_DOMAIN}/api/front/allshops`, {
+    params
+  });
+}
+// 获取舒览品牌列表
+export async function getBrandList(params = {}) {
+  return request(`${API_DOMAIN}/api/front/allbrands`, {
     params
   });
 }

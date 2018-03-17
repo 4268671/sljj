@@ -1,32 +1,32 @@
 // 接口
-import { getShopList } from "@/services/api";
+import { getBrandList } from "@/services/api";
 // 方法
 import { parseResponse } from "@/utils/parse";
 
-export const shop = {
+export const brand = {
   namespaced: true,
 
   state: {
     isLoading: true,
-    shoplist: []
+    brandlist: []
   },
 
   getters: {},
 
   // 异步
   actions: {
-    async getShopList({ commit }) {
+    async getBrandList({ commit }) {
       await commit({
         type: "changeLoading",
         payload: true
       });
-      const response = await getShopList();
+      const response = await getBrandList();
       await console.log(response, "response");
       const { status, message, count, data } = await parseResponse(response);
-      await console.log(data, "shop data");
+      await console.log(data, "brand data");
       if (status > 0) {
         commit({
-          type: "changeShopList",
+          type: "changeBrandList",
           payload: data
         });
       }
@@ -43,7 +43,7 @@ export const shop = {
     changeLoading(state, { payload }) {
       state.isLoading = payload;
     },
-    changeShopList(state, { payload }) {
+    changeBrandList(state, { payload }) {
       state.shoplist = payload;
     }
   }
