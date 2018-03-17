@@ -21,7 +21,13 @@ export async function getArticleListByid(params = {}) {
     params
   });
 }
-// 获取文章列表
+// 获取文章详细内容
+export async function getArticleDetail(params = {}) {
+  return request(`${API_DOMAIN}/api/front/articledetail`, {
+    params
+  });
+}
+// 获取产品列表
 export async function getProductListByid(params = {}) {
   return request(`${API_DOMAIN}/api/front/articlebycid`, {
     params
