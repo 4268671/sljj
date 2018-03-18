@@ -1,10 +1,8 @@
 <template>
   <div>
     <div>
-      <!-- <img :src="imgsrc" alt="" class="w3-block"> -->
-      <img :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block w3-border w3-border-red">
+      <img :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block w3-border w3-border-red animated fadeIn">
     </div>
-
     <div style="width:1200px;margin:auto">
       <h3 class="w3-border-bottom w3-padding-16">
         <span class="w3-bottombar w3-border-red" style="padding-bottom:15px">舒览最新动态</span>
@@ -30,6 +28,7 @@
       </ul>
       <yo-bar :propbars="10"></yo-bar>
     </div>
+    {{articlelist}}
   </div>
 </template>
 
