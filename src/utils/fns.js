@@ -2,7 +2,7 @@
  * @Author: Kevin Bolton
  * @Date: 2018-02-05 22:04:50
  * @Last Modified by: Kevin Bolton
- * @Last Modified time: 2018-03-18 00:47:23
+ * @Last Modified time: 2018-03-18 11:17:57
  */
 // 第三方库
 // 常量
@@ -120,4 +120,7 @@ export const getDateFormat = value => {
 
   return `${month}/${day}`;
 };
+// 根据Channel id，获取栏目主题图片
+export const getChannelThumb = (channelid, channelist) =>
+  channelist.filter(item => channelid === item.channelid)[0].thumb;
 // --- END ---

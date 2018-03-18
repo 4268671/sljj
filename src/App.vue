@@ -51,7 +51,7 @@ export default {
         "background-color": "#000000",
         "min-width": "1200px"
       }
-    }
+    };
   },
   computed: mapState({
     channelist: ({ channel }) => channel.channelist

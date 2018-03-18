@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="w3-margin-bottom">
-            <img :src="`${URLPREFIX}/static/bigpic02.jpg`" alt="" class="w3-block wow fadeInUp w3-card">
+            <img :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block wow fadeInUp w3-card">
         </div>
         {{brandlist}}
         <div style="max-width:1500px;margin:auto">
@@ -104,18 +104,27 @@
 import { mapState } from "vuex";
 import { URL_PREFIX } from "../utils/consts";
 import yoLoading from "../components/yo-loading";
+import { getChannelThumb } from "../utils/fns";
 
 export default {
   name: "brand",
   data() {
     return {
-      URLPREFIX: URL_PREFIX
+      URLPREFIX: URL_PREFIX,
+      channelthumb: "" // 栏目主题图片
     };
   },
   computed: mapState({
     isLoading: ({ brand }) => brand.isLoading,
     brandlist: ({ brand }) => brand.brandlist
   }),
+  beforeRouteEnter(to, from, next) {
+    // console.log(to, "to");
+    // console.log(from, "from");
+    next(vm => {
+      vm.getChannelData.apply(vm, [to.params.id]);
+    });
+  },
   mounted() {
     this.$nextTick(() => {
       const { dispatch } = this.$store;
@@ -126,7 +135,18 @@ export default {
       });
     });
   },
-  components: { yoLoading }
+  components: { yoLoading },
+  methods: {
+    // 获取channel数据
+    getChannelData(id) {
+      const channelid = id || localStorage.getItem("currentChannelid");
+      const channelist = JSON.parse(localStorage.getItem("channelist"));
+      if (id) {
+        localStorage.setItem("currentChannelid", id);
+      }
+      this.channelthumb = getChannelThumb(channelid, channelist);
+    }
+  }
 };
 </script>
 

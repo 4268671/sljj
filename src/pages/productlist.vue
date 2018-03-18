@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <img :src="`${URLPREFIX}/static/bigpic05.jpg`" alt="" class="w3-block wow fadeIn w3-border w3-border-red">
+      <img :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block wow fadeIn w3-border w3-border-red">
     </div>
     <!--  -->
     <div class="w3-padding-24" style="max-width:1500px;margin:auto">
@@ -34,12 +34,14 @@ import { mapState } from "vuex";
 import yoBar from "../components/yo-bar.vue";
 import yoLoading from "../components/yo-loading";
 import { URL_PREFIX } from "../utils/consts";
+import { getChannelThumb } from "../utils/fns";
 
 export default {
   name: "productlist",
   data() {
     return {
-      URLPREFIX: URL_PREFIX
+      URLPREFIX: URL_PREFIX,
+      channelthumb: "" // 栏目主题图片
     };
   },
   computed: mapState({
@@ -57,6 +59,7 @@ export default {
     getProductData(id) {
       const { dispatch, commit } = this.$store;
       const channelid = id || localStorage.getItem("currentChannelid");
+      const channelist = JSON.parse(localStorage.getItem("channelist"));
       dispatch({
         type: "product/getProductListByid",
         payload: { id: channelid }
@@ -64,6 +67,7 @@ export default {
       if (id) {
         localStorage.setItem("currentChannelid", id);
       }
+      this.channelthumb = getChannelThumb(channelid, channelist);
     }
   }
 };

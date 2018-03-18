@@ -2,7 +2,7 @@
   <div>
     <div>
       <!-- <img :src="imgsrc" alt="" class="w3-block"> -->
-      <img :src="`${URLPREFIX}/static/sulan1920x360.jpg`" alt="" class="w3-block w3-border w3-border-red">
+      <img :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block w3-border w3-border-red">
     </div>
 
     <div style="width:1200px;margin:auto">
@@ -38,12 +38,14 @@ import { mapState } from "vuex";
 import yoBar from "../components/yo-bar.vue";
 import yoLoading from "../components/yo-loading";
 import { URL_PREFIX } from "../utils/consts";
+import { getChannelThumb } from "../utils/fns";
 
 export default {
   name: "articlelist",
   data() {
     return {
-      URLPREFIX: URL_PREFIX
+      URLPREFIX: URL_PREFIX,
+      channelthumb: "" // 栏目主题图片
     };
   },
   computed: mapState({
@@ -63,6 +65,7 @@ export default {
     getArticleData(id) {
       const { dispatch, commit } = this.$store;
       const channelid = id || localStorage.getItem("currentChannelid");
+      const channelist = JSON.parse(localStorage.getItem("channelist"));
       dispatch({
         type: "article/getArticleListByid",
         payload: { id: channelid }
@@ -70,6 +73,7 @@ export default {
       if (id) {
         localStorage.setItem("currentChannelid", id);
       }
+      this.channelthumb = getChannelThumb(channelid, channelist);
     }
   }
 };

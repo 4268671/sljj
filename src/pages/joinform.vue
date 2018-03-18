@@ -1,7 +1,7 @@
 <template>
     <div class="w3-center">
         <div>
-            <img :src="`${URLPREFIX}/static/join.jpg`" alt="" class="w3-block wow bounceIn w3-border-bottom">
+            <img :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block wow bounceIn w3-border-bottom">
         </div>
         <div class="wow fadeInUp" style="padding:50px 120px;max-width:1500px;margin:auto">
             <h2>
@@ -55,6 +55,7 @@
 import { mapState } from "vuex";
 import { setTimeout } from "timers";
 import { URL_PREFIX } from "../utils/consts";
+import { getChannelThumb } from "../utils/fns";
 
 export default {
   name: "joinform",
@@ -63,6 +64,7 @@ export default {
       imgsrc: Mock.Random.image("1920x500", "#eeeeee"),
       imgp: Mock.Random.image("400x300", "#eeeeee"),
       URLPREFIX: URL_PREFIX,
+      channelthumb: "", // 栏目主题图片
       apiData: {
         name: "",
         telphone: "",
@@ -79,6 +81,13 @@ export default {
     commitLoading: ({ apply }) => apply.loading,
     commitMessage: ({ apply }) => apply.message
   }),
+  beforeRouteEnter(to, from, next) {
+    // console.log(to, "to");
+    // console.log(from, "from");
+    next(vm => {
+      vm.getChannelData.apply(vm, [to.params.id]);
+    });
+  },
   watch: {
     // 监听apiData
     apiData: {
@@ -117,6 +126,15 @@ export default {
         message: ""
       };
       this.isCommit = false;
+    },
+    // 获取channel数据
+    getChannelData(id) {
+      const channelid = id || localStorage.getItem("currentChannelid");
+      const channelist = JSON.parse(localStorage.getItem("channelist"));
+      if (id) {
+        localStorage.setItem("currentChannelid", id);
+      }
+      this.channelthumb = getChannelThumb(channelid, channelist);
     }
   }
 };
