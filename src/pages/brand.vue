@@ -13,7 +13,7 @@
                 <div class="w3-col w3-right w3-padding wow fadeInRight" style="width:560px">
                     <img :src="`${URLPREFIX}${item.url}`" alt="" class="w3-block w3-card">
                 </div>
-                <div class="w3-rest w3-padding wow fadeInUp">
+                <div class="w3-rest w3-padding wow" :class="classArr[key%3]">
                     <h1>{{item.entitle}}</h1>
                     <h3 class="w3-leftbar w3-padding w3-border-red">{{item.title}} /
                         <span class="w3-text-red w3-medium">{{item.tag}}</span>
@@ -48,7 +48,8 @@ export default {
   data() {
     return {
       URLPREFIX: URL_PREFIX,
-      channelthumb: "" // 栏目主题图片
+      channelthumb: "", // 栏目主题图片
+      classArr: ["fadeInUp", "fadeInLeft", "fadeInRight"]
     };
   },
   computed: mapState({

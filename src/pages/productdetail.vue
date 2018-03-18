@@ -4,12 +4,18 @@
             <img :src="`${URLPREFIX}/static/bigpic05.jpg`" alt="" class="w3-block">
         </div>
         <!--  -->
-        <div class="w3-panel" style="max-width:1500px;margin:auto">
+        {{articleDetail}}
+        <div v-for="(item,key) in articleDetail" :key="key" class="w3-panel" style="max-width:1500px;margin:auto">
             <div class="w3-col w3-padding w3-padding-24" style="width:600px">
-                <img :src="`${URLPREFIX}/static/480x360.jpg`" alt="" class="w3-block w3-border">
+                <img :src="`${URLPREFIX}/static/480x360.jpg`" alt="" class="w3-block w3-border"> {{item.content[0].insert.image}}
+                <div v-for="(content,key) in item.content" :key="key" class="w3-center" v-if="content.insert.image">
+                    <img :src="`${content.insert.image}`" alt="www.shulanjj.com" style="max-width:100%">
+                </div>
             </div>
             <div class="w3-rest w3-padding w3-text-gray">
-                <h3 class="w3-border-bottom w3-padding-16">产品名称 / Product name</h3>
+                <h3 class="w3-border-bottom w3-padding-16">{{item.title}} /
+                    <span class="w3-text-red w3-large">Shulan Product </span>
+                </h3>
                 <div class="w3-border-bottom">
                     <p class="">产品简介：产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简简介产品简介</p>
                 </div>
@@ -41,18 +47,46 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+import yoLoading from "../components/yo-loading";
 import { URL_PREFIX } from "../utils/consts";
 
 export default {
   name: "productdetail",
   data() {
     return {
-      imgsrc: Mock.Random.image("1920x500", "#eeeeee"),
-      imgp: Mock.Random.image("400x300", "#eeeeee"),
       URLPREFIX: URL_PREFIX
     };
   },
-  components: {}
+
+  computed: mapState({
+    isLoading: ({ article }) => article.isLoading,
+    articleDetail: ({ article }) => article.articleDetail
+  }),
+  beforeRouteEnter(to, from, next) {
+    console.log(to, "to");
+    console.log(from, "from");
+    next(vm => {
+      vm.getDetailData.apply(vm, [to.params.id]);
+    });
+  },
+  components: { yoLoading },
+  methods: {
+    // 获取article数据
+    getDetailData(id) {
+      const { dispatch, commit } = this.$store;
+      const channelid = id || localStorage.getItem("currentChannelid");
+      const channelist = JSON.parse(localStorage.getItem("channelist"));
+      dispatch({
+        type: "article/getArticleDetail",
+        payload: { id: channelid }
+      });
+      if (id) {
+        localStorage.setItem("currentChannelid", id);
+      }
+      //   this.channelthumb = getChannelThumb(channelid, channelist);
+    }
+  }
 };
 </script>
 
