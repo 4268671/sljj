@@ -22,7 +22,7 @@ export const brand = {
       });
       const response = await getBrandList();
       const { status, message, count, data } = await parseResponse(response);
-      await console.log(data, "brand data");
+      // await console.log(data, "brand data");
       if (status > 0) {
         commit({
           type: "changeBrandList",
