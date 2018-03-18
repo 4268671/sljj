@@ -6,8 +6,7 @@
             <router-link :to="{name: 'brand'}">
                 <div class="w3-third w3-center w3-tag w3-white wow bounceInUp w3-border-right">
                     <!-- <h1><img :src="`${URLPREFIX}/static/tubiao-01.png`" alt=""></h1> -->
-                    <h2>来自法国
-                    </h2>
+                    <h2>来自法国</h2>
                     <p>—— Brand Introduction ——</p>
                 </div>
             </router-link>
@@ -21,9 +20,7 @@
             <router-link :to="{name: 'joinform'}">
                 <div class="w3-third w3-center w3-tag w3-white wow bounceInUp" data-wow-delay="0.6s">
                     <!-- <h1><img :src="`${URLPREFIX}/static/tubiao-03.png`" alt=""></h1> -->
-                    <h2>
-                        招商加盟
-                    </h2>
+                    <h2>招商加盟</h2>
                     <p>—— Merchants Joined ——</p>
                 </div>
             </router-link>

@@ -21,9 +21,7 @@ export const shop = {
         payload: true
       });
       const response = await getShopList();
-      await console.log(response, "response");
       const { status, message, count, data } = await parseResponse(response);
-      await console.log(data, "shop data");
       if (status > 0) {
         commit({
           type: "changeShopList",
