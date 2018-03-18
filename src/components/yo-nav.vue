@@ -26,9 +26,7 @@
 <script>
 export default {
   data() {
-    return {
-      navData: []
-    };
+    return {};
   },
   props: {
     channelist: {
@@ -44,11 +42,6 @@ export default {
     }
   },
   methods: {
-    // getNavData() {
-    //   return this.makearrChannel(this.channelist).sort(
-    //     (a, b) => (a.weight > b.weight ? 1 : -1)
-    //   );
-    // },
     makearrChannel(arr) {
       const channelSort = {
         "5a9f87a9d2467c1d20c8ca63": { id: 0, name: "brand" },

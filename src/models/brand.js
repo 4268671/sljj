@@ -44,7 +44,7 @@ export const brand = {
       state.isLoading = payload;
     },
     changeBrandList(state, { payload }) {
-      state.shoplist = payload;
+      state.brandlist = payload;
     }
   }
 };

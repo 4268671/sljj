@@ -3,15 +3,16 @@
         <div class="w3-margin-bottom">
             <img :src="`${URLPREFIX}/static/bigpic02.jpg`" alt="" class="w3-block wow fadeInUp w3-card">
         </div>
+        {{brandlist}}
         <div style="max-width:1500px;margin:auto">
             <div class="w3-padding-24 wow fadeInUp">
                 <h2 class="w3-center w3-panel">舒览品牌介绍
                     <p class="w3-medium">—— Shulan Brand ——</p>
                 </h2>
             </div>
-            <div class="w3-row w3-padding-16">
+            <div class="w3-row w3-padding-16" v-for="(item,key) in brandlist" :key="key">
                 <div class="w3-col w3-right w3-padding wow fadeInRight" style="width:560px">
-                    <img :src="`${URLPREFIX}/static/brand01.jpg`" alt="" class="w3-block w3-card">
+                    <img :src="`${URLPREFIX}${item.url}`" alt="" class="w3-block w3-card">
                 </div>
                 <div class="w3-rest w3-padding wow fadeInUp">
                     <h1>BRAND INTRODUCTION</h1>
@@ -95,7 +96,6 @@
                 </div>
             </div>
             <div class="w3-clear"></div>
-            {{ brandlist }}
         </div>
     </div>
 </template>
@@ -103,17 +103,17 @@
 <script>
 import { mapState } from "vuex";
 import { URL_PREFIX } from "../utils/consts";
+import yoLoading from "../components/yo-loading";
 
 export default {
   name: "brand",
   data() {
     return {
-      imgsrc: Mock.Random.image("1920x500", "#eeeeee"),
-      imgp: Mock.Random.image("400x300", "#eeeeee"),
       URLPREFIX: URL_PREFIX
     };
   },
   computed: mapState({
+    isLoading: ({ brand }) => brand.isLoading,
     brandlist: ({ brand }) => brand.brandlist
   }),
   mounted() {
@@ -126,7 +126,7 @@ export default {
       });
     });
   },
-  components: {}
+  components: { yoLoading }
 };
 </script>
 
