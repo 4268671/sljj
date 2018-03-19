@@ -71,11 +71,13 @@ export default {
         });
         channelist = await JSON.parse(localStorage.getItem("channelist"));
       }
+
       const articleid = await (id || localStorage.getItem("currentArticleid"));
       await dispatch({
         type: "article/getArticleDetail",
         payload: { id: articleid }
       });
+
       // await console.log(this.articleDetail[0].channelid, "channelid");
       if (id) {
         await localStorage.setItem("currentArticleid", id);
