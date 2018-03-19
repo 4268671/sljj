@@ -18,7 +18,7 @@
                 <h2>{{item.title}}</h2>
                 <i class="w3-text-gray">
                   <i class="fa fa-quote-left"></i>
-                  {{ item.subtitle }}
+                  {{ item.subtitle | filteredItems}}
                   <i class="fa fa-quote-right"></i>
                 </i>
               </div>
@@ -46,6 +46,10 @@ export default {
       URLPREFIX: URL_PREFIX,
       channelthumb: "" // 栏目主题图片
     };
+  },
+  filters: {
+    filteredItems: value =>
+      value.length > 140 ? value.slice(0, 140) + "..." : value.slice(0, 140)
   },
   computed: mapState({
     isLoading: ({ article }) => article.isLoading,
@@ -95,5 +99,8 @@ p {
   line-height: 30px;
   font-size: 16px;
   text-indent: 32px;
+  font-style: normal;
+  word-wrap: break-word;
+  word-break: normal !important;
 }
 </style>
