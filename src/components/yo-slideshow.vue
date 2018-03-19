@@ -25,6 +25,7 @@
 
 <script>
 import { URL_PREFIX } from "../utils/consts";
+import { setTimeout } from "timers";
 
 export default {
   data() {
@@ -40,7 +41,7 @@ export default {
       }
     }
   },
-  mounted() {
+  updated() {
     const mySwiper = new Swiper(".swiper-container", {
       // centeredSlides: true,
       spaceBetween: 30,
