@@ -2,7 +2,7 @@
  * @Author: Kevin Bolton
  * @Date: 2018-03-09 15:40:56
  * @Last Modified by: Kevin Bolton
- * @Last Modified time: 2018-03-10 18:26:37
+ * @Last Modified time: 2018-03-18 00:03:15
  */
 import Vue from "vue";
 import Vuex from "vuex";
@@ -12,12 +12,22 @@ Vue.use(Vuex);
 
 // modules
 import { article } from "./article";
+import { product } from "./product";
 import { apply } from "./apply";
+import { shop } from "./shop";
+import { brand } from "./brand";
+import { channel } from "./channel";
+import { home } from "./home";
 
 export default new Vuex.Store({
   // 模块分组
   modules: {
     article,
-    apply
+    product,
+    apply,
+    shop,
+    brand,
+    channel,
+    home
   }
 });

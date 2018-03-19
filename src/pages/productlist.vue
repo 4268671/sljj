@@ -1,45 +1,75 @@
 <template>
+  <div>
     <div>
-        <div>
-            <img :src="`${URLPREFIX}/static/bigpic05.jpg`" alt="" class="w3-block wow fadeIn w3-border w3-border-red">
-        </div>
-        <!--  -->
-        <div class="w3-padding-24" style="max-width:1500px;margin:auto">
-            <div class=" wow fadeInUp">
-                <h2 class="w3-center w3-panel">舒览产品中心
-                    <p class="w3-medium">—— Product Center ——</p>
-                </h2>
-            </div>
-            <ul class="w3-ul w3-row">
-                <yo-loading></yo-loading>
-                <li class="w3-third wow fadeInUp" v-for="item in 10" :key="item.id" data-wow-delay="0.2s">
-                    <router-link :to="{name: 'productdetail', params: { id: item }}">
-                        <img :src="`${URLPREFIX}/static/480x360.jpg`" alt="" class="w3-block w3-border">
-                        <p class="w3-center">普罗旺斯</p>
-                        <p class="w3-text-gray">普罗旺斯普罗旺斯普罗旺斯普罗旺斯普罗旺斯普罗旺斯普罗旺斯普罗旺斯普罗旺斯普罗旺斯普罗旺斯普罗旺斯</p>
-                    </router-link>
-                </li>
-            </ul>
-            <yo-bar :propbars="10"></yo-bar>
-        </div>
+      <img :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block wow fadeIn w3-border w3-border-red">
     </div>
+    <!--  -->
+    <div class="w3-padding-24" style="max-width:1500px;margin:auto">
+      <div class=" wow fadeInUp">
+        <h2 class="w3-center w3-panel">舒览产品中心
+          <p class="w3-medium">—— Product Center ——</p>
+        </h2>
+      </div>
+      <ul class="w3-ul w3-row">
+        <yo-loading v-show="isLoading"></yo-loading>
+        <div v-show="!isLoading">
+          <li class="w3-third wow fadeInUp" v-for="(item,key) in productlist" :key="key" data-wow-delay="0.2s">
+            <router-link :to="{name: 'productdetail', params: { id: item.id }}">
+              <img :src="`${URLPREFIX}/static/480x360.jpg`" alt="" class="w3-block w3-border">
+              <p class="w3-center">{{item.title}}</p>
+              <p class="w3-text-gray">{{item.subtitle}}</p>
+            </router-link>
+          </li>
+        </div>
+      </ul>
+      {{productlist}}
+      <yo-bar :propbars="10"></yo-bar>
+    </div>
+  </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 import yoBar from "../components/yo-bar.vue";
 import yoLoading from "../components/yo-loading";
 import { URL_PREFIX } from "../utils/consts";
+import { getChannelThumb } from "../utils/fns";
 
 export default {
   name: "productlist",
   data() {
     return {
-      imgsrc: Mock.Random.image("1920x500", "#eeeeee"),
-      imgp: Mock.Random.image("400x300", "#eeeeee"),
-      URLPREFIX: URL_PREFIX
+      URLPREFIX: URL_PREFIX,
+      channelthumb: "" // 栏目主题图片
     };
   },
-  components: { yoBar, yoLoading }
+  computed: mapState({
+    isLoading: ({ product }) => product.isLoading,
+    productlist: ({ product }) => product.productlist
+  }),
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      vm.getProductData.apply(vm, [to.params.id]);
+    });
+  },
+  components: { yoBar, yoLoading },
+  methods: {
+    // 获取product数据
+    getProductData(id) {
+      const { dispatch, commit } = this.$store;
+      const channelid = id || localStorage.getItem("currentChannelid");
+      const channelist = JSON.parse(localStorage.getItem("channelist"));
+      dispatch({
+        type: "product/getProductListByid",
+        payload: { id: channelid }
+      });
+      if (id) {
+        localStorage.setItem("currentChannelid", id);
+      }
+      this.channelthumb = getChannelThumb(channelid, channelist);
+    }
+  }
 };
 </script>
 

@@ -1,67 +1,80 @@
 <template>
   <div>
     <div>
-      <!-- <img :src="imgsrc" alt="" class="w3-block"> -->
-      <img :src="`${URLPREFIX}/static/sulan1920x360.jpg`" alt="" class="w3-block w3-border w3-border-red">
-
+      <img :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block w3-border w3-border-red animated fadeIn">
     </div>
-
     <div style="width:1200px;margin:auto">
       <h3 class="w3-border-bottom w3-padding-16">
         <span class="w3-bottombar w3-border-red" style="padding-bottom:15px">舒览最新动态</span>
         <span class="w3-margin-left w3-medium">/ Latest News</span>
       </h3>
       <ul class="w3-ul wow fadeInUp">
-        <yo-loading></yo-loading>
-        <li v-for="item in 6" :key="item.id" class="w3-light-gray w3-border-bottom" data-wow-delay="0.2s">
-          <router-link :to="{name: 'articledetail', params: { id: item }}">
-
-            <img :src="`${URLPREFIX}/static/news.jpg`" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
-            <div class="w3-light-gray" style="padding:0 50px;height:196px;overflow: hidden">
-              <h2>标题标题标题标题标题标题标题标题</h2>
-              <i class="w3-text-gray">
-                <i class="fa fa-quote-left"></i>
-                简介：新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介新闻简介
-                <i class="fa fa-quote-right"></i>
-              </i>
-            </div>
-          </router-link>
-        </li>
+        <yo-loading v-show="isLoading"></yo-loading>
+        <div v-show="!isLoading">
+          <li v-for="(item,key) in articlelist" :key="key" class="w3-light-gray w3-border-bottom" data-wow-delay="0.2s">
+            <router-link :to="{name: 'articledetail', params: { id: item.id }}">
+              <img :src="`${URLPREFIX}/static/news.jpg`" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
+              <div class="w3-light-gray" style="padding:0 50px;height:196px;overflow: hidden">
+                <h2>{{item.title}}</h2>
+                <i class="w3-text-gray">
+                  <i class="fa fa-quote-left"></i>
+                  {{ item.subtitle }}
+                  <i class="fa fa-quote-right"></i>
+                </i>
+              </div>
+            </router-link>
+          </li>
+        </div>
       </ul>
       <yo-bar :propbars="10"></yo-bar>
     </div>
+    {{articlelist}}
   </div>
 </template>
 
 <script>
-import { getCurArr } from "../utils/fns";
 import { mapState } from "vuex";
 import yoBar from "../components/yo-bar.vue";
 import yoLoading from "../components/yo-loading";
 import { URL_PREFIX } from "../utils/consts";
+import { getChannelThumb } from "../utils/fns";
 
 export default {
   name: "articlelist",
   data() {
     return {
-      imgsrc: Mock.Random.image("1920x300", "#eeeeee"),
-      imgp: Mock.Random.image("800x600", "#eeeeee"),
-      textp: Mock.mock("@cparagraph(5, 10)"),
-      URLPREFIX: URL_PREFIX
+      URLPREFIX: URL_PREFIX,
+      channelthumb: "" // 栏目主题图片
     };
   },
   computed: mapState({
-    // articlelistArr:({article})=>getCurArr(article.articlelist,2,1),
-    articlelistArr: ({ article }) => article.articlelist
+    isLoading: ({ article }) => article.isLoading,
+    articlelist: ({ article }) => article.articlelist
   }),
-  mounted() {
-    const { dispatch } = this.$store;
-    dispatch({
-      type: "article/getArticleList"
+  beforeRouteEnter(to, from, next) {
+    // console.log(to, "to");
+    // console.log(from, "from");
+    next(vm => {
+      vm.getArticleData.apply(vm, [to.params.id]);
     });
-    console.log(1);
   },
-  components: { yoBar, yoLoading }
+  components: { yoBar, yoLoading },
+  methods: {
+    // 获取article数据
+    getArticleData(id) {
+      const { dispatch, commit } = this.$store;
+      const channelid = id || localStorage.getItem("currentChannelid");
+      const channelist = JSON.parse(localStorage.getItem("channelist"));
+      dispatch({
+        type: "article/getArticleListByid",
+        payload: { id: channelid }
+      });
+      if (id) {
+        localStorage.setItem("currentChannelid", id);
+      }
+      this.channelthumb = getChannelThumb(channelid, channelist);
+    }
+  }
 };
 </script>
 

@@ -2,7 +2,7 @@
   <div id="main">
     <yo-sidebar :style="sidebarstyle"></yo-sidebar>
     <yo-top :style="topstyle" class="w3-card"></yo-top>
-    <yo-nav :style="navstyle"></yo-nav>
+    <yo-nav :style="navstyle" :channelist='channelist'></yo-nav>
     <!-- props:logo -->
     <router-view :style="routerstyle" id="routerstyle"></router-view>
     <div class="w3-clear"></div>
@@ -12,6 +12,7 @@
 
 <script>
 import { mapState } from "vuex";
+
 import yoTop from "./components/yo-top.vue";
 import yoSidebar from "./components/yo-sidebar.vue";
 import yoFooter from "./components/yo-footer.vue";
@@ -53,8 +54,7 @@ export default {
     };
   },
   computed: mapState({
-    articleLoading: ({ article }) => article.loading,
-    userLoading: ({ user }) => user.loading
+    channelist: ({ channel }) => channel.channelist
   }),
   components: {
     yoTop,
@@ -62,24 +62,14 @@ export default {
     yoFooter,
     yoNav
   },
-  methods: {
-    async handleClick() {
+  mounted() {
+    this.$nextTick(() => {
       const { dispatch } = this.$store;
-
-      await dispatch({
-        type: "article/getArticles",
-        payload: {
-          sid: "59607e3c682e090ca074ecfd"
-        }
+      // 请求api获取数据
+      dispatch({
+        type: "channel/getChannelList"
       });
-      const sid = this.articleLoading;
-      await dispatch({
-        type: "user/getUsers",
-        payload: {
-          sid
-        }
-      });
-    }
+    });
   }
 };
 </script>
