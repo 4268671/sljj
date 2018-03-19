@@ -61,8 +61,6 @@ export default {
   name: "joinform",
   data() {
     return {
-      imgsrc: Mock.Random.image("1920x500", "#eeeeee"),
-      imgp: Mock.Random.image("400x300", "#eeeeee"),
       URLPREFIX: URL_PREFIX,
       channelthumb: "", // 栏目主题图片
       apiData: {

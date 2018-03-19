@@ -13,12 +13,12 @@
         <div v-show="!isLoading">
           <li v-for="(item,key) in articlelist" :key="key" class="w3-light-gray w3-border-bottom" data-wow-delay="0.2s">
             <router-link :to="{name: 'articledetail', params: { id: item.id }}">
-              <img :src="`${URLPREFIX}/static/news.jpg`" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
+              <img src="/static/news.jpg" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
               <div class="w3-light-gray" style="padding:0 50px;height:196px;overflow: hidden">
                 <h2>{{item.title}}</h2>
                 <i class="w3-text-gray">
                   <i class="fa fa-quote-left"></i>
-                  {{ item.subtitle }}
+                  {{ item.subtitle | filteredItems}}
                   <i class="fa fa-quote-right"></i>
                 </i>
               </div>
@@ -46,6 +46,10 @@ export default {
       URLPREFIX: URL_PREFIX,
       channelthumb: "" // 栏目主题图片
     };
+  },
+  filters: {
+    filteredItems: value =>
+      value.length > 140 ? value.slice(0, 140) + "..." : value.slice(0, 140)
   },
   computed: mapState({
     isLoading: ({ article }) => article.isLoading,
@@ -95,5 +99,8 @@ p {
   line-height: 30px;
   font-size: 16px;
   text-indent: 32px;
+  font-style: normal;
+  word-wrap: break-word;
+  word-break: normal !important;
 }
 </style>

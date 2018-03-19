@@ -1,28 +1,28 @@
 <template>
-  <div>
     <div>
-      <img :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block w3-border w3-border-red">
-    </div>
-    <div style="width:1200px;margin:auto">
-      <h3 class="w3-border-bottom w3-padding-16">
-        <span class="w3-bottombar w3-border-red" style="padding-bottom:15px">舒览动态</span>
-        <span class="w3-margin-left w3-medium">/ Shulan News</span>
-        <button class="w3-right w3-button w3-medium w3-light-gray w3-round" @click="clickback">返 回</button>
-      </h3>
-      <yo-loading v-show="isLoading"></yo-loading>
-      <div v-show="!isLoading" v-for="(item,key) in articleDetail" :key="key">
-        <div class="w3-padding-16 w3-border-bottom w3-light-gray" style="padding:0 100px">
-          <h2 class="w3-center">{{item.title}}</h2>
-          <i class="w3-text-gray">
-            <i class="fa fa-quote-left"></i>
-            {{item.subtitle}}
-            <i class="fa fa-quote-right"></i>
-          </i>
+        <div>
+            <img :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block w3-border w3-border-red">
         </div>
-        <div class="w3-text-gray w3-padding-24" style="padding:0 100px" v-html="unescape(item.content)" />
-      </div>
+        <div style="width:1200px;margin:auto">
+            <h3 class="w3-border-bottom w3-padding-16">
+                <span class="w3-bottombar w3-border-red" style="padding-bottom:15px">舒览动态</span>
+                <span class="w3-margin-left w3-medium">/ Shulan News</span>
+                <button class="w3-right w3-button w3-medium w3-light-gray w3-round wow fadeIn" @click="clickback">返 回</button>
+            </h3>
+            <yo-loading v-show="isLoading"></yo-loading>
+            <div v-show="!isLoading" v-for="(item,key) in articleDetail" :key="key">
+                <div class="w3-padding-16 w3-border-bottom w3-light-gray" style="padding:0 100px">
+                    <h2 class="w3-center">{{item.title}}</h2>
+                    <i class="w3-text-gray">
+                        <i class="fa fa-quote-left"></i>
+                        {{item.subtitle}}
+                        <i class="fa fa-quote-right"></i>
+                    </i>
+                </div>
+                <div class="w3-text-gray w3-padding-24" style="padding:0 100px" v-html="unescape(item.content)" />
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -97,5 +97,7 @@ p {
   line-height: 30px;
   font-size: 16px;
   text-indent: 32px;
+  font-style: normal;
+  word-break: break-all !important;
 }
 </style>

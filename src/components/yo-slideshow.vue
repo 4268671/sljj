@@ -40,7 +40,7 @@ export default {
       }
     }
   },
-  mounted() {
+  updated() {
     const mySwiper = new Swiper(".swiper-container", {
       // centeredSlides: true,
       spaceBetween: 30,
