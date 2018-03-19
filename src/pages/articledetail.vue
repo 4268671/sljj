@@ -19,16 +19,9 @@
             <i class="fa fa-quote-right"></i>
           </i>
         </div>
-        <div class="w3-text-gray w3-padding-24" style="padding:0 100px">
-          <div v-for="(content,key) in item.content" :key="key" class="w3-center" v-if="content.insert.image">
-            <img :src="`${content.insert.image}`" alt="www.shulanjj.com" style="max-width:100%">
-          </div>
-          <p v-else>{{content.insert}}</p>
-        </div>
+        <div class="w3-text-gray w3-padding-24" style="padding:0 100px" v-html="unescape(item.content)" />
       </div>
     </div>
-    {{articleDetail}}
-
   </div>
 </template>
 
@@ -37,6 +30,7 @@ import { mapState } from "vuex";
 import yoLoading from "../components/yo-loading";
 import { URL_PREFIX } from "../utils/consts";
 import { getChannelThumb } from "../utils/fns";
+import { unescape } from "querystring";
 
 export default {
   name: "articledetail",
@@ -86,6 +80,10 @@ export default {
         this.articleDetail[0].channelid,
         channelist
       );
+    },
+    unescape(content) {
+      // console.log(window.unescape(content), "unescape content");
+      return window.unescape(content);
     }
   },
   components: { yoLoading }
