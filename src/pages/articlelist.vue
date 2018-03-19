@@ -13,7 +13,7 @@
         <div v-show="!isLoading">
           <li v-for="(item,key) in articlelist" :key="key" class="w3-light-gray w3-border-bottom" data-wow-delay="0.2s">
             <router-link :to="{name: 'articledetail', params: { id: item.id }}">
-              <img :src="`${URLPREFIX}/static/news.jpg`" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
+              <img :src="`${URLPREFIX}${item.thumb}`" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
               <div class="w3-light-gray" style="padding:0 50px;height:196px;overflow: hidden">
                 <h2>{{item.title}}</h2>
                 <i class="w3-text-gray">

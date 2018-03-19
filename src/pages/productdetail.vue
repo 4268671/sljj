@@ -19,7 +19,7 @@
             <i class="fa fa-quote-right"></i>
           </i>
         </div>
-        <div class="w3-text-gray w3-padding-24" style="padding:0 100px" v-html="unescape(item.content)" />
+        <div class="w3-text-gray w3-padding-24" style="padding:0 100px" v-html="item.content" />
       </div>
     </div>
   </div>
@@ -82,10 +82,6 @@ export default {
         this.articleDetail[0].channelid,
         channelist
       );
-    },
-    unescape(content) {
-      // console.log(window.unescape(content), "unescape content");
-      return window.unescape(content);
     }
   }
 };
