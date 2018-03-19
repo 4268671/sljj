@@ -21,11 +21,11 @@ export const channel = {
       const { status, message, count, data } = await parseResponse(response);
       // await console.log(data, "data");
       if (status > 0) {
-        commit({
+        await commit({
           type: "changeChanneList",
           payload: data
         });
-        localStorage.setItem("channelist", JSON.stringify(data));
+        await localStorage.setItem("channelist", JSON.stringify(data));
       }
     }
   },
