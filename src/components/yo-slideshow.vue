@@ -6,7 +6,9 @@
       <!-- Slides -->
       <!-- <div class="swiper-slide" v-for="item in 3">Slide {{item}}</div> -->
       <div class="swiper-slide" v-for="(item, key) in slideData" :key="key">
-        <img :src="`${URLPREFIX}${item.url}`" class="w3-block animated pulse infinite" alt="">
+        <a :href="`http://${item.topath}`" target="_">
+          <img :src="`${URLPREFIX}${item.url}`" class="w3-block animated pulse infinite" alt="">
+        </a>
       </div>
       <!-- <div class="swiper-slide">
         <img :src="`${URLPREFIX}/static/bigpic06.jpg`" class="w3-block animated pulse infinite" alt="">
