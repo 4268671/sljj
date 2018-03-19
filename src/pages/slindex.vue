@@ -47,7 +47,7 @@
                             <h2 class="w3-col" style="width:100px;margin-top:24px">{{item.updateDate | dateFormat}}</h2>
                             <div class="w3-rest w3-border-left w3-padding">
                                 <h4>{{item.title}}</h4>
-                                <div>{{item.subtitle}}</div>
+                                <div>{{item.subtitle | filteredItems}}</div>
                             </div>
                         </li>
                     </a>
@@ -90,7 +90,9 @@ export default {
     yoSlideshow
   },
   filters: {
-    dateFormat: value => getDateFormat(value)
+    dateFormat: value => getDateFormat(value),
+    filteredItems: value =>
+      value.length > 72 ? value.slice(0, 71) + "..." : value.slice(0, 72)
   },
   methods: {
     // 获取home数据
