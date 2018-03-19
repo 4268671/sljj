@@ -1,7 +1,7 @@
 <template>
     <div class="w3-sidebar animated slideInRight">
         <div class="w3-red w3-round">
-            <router-link :to="{name: 'index'}" title="首页">
+            <router-link :to="{name: 'slindex'}" title="首页">
                 <i class="fa fa-2x fa-home " aria-hidden="true">
                 </i>
             </router-link>
@@ -12,7 +12,7 @@
         <router-link :to="{name: 'productdetail'}">
             <i class="fa fa-2x fa-share-alt-square w3-green" aria-hidden="true"></i>
         </router-link> -->
-            <a href="javascript:fasle" @click="retop()" title="回到顶部">
+            <a href="javascript:false" @click="retop()" title="回到顶部">
                 <i class="fa fa-2x fa-arrow-up" aria-hidden="true"></i>
             </a>
             <!-- 回到顶部 -->

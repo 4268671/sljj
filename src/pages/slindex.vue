@@ -1,6 +1,6 @@
 <template>
     <div>
-        <yo-slideshow :slideData="homeData.slide" class="wow flipInX"></yo-slideshow>
+        <yo-slideshow :slideData="homeData.slide" class=""></yo-slideshow>
         <!--  -->
         <div class="w3-padding-32 w3-row" style="max-width:1500px;margin:auto">
             <router-link :to="{name: 'brand'}">
@@ -44,11 +44,13 @@
                 <ul class="w3-ul w3-padding wow fadeInUp">
                     <a href="">
                         <li id="newslist" class="w3-margin-bottom w3-text-gray" v-for="(item, key) in homeData.article" :key="key">
-                            <h2 class="w3-col" style="width:100px;margin-top:24px">{{item.updateDate | dateFormat}}</h2>
-                            <div class="w3-rest w3-border-left w3-padding">
-                                <h4>{{item.title}}</h4>
-                                <div>{{item.subtitle | filteredItems}}</div>
-                            </div>
+                            <router-link :to="{name: 'articledetail', params: { id: item.id }}">
+                                <h2 class="w3-col" style="width:100px;margin-top:24px">{{item.updateDate | dateFormat}}</h2>
+                                <div class="w3-rest w3-border-left w3-padding">
+                                    <h4>{{item.title}}</h4>
+                                    <div>{{item.subtitle | filteredItems}}</div>
+                                </div>
+                            </router-link>
                         </li>
                     </a>
                 </ul>
@@ -72,8 +74,6 @@ export default {
   name: "slindex",
   data() {
     return {
-      //   imgsrc: Mock.Random.image("1920x500", "#cccccc"),
-      //   imgp: Mock.Random.image("400x580", "#cccccc"),
       URLPREFIX: URL_PREFIX
     };
   },
