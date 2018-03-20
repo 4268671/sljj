@@ -3,7 +3,7 @@
     <div>
       <img v-if="channelthumb" :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block">
     </div>
-    <div style="width:1200px;margin:auto">
+    <div style="max-width:1500px;margin:auto">
       <h3 class="w3-border-bottom w3-padding-16">
         <span class="w3-bottombar w3-border-red" style="padding-bottom:15px">产品中心</span>
         <span class="w3-margin-left w3-medium">/ Product Center</span>
@@ -11,14 +11,23 @@
       </h3>
       <yo-loading v-show="isLoading"></yo-loading>
       <div v-show="!isLoading" v-for="(item,key) in articleDetail" :key="key">
-        <div class="w3-padding-16 w3-border-bottom w3-light-gray" style="padding:0 100px">
-          <h2 class="w3-center">{{item.title}}</h2>
-          <i class="w3-text-gray">
-            <i class="fa fa-quote-left"></i>
-            {{item.subtitle}}
-            <i class="fa fa-quote-right"></i>
-          </i>
+        <div class="w3-col w3-padding w3-padding-24" style="width:500px">
+          <img :src="`${URLPREFIX}/static/480x360.jpg`" alt="" class="w3-block w3-border">
         </div>
+        <div class="w3-rest w3-padding w3-text-gray">
+          <h3 class="w3-border-bottom w3-padding-16">{{item.title}} / Shulan Product</h3>
+          <div class="w3-border-bottom">
+            <h5>产品简介</h5>
+            <p class="">{{item.subtitle}}</p>
+          </div>
+          <div class="w3-border-bottom w3-padding-16">
+            <h5>详细参数</h5>
+            <p>产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介</p>
+
+          </div>
+        </div>
+        <div class="w3-clear"></div>
+
         <div class="w3-text-gray w3-padding-24" style="padding:0 100px" v-html="item.content" />
       </div>
     </div>
@@ -107,5 +116,6 @@ p {
   line-height: 30px;
   font-size: 16px;
   text-indent: 32px;
+  word-break: break-all !important;
 }
 </style>

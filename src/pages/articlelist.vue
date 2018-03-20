@@ -72,7 +72,7 @@ export default {
       const channelist = JSON.parse(localStorage.getItem("channelist"));
       dispatch({
         type: "article/getArticleListByid",
-        payload: { id: channelid }
+        payload: { id: channelid, currentPage: 2, pageSize: 3, pageTotal: 10 }
       });
       if (id) {
         localStorage.setItem("currentChannelid", id);
