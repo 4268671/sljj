@@ -56,8 +56,14 @@ export default {
     // innerHTML
     const qlAlignCenter =
       document.getElementsByClassName("ql-align-center") || [];
+    const qlAlignRight =
+      document.getElementsByClassName("ql-align-right") || [];
+
     for (let i = 0; i < qlAlignCenter.length; i += 1) {
       qlAlignCenter[i].style["text-align"] = "center";
+    }
+    for (let i = 0; i < qlAlignRight.length; i += 1) {
+      qlAlignRight[i].style["text-align"] = "right";
     }
   },
   components: { yoLoading },
