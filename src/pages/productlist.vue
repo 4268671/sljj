@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <img :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block wow fadeIn w3-border w3-border-red">
+      <img v-if="channelthumb" :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block wow fadeIn w3-border w3-border-red">
     </div>
     <!--  -->
     <div class="w3-padding-24" style="max-width:1500px;margin:auto">

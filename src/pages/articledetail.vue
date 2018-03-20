@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <img :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block w3-border w3-border-red">
+      <img v-if="channelthumb" :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block w3-border w3-border-red">
     </div>
     <div style="width:1200px;margin:auto">
       <h3 class="w3-border-bottom w3-padding-16">
