@@ -22,7 +22,6 @@
           </li>
         </div>
       </ul>
-      {{productlist}}
       <yo-bar :propbars="10"></yo-bar>
     </div>
   </div>

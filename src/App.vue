@@ -11,6 +11,7 @@
 </template>
 
 <script>
+new WOW().init();
 import { mapState } from "vuex";
 
 import yoTop from "./components/yo-top.vue";
