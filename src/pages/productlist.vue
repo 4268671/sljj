@@ -15,7 +15,9 @@
         <div v-show="!isLoading">
           <li class="w3-third wow fadeInUp" v-for="(item,key) in productlist" :key="key" data-wow-delay="0.2s">
             <router-link :to="{name: 'productdetail', params: { id: item.id }}">
-              <img :src="`${URLPREFIX}${item.thumb}`" alt="" class="w3-block w3-border">
+              <img v-if="item.thumb" :src="`${URLPREFIX}${item.thumb}`" alt="" class="w3-block w3-border">
+              <!-- 默认缩略图 -->
+              <img v-else src="http://39.108.178.198:7003/public/uploads/article/thumb-1521381160959.jpeg" alt="" class="w3-block w3-border">
               <p class="w3-center">{{item.title}}</p>
               <p class="w3-text-gray">{{item.subtitle}}</p>
             </router-link>
