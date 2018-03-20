@@ -7,27 +7,27 @@
             </div>
             <div class="w3-rest w3-margin-left">
                 <div class="w3-threequarter w3-text-light-gray">
-        <router-link :to="{name: 'slindex'}">
-                    <p class="w3-left w3-container">
-                        <span>舒览网站<br>Shulan Web</span>
-                    </p>
-        </router-link>    
-        <router-link :to="{name: 'brand'}">
-                    <p class="w3-left w3-container">
-                        <span>品牌介绍<br>About Shulan</span>
-                    </p>
-        </router-link>                        
-        <router-link :to="{name: 'productlist'}">
-                    <p class="w3-left w3-container">
-                        <span>舒览产品<br>Shulan Product</span>
-                    </p>
-        </router-link>
-        <router-link :to="{name: 'shop'}">
-                    <p class="w3-left w3-container">
-                        <span>联系我们<br>Contact Us</span>
-                    </p>
-        </router-link>
-                    
+                    <router-link :to="{name: 'slindex'}">
+                        <p class="w3-left w3-container">
+                            <span>舒览网站<br>Shulan Web</span>
+                        </p>
+                    </router-link>
+                    <router-link :to="{name: 'brand', params: { id: '5a9f87a9d2467c1d20c8ca63' }}">
+                        <p class="w3-left w3-container">
+                            <span>品牌介绍<br>About Shulan</span>
+                        </p>
+                    </router-link>
+                    <router-link :to="{name: 'productlist', params: {id:'5a9f87e1d2467c1d20c8ca65'}}">
+                        <p class="w3-left w3-container">
+                            <span>舒览产品<br>Shulan Product</span>
+                        </p>
+                    </router-link>
+                    <router-link :to="{name: 'joinform', params: {id:'5a9f8806d2467c1d20c8ca67'}}">
+                        <p class="w3-left w3-container">
+                            <span>联系我们<br>Contact Us</span>
+                        </p>
+                    </router-link>
+
                     <div class="w3-clear"></div>
                     <p class="w3-text-gray w3-container">© 2018 舒览家居 版权所有 </p>
 
