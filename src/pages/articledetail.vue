@@ -51,6 +51,14 @@ export default {
       vm.getDetailData.apply(vm, [to.params.id]);
     });
   },
+  updated() {
+    // innerHTML
+    const qlAlignCenter =
+      document.getElementsByClassName("ql-align-center") || [];
+    for (let i = 0; i < qlAlignCenter.length; i += 1) {
+      qlAlignCenter[i].style["text-align"] = "center";
+    }
+  },
   methods: {
     clickback() {
       this.$router.go(-1);
