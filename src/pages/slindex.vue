@@ -63,7 +63,6 @@
 </template>
 
 <script>
-new WOW().init();
 import { mapState } from "vuex";
 // 方法
 import { getDateFormat } from "../utils/fns";
