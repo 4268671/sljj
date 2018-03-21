@@ -1,8 +1,7 @@
 <template>
   <div>
-    {{articleDetail}}
-    <div>
-      <img v-if="channelthumb" :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block">
+    <div v-if="channelthumb">
+      <img :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block">
     </div>
     <div style="max-width:1500px;margin:auto">
       <h3 class="w3-border-bottom w3-padding-16">
@@ -12,7 +11,7 @@
           << 返 回</button>
       </h3>
       <yo-loading v-show="isLoading"></yo-loading>
-      <div v-show="!isLoading" v-for="(item,key) in articleDetail" :key="key">
+      <div v-show="!isLoading" v-for="(item,key) in productDetail" :key="key">
         <div class="w3-col w3-padding w3-padding-24" style="width:500px">
           <img v-if="item.thumb" :src="`${URLPREFIX}${item.thumb}`" alt="" class="w3-block w3-border">
           <!-- 默认缩略图 -->
@@ -42,9 +41,9 @@
           <h3 class="w3-border-bottom w3-padding-16 w3-center">更多产品 /
             <span class="w3-large">More Product</span>
           </h3>
-          <div v-for="item in 5" :key="item" style="width:20%" class="w3-left w3-padding w3-center">
-            <img :src="defaultimg" alt="" class="w3-block w3-padding">
-            <div class="w3-margin-top w3-text-gray">产品名称</div>
+          <div v-for="(item,index) in moreProductList.slice(0,5)" :key="index" style="width:20%" class="w3-left w3-padding w3-center">
+            <img :src="`${URLPREFIX}${item.thumb}`" alt="" class="w3-block w3-padding">
+            <div class="w3-margin-top w3-text-gray">{{item.title}}</div>
           </div>
         </div>
       </div>
@@ -71,10 +70,17 @@ export default {
     };
   },
 
-  computed: mapState({
-    isLoading: ({ article }) => article.isLoading,
-    articleDetail: ({ article }) => article.articleDetail
-  }),
+  computed: {
+    moreProductList: function() {
+      // console.log(this.productlist, "this.productlist");
+      return this.productlist.filter(item => item.thumb);
+    },
+    ...mapState({
+      isLoading: ({ product }) => product.isLoading,
+      productlist: ({ product }) => product.productlist,
+      productDetail: ({ product }) => product.productDetail
+    })
+  },
   beforeRouteEnter(to, from, next) {
     // console.log(to, "to");
     // console.log(from, "from");
@@ -101,7 +107,7 @@ export default {
     clickback() {
       this.$router.go(-1);
     },
-    // 获取product数据
+    // 获取product详情数据
     async getDetailData(id) {
       const { dispatch, commit } = await this.$store;
       let channelist = await JSON.parse(localStorage.getItem("channelist"));
@@ -112,20 +118,35 @@ export default {
         channelist = await JSON.parse(localStorage.getItem("channelist"));
       }
 
-      const articleid = await (id || localStorage.getItem("currentArticleid"));
+      const productid = await (id || localStorage.getItem("currentArticleid"));
       await dispatch({
-        type: "article/getArticleDetail",
-        payload: { id: articleid }
+        type: "product/getProductDetail",
+        payload: { id: productid }
       });
 
-      // await console.log(this.articleDetail[0].channelid, "channelid");
+      // await console.log(this.productDetail[0].channelid, "channelid");
       if (id) {
         await localStorage.setItem("currentArticleid", id);
       }
       this.channelthumb = await getChannelThumb(
-        this.articleDetail[0].channelid,
+        this.productDetail[0].channelid,
         channelist
       );
+
+      if (!this.productlist.length) {
+        await this.getMoreProduct(this.productDetail[0].channelid);
+      }
+    },
+    // 获取product更多产品数据
+    async getMoreProduct(id) {
+      const { dispatch, commit } = this.$store;
+      const channelid = await (id || localStorage.getItem("currentChannelid"));
+      // console.log(channelid, "channelid");
+
+      await dispatch({
+        type: "product/getProductListByid",
+        payload: { id: channelid }
+      });
     }
   }
 };
