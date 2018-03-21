@@ -54,24 +54,33 @@ export default {
   },
   computed: mapState({
     isLoading: ({ product }) => product.isLoading,
-    productlist: ({ product }) => product.productlist
+    productlist: ({ product }) => product.productlist,
+    channelist: ({ channel }) => channel.channelist
   }),
   beforeRouteEnter(to, from, next) {
     next(vm => {
-      vm.getProductData.apply(vm, [to.params.id]);
+      vm.getProductData.apply(vm, [to.params.id, to.path.substring(1)]);
     });
   },
   components: { yoBar, yoLoading },
   methods: {
     // 获取product数据
-    getProductData(id) {
+    async getProductData(id, path) {
       const { dispatch, commit } = this.$store;
-      const channelid = id || localStorage.getItem("currentChannelid");
+      await dispatch({
+        type: "channel/getChannelList"
+      });
+
+      const channelid =
+        id ||
+        this.channelist.filter(item => item.path === path)[0].channelid ||
+        localStorage.getItem("currentChannelid");
       const channelist = JSON.parse(localStorage.getItem("channelist"));
-      dispatch({
+      await dispatch({
         type: "product/getProductListByid",
         payload: { id: channelid }
       });
+
       if (id) {
         localStorage.setItem("currentChannelid", id);
       }

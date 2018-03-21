@@ -4,20 +4,20 @@ import Router from "vue-router";
 // 按需加载异步(页面)组件
 // require.ensure 是 Webpack 的特殊语法，用来设置 code-split point
 /* eslint-disable  global-require */
-const slindex = resolve => {
+const home = resolve => {
   require.ensure(
     [],
     () => {
-      resolve(require("@/pages/slindex"));
+      resolve(require("@/pages/home"));
     },
     "Group-Index"
   );
 };
-const productlist = resolve => {
+const product = resolve => {
   require.ensure(
     [],
     () => {
-      resolve(require("@/pages/productlist"));
+      resolve(require("@/pages/product"));
     },
     "Group-Product"
   );
@@ -40,20 +40,20 @@ const brand = resolve => {
     "Group-Other"
   );
 };
-const joinform = resolve => {
+const join = resolve => {
   require.ensure(
     [],
     () => {
-      resolve(require("@/pages/joinform"));
+      resolve(require("@/pages/join"));
     },
     "Group-Other"
   );
 };
-const articlelist = resolve => {
+const article = resolve => {
   require.ensure(
     [],
     () => {
-      resolve(require("@/pages/articlelist"));
+      resolve(require("@/pages/article"));
     },
     "Group-Article"
   );
@@ -85,20 +85,20 @@ export default new Router({
     {
       path: "*",
       name: "index",
-      redirect: "/slindex"
+      redirect: "/home"
     },
     {
-      path: "/slindex",
-      name: "slindex",
-      component: slindex
+      path: "/home",
+      name: "home",
+      component: home
     },
     {
-      path: "/productlist",
-      name: "productlist",
-      component: productlist
+      path: "/product",
+      name: "product",
+      component: product
     },
     {
-      path: "/productlist/productdetail/:id",
+      path: "/product/detail/:id",
       name: "productdetail",
       component: productdetail
     },
@@ -108,14 +108,14 @@ export default new Router({
       component: brand
     },
     {
-      path: "/joinform",
-      name: "joinform",
-      component: joinform
+      path: "/join",
+      name: "join",
+      component: join
     },
     {
-      path: "/articlelist",
-      name: "articlelist",
-      component: articlelist
+      path: "/news",
+      name: "news",
+      component: article
     },
     {
       path: "/shop",
@@ -123,7 +123,7 @@ export default new Router({
       component: shop
     },
     {
-      path: "/articlelist/articledetail/:id",
+      path: "/article/detail/:id",
       name: "articledetail",
       component: articledetail
     }

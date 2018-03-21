@@ -54,26 +54,35 @@ export default {
   },
   computed: mapState({
     isLoading: ({ article }) => article.isLoading,
-    articlelist: ({ article }) => article.articlelist
+    articlelist: ({ article }) => article.articlelist,
+    channelist: ({ channel }) => channel.channelist
   }),
   beforeRouteEnter(to, from, next) {
     // console.log(to, "to");
     // console.log(from, "from");
     next(vm => {
-      vm.getArticleData.apply(vm, [to.params.id]);
+      vm.getArticleData.apply(vm, [to.params.id, to.path.substring(1)]);
     });
   },
   components: { yoBar, yoLoading },
   methods: {
     // 获取article数据
-    getArticleData(id) {
+    async getArticleData(id, path) {
       const { dispatch, commit } = this.$store;
-      const channelid = id || localStorage.getItem("currentChannelid");
+      await dispatch({
+        type: "channel/getChannelList"
+      });
+
+      const channelid =
+        id ||
+        this.channelist.filter(item => item.path === path)[0].channelid ||
+        localStorage.getItem("currentChannelid");
       const channelist = JSON.parse(localStorage.getItem("channelist"));
-      dispatch({
+      await dispatch({
         type: "article/getArticleListByid",
         payload: { id: channelid }
       });
+
       if (id) {
         localStorage.setItem("currentChannelid", id);
       }

@@ -2,7 +2,7 @@
   <div class="w3-center w3-panel w3-text-gray animated fadeInDown" style="padding:20px 0">
     <ul class="w3-ul w3-show-inline-block">
       <li class="w3-left">
-        <router-link :to="{name: 'slindex'}">
+        <router-link :to="{name: 'home'}">
           <span class="w3-large">网站首页</span>
         </router-link>
       </li>
@@ -45,10 +45,10 @@ export default {
     makearrChannel(arr) {
       const channelSort = {
         "5a9f87a9d2467c1d20c8ca63": { id: 0, name: "brand" },
-        "5a9f87cdd2467c1d20c8ca64": { id: 1, name: "articlelist" },
-        "5a9f87e1d2467c1d20c8ca65": { id: 2, name: "productlist" },
+        "5a9f87cdd2467c1d20c8ca64": { id: 1, name: "news" },
+        "5a9f87e1d2467c1d20c8ca65": { id: 2, name: "product" },
         "5a9f87f1d2467c1d20c8ca66": { id: 3, name: "shop" },
-        "5a9f8806d2467c1d20c8ca67": { id: 4, name: "joinform" }
+        "5a9f8806d2467c1d20c8ca67": { id: 4, name: "join" }
       };
       const newArr = arr.map(item => ({
         id: item.channelid,
