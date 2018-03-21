@@ -1,7 +1,7 @@
 <template>
     <div class="w3-sidebar animated slideInRight">
         <div class="w3-red w3-round">
-            <router-link :to="{name: 'slindex'}" title="首页">
+            <router-link :to="{name: 'home'}" title="首页">
                 <i class="fa fa-2x fa-home " aria-hidden="true">
                 </i>
             </router-link>

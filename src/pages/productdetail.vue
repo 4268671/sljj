@@ -8,7 +8,7 @@
         <span class="w3-bottombar w3-border-red" style="padding-bottom:15px">产品中心</span>
         <span class="w3-margin-left w3-medium">/ Product Center</span>
         <button class="w3-right w3-button w3-medium w3-light-gray w3-round wow fadeIn" @click="clickback">
-          << 返 回</button>
+          <i class="fa fa-arrow-circle-left"></i> 返 回</button>
       </h3>
       <yo-loading v-show="isLoading"></yo-loading>
       <div v-show="!isLoading" v-for="(item,key) in productDetail" :key="key">
@@ -42,8 +42,10 @@
             <span class="w3-large">More Product</span>
           </h3>
           <div v-for="(item,index) in moreProductList.slice(0,5)" :key="index" style="width:20%" class="w3-left w3-padding w3-center">
-            <img :src="`${URLPREFIX}${item.thumb}`" alt="" class="w3-block w3-padding">
-            <div class="w3-margin-top w3-text-gray">{{item.title}}</div>
+            <router-link :to="{name: 'productdetail', params: { id: item.id }}">
+              <img :src="`${URLPREFIX}${item.thumb}`" alt="" class="w3-block w3-padding">
+              <div class="w3-margin-top w3-text-gray">{{item.title}}</div>
+            </router-link>
           </div>
         </div>
       </div>

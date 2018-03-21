@@ -13,7 +13,7 @@
         </router-link>
       </li>
       <li class="w3-left">
-        <a href="" target="_">
+        <a :href="toUrl" target="_">
           <span class="w3-large">旗舰店购买
           </span>
           <div class="w3-tag w3-red w3-tiny w3-round-xlarge">hot</div>
@@ -26,7 +26,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      toUrl: "http://www.baidu.com" //跳转地址
+    };
   },
   props: {
     channelist: {
