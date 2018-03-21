@@ -43,8 +43,8 @@
 </template>
 
 <script>
-import logoimg from "@/assets/sl-logo.png"; // 默认logo图
-import qimg from "@/assets/q2.jpg"; // 默认logo图
+import logoimg from "@/assets/images/sl-logo.png"; // 默认logo图
+import qimg from "@/assets/images/q2.jpg"; // 默认logo图
 export default {
   data() {
     return {

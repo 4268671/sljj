@@ -8,24 +8,30 @@
       <h3 class="w3-border-bottom w3-padding-16">
         <span class="w3-bottombar w3-border-red" style="padding-bottom:15px">产品中心</span>
         <span class="w3-margin-left w3-medium">/ Product Center</span>
-        <button class="w3-right w3-button w3-medium w3-light-gray w3-round wow fadeIn" @click="clickback">返 回</button>
+        <button class="w3-right w3-button w3-medium w3-light-gray w3-round wow fadeIn" @click="clickback">
+          << 返 回</button>
       </h3>
-      {{articleDetail}}
       <yo-loading v-show="isLoading"></yo-loading>
       <div v-show="!isLoading" v-for="(item,key) in articleDetail" :key="key">
         <div class="w3-col w3-padding w3-padding-24" style="width:500px">
-          <img :src="`${URLPREFIX}${item.thumb}`" alt="" class="w3-block w3-border">
+          <img v-if="item.thumb" :src="`${URLPREFIX}${item.thumb}`" alt="" class="w3-block w3-border">
+          <!-- 默认缩略图 -->
+          <img v-else :src="defaultimg" alt="" class="w3-block w3-border">
         </div>
         <div class="w3-rest w3-padding w3-text-gray">
-          <h3 class="w3-border-bottom w3-padding-16">{{item.title}} / Shulan Product</h3>
+          <h3 class="w3-border-bottom w3-padding-16">
+            <span class="w3-text-red">{{item.title}}</span> /
+            <span class="w3-large">Shulan Product</span>
+          </h3>
           <div class="w3-border-bottom">
-            <h5>产品简介</h5>
+            <h5>
+              <i class="fa fa-file w3-margin-right"></i>产品简介</h5>
             <p class="">{{item.subtitle}}</p>
           </div>
-          <div class="w3-border-bottom w3-padding-16">
-            <h5>详细参数</h5>
+          <div v-if="item.params" class="w3-border-bottom w3-padding-16">
+            <h5>
+              <i class="fa fa-clipboard w3-margin-right"></i>详细参数</h5>
             <p>{{item.params}}</p>
-
           </div>
         </div>
         <div class="w3-clear"></div>
@@ -36,8 +42,9 @@
           <h3 class="w3-border-bottom w3-padding-16 w3-center">更多产品 /
             <span class="w3-large">More Product</span>
           </h3>
-          <div v-for="item in 5" :key="item" style="width:20%" class="w3-left">
-            <img :src="`${URLPREFIX}/static/480x360.jpg`" alt="" class="w3-block w3-padding">
+          <div v-for="item in 5" :key="item" style="width:20%" class="w3-left w3-padding w3-center">
+            <img :src="defaultimg" alt="" class="w3-block w3-padding">
+            <div class="w3-margin-top w3-text-gray">产品名称</div>
           </div>
         </div>
       </div>
@@ -46,6 +53,8 @@
 </template>
 
 <script>
+import defaultimg from "@/assets/images/default.png"; // 默认图
+
 import { mapState } from "vuex";
 import yoLoading from "../components/yo-loading";
 import { URL_PREFIX } from "../utils/consts";
@@ -56,6 +65,7 @@ export default {
   name: "productdetail",
   data() {
     return {
+      defaultimg,
       URLPREFIX: URL_PREFIX,
       channelthumb: "" // 栏目主题图片
     };

@@ -7,7 +7,8 @@
       <h3 class="w3-border-bottom w3-padding-16">
         <span class="w3-bottombar w3-border-red" style="padding-bottom:15px">舒览动态</span>
         <span class="w3-margin-left w3-medium">/ Shulan News</span>
-        <button class="w3-right w3-button w3-medium w3-light-gray w3-round animated fadeIn" @click="clickback">返 回</button>
+        <button class="w3-right w3-button w3-medium w3-light-gray w3-round wow fadeIn" @click="clickback">
+          << 返 回</button>
       </h3>
       <yo-loading v-show="isLoading"></yo-loading>
       <div v-show="!isLoading" v-for="(item,key) in articleDetail" :key="key">
