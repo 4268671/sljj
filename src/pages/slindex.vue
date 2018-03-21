@@ -3,21 +3,21 @@
         <yo-slideshow :slideData="homeData.slide" class="wow flipInX"></yo-slideshow>
         <!--  -->
         <div class="w3-padding-32 w3-row" style="max-width:1500px;margin:auto">
-            <router-link :to="{name: 'brand'}">
+            <router-link :to="{name: 'brand', params: { id: '5a9f87a9d2467c1d20c8ca63' }}">
                 <div class="w3-third w3-center w3-tag w3-white wow bounceInUp w3-border-right">
                     <!-- <h1><img :src="`${URLPREFIX}/static/tubiao-01.png`" alt=""></h1> -->
                     <h2>来自法国</h2>
                     <p>—— Brand Introduction ——</p>
                 </div>
             </router-link>
-            <router-link :to="{name: 'productlist'}">
+            <router-link :to="{name: 'productlist', params: {id:'5a9f87e1d2467c1d20c8ca65'}}">
                 <div class="w3-third w3-center w3-tag w3-white wow bounceInUp w3-border-right" data-wow-delay="0.3s">
                     <!-- <h1><img :src="`${URLPREFIX}/static/tubiao-02.png`" alt=""></h1> -->
                     <h2>产品中心</h2>
                     <p>—— Product Center ——</p>
                 </div>
             </router-link>
-            <router-link :to="{name: 'joinform'}">
+            <router-link :to="{name: 'joinform', params: {id:'5a9f8806d2467c1d20c8ca67'}}">
                 <div class="w3-third w3-center w3-tag w3-white wow bounceInUp" data-wow-delay="0.6s">
                     <!-- <h1><img :src="`${URLPREFIX}/static/tubiao-03.png`" alt=""></h1> -->
                     <h2>招商加盟</h2>
