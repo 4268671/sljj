@@ -42,7 +42,7 @@
             <span class="w3-large">More Product</span>
           </h3>
           <div v-for="(item,index) in moreProductList.slice(0,5)" :key="index" style="width:20%" class="w3-left w3-padding w3-center">
-            <div @click="getDetailData(item.id)">
+            <div class="click-product" @click="getDetailData(item.id)">
               <img :src="`${URLPREFIX}${item.thumb}`" alt="" class="w3-block w3-padding">
               <p class="w3-margin-top w3-text-gray">{{item.title}}</p>
             </div>
@@ -149,5 +149,9 @@ p {
   font-size: 16px;
   text-indent: 32px;
   word-break: break-all !important;
+}
+
+.click-product:hover {
+  cursor: pointer;
 }
 </style>
