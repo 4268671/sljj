@@ -15,7 +15,7 @@
             <router-link :to="{name: 'articledetail', params: { id: item.id }}">
               <img v-if="item.thumb" :src="`${URLPREFIX}${item.thumb}`" alt="" class="w3-left w3-margin-right w3-padding" style="width:252px;height:189px">
               <!-- 默认缩略图 -->
-              <img v-else src="http://39.108.178.198:7003/public/uploads/article/thumb-1521381160959.jpeg" alt="" class="w3-left w3-margin-right w3-padding" style="width:252px;height:189px">
+              <img v-else :src="defaultimg" alt="" class="w3-left w3-margin-right w3-padding" style="width:252px;height:189px">
               <div class="w3-light-gray" style="padding:0 50px;height:196px;overflow: hidden">
                 <h2>{{item.title}}</h2>
                 <i class="w3-text-gray">
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import defaultimg from "@/assets/images/default.png"; // 默认图
 import { mapState } from "vuex";
 import yoBar from "../components/yo-bar.vue";
 import yoLoading from "../components/yo-loading";
@@ -44,6 +45,7 @@ export default {
   name: "articlelist",
   data() {
     return {
+      defaultimg,
       URLPREFIX: URL_PREFIX,
       channelthumb: "" // 栏目主题图片
     };
