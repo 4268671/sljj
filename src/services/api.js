@@ -39,6 +39,12 @@ export async function getProductListByid(params = {}) {
     params
   });
 }
+// 获取产品列详细内容
+export async function getProductDetail(params = {}) {
+  return request(`${API_DOMAIN}/api/front/articledetail`, {
+    params
+  });
+}
 // 获取实体店铺列表
 export async function getShopList(params = {}) {
   return request(`${API_DOMAIN}/api/front/allshops`, {

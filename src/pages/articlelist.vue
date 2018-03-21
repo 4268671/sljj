@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <img :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block w3-border w3-border-red animated fadeIn">
+      <img v-if="channelthumb" :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block w3-border w3-border-red animated fadeIn">
     </div>
     <div style="width:1200px;margin:auto">
       <h3 class="w3-border-bottom w3-padding-16">
@@ -13,7 +13,9 @@
         <div v-show="!isLoading">
           <li v-for="(item,key) in articlelist" :key="key" class="w3-light-gray w3-border-bottom" data-wow-delay="0.2s">
             <router-link :to="{name: 'articledetail', params: { id: item.id }}">
-              <img :src="`${URLPREFIX}${item.thumb}`" alt="" class="w3-left w3-margin-right w3-padding" style="height:187px">
+              <img v-if="item.thumb" :src="`${URLPREFIX}${item.thumb}`" alt="" class="w3-left w3-margin-right w3-padding" style="width:252px;height:189px">
+              <!-- 默认缩略图 -->
+              <img v-else src="http://39.108.178.198:7003/public/uploads/article/thumb-1521381160959.jpeg" alt="" class="w3-left w3-margin-right w3-padding" style="width:252px;height:189px">
               <div class="w3-light-gray" style="padding:0 50px;height:196px;overflow: hidden">
                 <h2>{{item.title}}</h2>
                 <i class="w3-text-gray">
@@ -28,7 +30,6 @@
       </ul>
       <yo-bar :propbars="10"></yo-bar>
     </div>
-    {{articlelist}}
   </div>
 </template>
 
