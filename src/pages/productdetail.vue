@@ -9,6 +9,7 @@
         <span class="w3-margin-left w3-medium">/ Product Center</span>
         <button class="w3-right w3-button w3-medium w3-light-gray w3-round wow fadeIn" @click="clickback">返 回</button>
       </h3>
+      {{articleDetail}}
       <yo-loading v-show="isLoading"></yo-loading>
       <div v-show="!isLoading" v-for="(item,key) in articleDetail" :key="key">
         <div class="w3-col w3-padding w3-padding-24" style="width:500px">
@@ -27,8 +28,17 @@
           </div>
         </div>
         <div class="w3-clear"></div>
-
+        <!--  -->
         <div class="w3-text-gray w3-padding-24" style="padding:0 100px" v-html="item.content" />
+        <!--  -->
+        <div class="w3-padding">
+          <h3 class="w3-border-bottom w3-padding-16 w3-center">更多产品 /
+            <span class="w3-large">More Product</span>
+          </h3>
+          <div v-for="item in 5" :key="item" style="width:20%" class="w3-left">
+            <img :src="`${URLPREFIX}/static/480x360.jpg`" alt="" class="w3-block w3-padding">
+          </div>
+        </div>
       </div>
     </div>
   </div>
