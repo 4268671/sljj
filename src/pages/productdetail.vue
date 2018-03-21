@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{articleDetail}}
     <div>
       <img v-if="channelthumb" :src="`${URLPREFIX}${channelthumb}`" alt="" class="w3-block">
     </div>
@@ -13,7 +14,7 @@
       <yo-loading v-show="isLoading"></yo-loading>
       <div v-show="!isLoading" v-for="(item,key) in articleDetail" :key="key">
         <div class="w3-col w3-padding w3-padding-24" style="width:500px">
-          <img :src="`${URLPREFIX}/static/480x360.jpg`" alt="" class="w3-block w3-border">
+          <img :src="`${URLPREFIX}${item.thumb}`" alt="" class="w3-block w3-border">
         </div>
         <div class="w3-rest w3-padding w3-text-gray">
           <h3 class="w3-border-bottom w3-padding-16">{{item.title}} / Shulan Product</h3>
@@ -23,7 +24,7 @@
           </div>
           <div class="w3-border-bottom w3-padding-16">
             <h5>详细参数</h5>
-            <p>产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介产品简介</p>
+            <p>{{item.params}}</p>
 
           </div>
         </div>
