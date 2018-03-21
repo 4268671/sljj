@@ -54,35 +54,30 @@ export default {
   },
   computed: mapState({
     isLoading: ({ brand }) => brand.isLoading,
-    brandlist: ({ brand }) => brand.brandlist
+    brandlist: ({ brand }) => brand.brandlist,
+    channelist: ({ channel }) => channel.channelist
   }),
   beforeRouteEnter(to, from, next) {
     // console.log(to, "to");
     // console.log(from, "from");
     next(vm => {
-      vm.getChannelData.apply(vm, [to.params.id]);
-    });
-  },
-  mounted() {
-    this.$nextTick(() => {
-      const { dispatch } = this.$store;
-
-      // 请求api获取数据
-      dispatch({
-        type: "brand/getBrandList"
-      });
+      vm.getChannelData.apply(vm, [to.params.id, to.path.substring(1)]);
     });
   },
   components: { yoLoading },
   methods: {
     // 获取channel数据
-    getChannelData(id) {
-      const channelid = id || localStorage.getItem("currentChannelid");
-      const channelist = JSON.parse(localStorage.getItem("channelist"));
-      if (id) {
-        localStorage.setItem("currentChannelid", id);
-      }
-      this.channelthumb = getChannelThumb(channelid, channelist);
+    async getChannelData(id, path) {
+      const { dispatch } = this.$store;
+      // 请求api获取数据
+      dispatch({
+        type: "brand/getBrandList"
+      });
+
+      const channelid =
+        id || this.channelist.filter(item => item.path === path)[0].channelid;
+
+      this.channelthumb = getChannelThumb(channelid, this.channelist);
     }
   }
 };

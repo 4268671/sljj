@@ -78,7 +78,8 @@ export default {
     ...mapState({
       isLoading: ({ product }) => product.isLoading,
       productlist: ({ product }) => product.productlist,
-      productDetail: ({ product }) => product.productDetail
+      productDetail: ({ product }) => product.productDetail,
+      channelist: ({ channel }) => channel.channelist
     })
   },
   beforeRouteEnter(to, from, next) {
@@ -109,28 +110,16 @@ export default {
     },
     // 获取product详情数据
     async getDetailData(id) {
-      const { dispatch, commit } = await this.$store;
-      let channelist = await JSON.parse(localStorage.getItem("channelist"));
-      if (!channelist) {
-        await dispatch({
-          type: "channel/getChannelList"
-        });
-        channelist = await JSON.parse(localStorage.getItem("channelist"));
-      }
+      const { dispatch, commit } = this.$store;
 
-      const productid = await (id || localStorage.getItem("currentArticleid"));
       await dispatch({
         type: "product/getProductDetail",
-        payload: { id: productid }
+        payload: { id }
       });
 
-      // await console.log(this.productDetail[0].channelid, "channelid");
-      if (id) {
-        await localStorage.setItem("currentArticleid", id);
-      }
-      this.channelthumb = await getChannelThumb(
+      this.channelthumb = getChannelThumb(
         this.productDetail[0].channelid,
-        channelist
+        this.channelist
       );
 
       if (!this.productlist.length) {
@@ -140,12 +129,10 @@ export default {
     // 获取product更多产品数据
     async getMoreProduct(id) {
       const { dispatch, commit } = this.$store;
-      const channelid = await (id || localStorage.getItem("currentChannelid"));
-      // console.log(channelid, "channelid");
 
       await dispatch({
         type: "product/getProductListByid",
-        payload: { id: channelid }
+        payload: { id }
       });
     }
   }

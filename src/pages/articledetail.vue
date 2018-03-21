@@ -43,7 +43,8 @@ export default {
   },
   computed: mapState({
     isLoading: ({ article }) => article.isLoading,
-    articleDetail: ({ article }) => article.articleDetail
+    articleDetail: ({ article }) => article.articleDetail,
+    channelist: ({ channel }) => channel.channelist
   }),
   beforeRouteEnter(to, from, next) {
     // console.log(to, "to");
@@ -72,28 +73,16 @@ export default {
     },
     // 获取article数据
     async getDetailData(id) {
-      const { dispatch, commit } = await this.$store;
-      let channelist = await JSON.parse(localStorage.getItem("channelist"));
-      if (!channelist) {
-        await dispatch({
-          type: "channel/getChannelList"
-        });
-        channelist = await JSON.parse(localStorage.getItem("channelist"));
-      }
+      const { dispatch, commit } = this.$store;
 
-      const articleid = await (id || localStorage.getItem("currentArticleid"));
       await dispatch({
         type: "article/getArticleDetail",
-        payload: { id: articleid }
+        payload: { id }
       });
 
-      // await console.log(this.articleDetail[0].channelid, "channelid");
-      if (id) {
-        await localStorage.setItem("currentArticleid", id);
-      }
-      this.channelthumb = await getChannelThumb(
+      this.channelthumb = getChannelThumb(
         this.articleDetail[0].channelid,
-        channelist
+        this.channelist
       );
     }
   },
