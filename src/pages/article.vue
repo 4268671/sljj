@@ -76,19 +76,13 @@ export default {
       });
 
       const channelid =
-        id ||
-        this.channelist.filter(item => item.path === path)[0].channelid ||
-        localStorage.getItem("currentChannelid");
-      const channelist = JSON.parse(localStorage.getItem("channelist"));
+        id || this.channelist.filter(item => item.path === path)[0].channelid;
       await dispatch({
         type: "article/getArticleListByid",
         payload: { id: channelid }
       });
 
-      if (id) {
-        localStorage.setItem("currentChannelid", id);
-      }
-      this.channelthumb = getChannelThumb(channelid, channelist);
+      this.channelthumb = getChannelThumb(channelid, this.channelist);
     }
   }
 };

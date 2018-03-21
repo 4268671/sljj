@@ -42,10 +42,10 @@
             <span class="w3-large">More Product</span>
           </h3>
           <div v-for="(item,index) in moreProductList.slice(0,5)" :key="index" style="width:20%" class="w3-left w3-padding w3-center">
-            <router-link :to="{name: 'productdetail', params: { id: item.id }}">
+            <div @click="getDetailData(item.id)">
               <img :src="`${URLPREFIX}${item.thumb}`" alt="" class="w3-block w3-padding">
-              <div class="w3-margin-top w3-text-gray">{{item.title}}</div>
-            </router-link>
+              <p class="w3-margin-top w3-text-gray">{{item.title}}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -68,7 +68,8 @@ export default {
     return {
       defaultimg,
       URLPREFIX: URL_PREFIX,
-      channelthumb: "" // 栏目主题图片
+      channelthumb: "", // 栏目主题图片
+      currentArticleid: "" // 当前文章id
     };
   },
 
@@ -80,11 +81,12 @@ export default {
     ...mapState({
       isLoading: ({ product }) => product.isLoading,
       productlist: ({ product }) => product.productlist,
-      productDetail: ({ product }) => product.productDetail
+      productDetail: ({ product }) => product.productDetail,
+      channelist: ({ channel }) => channel.channelist
     })
   },
   beforeRouteEnter(to, from, next) {
-    // console.log(to, "to");
+    console.log(to, "to");
     // console.log(from, "from");
     next(vm => {
       vm.getDetailData.apply(vm, [to.params.id]);
@@ -111,28 +113,16 @@ export default {
     },
     // 获取product详情数据
     async getDetailData(id) {
-      const { dispatch, commit } = await this.$store;
-      let channelist = await JSON.parse(localStorage.getItem("channelist"));
-      if (!channelist) {
-        await dispatch({
-          type: "channel/getChannelList"
-        });
-        channelist = await JSON.parse(localStorage.getItem("channelist"));
-      }
+      const { dispatch, commit } = this.$store;
 
-      const productid = await (id || localStorage.getItem("currentArticleid"));
       await dispatch({
         type: "product/getProductDetail",
-        payload: { id: productid }
+        payload: { id }
       });
 
-      // await console.log(this.productDetail[0].channelid, "channelid");
-      if (id) {
-        await localStorage.setItem("currentArticleid", id);
-      }
-      this.channelthumb = await getChannelThumb(
+      this.channelthumb = getChannelThumb(
         this.productDetail[0].channelid,
-        channelist
+        this.channelist
       );
 
       if (!this.productlist.length) {
@@ -142,12 +132,10 @@ export default {
     // 获取product更多产品数据
     async getMoreProduct(id) {
       const { dispatch, commit } = this.$store;
-      const channelid = await (id || localStorage.getItem("currentChannelid"));
-      // console.log(channelid, "channelid");
 
       await dispatch({
         type: "product/getProductListByid",
-        payload: { id: channelid }
+        payload: { id }
       });
     }
   }

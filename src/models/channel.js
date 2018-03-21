@@ -25,7 +25,6 @@ export const channel = {
           type: "changeChanneList",
           payload: data
         });
-        await localStorage.setItem("channelist", JSON.stringify(data));
       }
     }
   },

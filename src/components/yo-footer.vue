@@ -12,17 +12,17 @@
                             <span>舒览网站<br>Shulan Web</span>
                         </p>
                     </router-link>
-                    <router-link :to="{name: 'brand', params: { id: '5a9f87a9d2467c1d20c8ca63' }}">
+                    <router-link :to="{name: 'brand'}">
                         <p class="w3-left w3-container">
                             <span>品牌介绍<br>About Shulan</span>
                         </p>
                     </router-link>
-                    <router-link :to="{name: 'product', params: {id:'5a9f87e1d2467c1d20c8ca65'}}">
+                    <router-link :to="{name: 'product'}">
                         <p class="w3-left w3-container">
                             <span>舒览产品<br>Shulan Product</span>
                         </p>
                     </router-link>
-                    <router-link :to="{name: 'join', params: {id:'5a9f8806d2467c1d20c8ca67'}}">
+                    <router-link :to="{name: 'join'}">
                         <p class="w3-left w3-container">
                             <span>联系我们<br>Contact Us</span>
                         </p>

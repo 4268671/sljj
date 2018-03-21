@@ -77,13 +77,14 @@ export default {
   },
   computed: mapState({
     commitLoading: ({ apply }) => apply.loading,
-    commitMessage: ({ apply }) => apply.message
+    commitMessage: ({ apply }) => apply.message,
+    channelist: ({ channel }) => channel.channelist
   }),
   beforeRouteEnter(to, from, next) {
     // console.log(to, "to");
     // console.log(from, "from");
     next(vm => {
-      vm.getChannelData.apply(vm, [to.params.id]);
+      vm.getChannelData.apply(vm, [to.params.id, to.path.substring(1)]);
     });
   },
   watch: {
@@ -126,13 +127,11 @@ export default {
       this.isCommit = false;
     },
     // 获取channel数据
-    getChannelData(id) {
-      const channelid = id || localStorage.getItem("currentChannelid");
-      const channelist = JSON.parse(localStorage.getItem("channelist"));
-      if (id) {
-        localStorage.setItem("currentChannelid", id);
-      }
-      this.channelthumb = getChannelThumb(channelid, channelist);
+    getChannelData(id, path) {
+      const channelid =
+        id || this.channelist.filter(item => item.path === path)[0].channelid;
+
+      this.channelthumb = getChannelThumb(channelid, this.channelist);
     }
   }
 };

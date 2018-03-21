@@ -33,32 +33,28 @@ export default {
   },
   computed: mapState({
     isLoading: ({ shop }) => shop.isLoading,
-    shoplist: ({ shop }) => shop.shoplist
+    shoplist: ({ shop }) => shop.shoplist,
+    channelist: ({ channel }) => channel.channelist
   }),
   beforeRouteEnter(to, from, next) {
     // console.log(to, "to");
     // console.log(from, "from");
     next(vm => {
-      vm.getChannelData.apply(vm, [to.params.id]);
+      vm.getShopData.apply(vm, [to.params.id, to.path.substring(1)]);
     });
   },
-  mounted() {
-    this.$nextTick(() => {
+  components: { yoLoading },
+  methods: {
+    // 获取shop数据
+    async getShopData(id, path) {
       const { dispatch } = this.$store;
       // 请求api获取数据
       dispatch({
         type: "shop/getShopList"
       });
-    });
-  },
-  components: { yoLoading },
-  methods: {
-    // 获取channel数据
-    getChannelData(id) {
-      const channelid = id || localStorage.getItem("currentChannelid");
-      if (id) {
-        localStorage.setItem("currentChannelid", id);
-      }
+
+      const channelid =
+        id || this.channelist.filter(item => item.path === path)[0].channelid;
     }
   }
 };
