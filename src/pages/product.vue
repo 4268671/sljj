@@ -24,7 +24,7 @@
           </li>
         </div>
       </ul>
-      <yo-bar :propbars="10"></yo-bar>
+      <!-- <yo-bar :propbars="10"></yo-bar> -->
     </div>
   </div>
 </template>
