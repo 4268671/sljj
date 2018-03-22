@@ -88,7 +88,7 @@ export default {
     })
   },
   beforeRouteEnter(to, from, next) {
-    console.log(to, "to");
+    // console.log(to, "to");
     // console.log(from, "from");
     next(vm => {
       vm.getDetailData.apply(vm, [to.params.id]);

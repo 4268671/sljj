@@ -71,7 +71,7 @@ export default {
     clickback() {
       this.$router.go(-1);
     },
-    // 获取article数据
+    // 获取数据
     async getDetailData(id) {
       const { dispatch } = this.$store;
       if (this.channelist.length) {

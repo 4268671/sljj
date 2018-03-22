@@ -43,7 +43,9 @@ export default {
     return {
       defaultimg,
       URLPREFIX: URL_PREFIX,
-      channelthumb: "" // 栏目主题图片
+      channelthumb: "",
+      channelid: "",
+      path: ""
     };
   },
   filters: {
@@ -55,28 +57,42 @@ export default {
     productlist: ({ product }) => product.productlist,
     channelist: ({ channel }) => channel.channelist
   }),
+  watch: {
+    channelist(channelist) {
+      this.channelid = channelist.filter(
+        item => item.path === this.path
+      )[0].channelid;
+      // console.log(this.channelid, "channelid");
+      // console.log(channelist, "channelist");
+      this.getPageData(this.channelid, channelist);
+    }
+  },
   beforeRouteEnter(to, from, next) {
+    // console.log(to, "to");
+    // console.log(from, "from");
     next(vm => {
-      vm.getProductData.apply(vm, [to.params.id, to.path.substring(1)]);
+      vm.init.apply(vm, [to.params.id, to.path.substring(1)]);
     });
   },
   components: { yoBar, yoLoading },
   methods: {
-    // 获取product数据
-    async getProductData(id, path) {
+    // 初始化
+    init(id, path) {
+      this.channelid = id;
+      this.path = path;
+      if (this.channelist.length) {
+        this.getPageData(this.channelid, this.channelist);
+      }
+    },
+    // 获取数据
+    getPageData(channelid, channelist) {
       const { dispatch } = this.$store;
-      await dispatch({
-        type: "channel/getChannelList"
-      });
-
-      const channelid =
-        id || this.channelist.filter(item => item.path === path)[0].channelid;
-      await dispatch({
+      dispatch({
         type: "product/getProductListByid",
         payload: { id: channelid }
       });
 
-      this.channelthumb = getChannelThumb(channelid, this.channelist);
+      this.channelthumb = getChannelThumb(channelid, channelist);
     }
   }
 };

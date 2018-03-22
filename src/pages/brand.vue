@@ -48,7 +48,9 @@ export default {
   data() {
     return {
       URLPREFIX: URL_PREFIX,
-      channelthumb: "", // 栏目主题图片
+      channelthumb: "",
+      channelid: "",
+      path: "",
       classArr: ["fadeInUp", "fadeInLeft", "fadeInRight"]
     };
   },
@@ -57,32 +59,42 @@ export default {
     brandlist: ({ brand }) => brand.brandlist,
     channelist: ({ channel }) => channel.channelist
   }),
+  watch: {
+    channelist(channelist) {
+      this.channelid = channelist.filter(
+        item => item.path === this.path
+      )[0].channelid;
+      // console.log(this.channelid, "channelid");
+      // console.log(channelist, "channelist");
+      this.getPageData(this.channelid, channelist);
+    }
+  },
   beforeRouteEnter(to, from, next) {
     // console.log(to, "to");
     // console.log(from, "from");
     next(vm => {
-      vm.getChannelData.apply(vm, [to.params.id, to.path.substring(1)]);
+      vm.init.apply(vm, [to.params.id, to.path.substring(1)]);
     });
   },
   components: { yoLoading },
   methods: {
-    // 获取channel数据
-    async getChannelData(id, path) {
-      const { dispatch } = this.$store;
+    // 初始化
+    init(id, path) {
+      this.channelid = id;
+      this.path = path;
       if (this.channelist.length) {
-        await dispatch({
-          type: "channel/getChannelList"
-        });
+        this.getPageData(this.channelid, this.channelist);
       }
+    },
+    // 获取数据
+    getPageData(channelid, channelist) {
+      const { dispatch } = this.$store;
       // 请求api获取数据
-      await dispatch({
+      dispatch({
         type: "brand/getBrandList"
       });
 
-      const channelid =
-        id || this.channelist.filter(item => item.path === path)[0].channelid;
-
-      this.channelthumb = getChannelThumb(channelid, this.channelist);
+      this.channelthumb = getChannelThumb(channelid, channelist);
     }
   }
 };

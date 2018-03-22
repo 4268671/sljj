@@ -62,7 +62,9 @@ export default {
   data() {
     return {
       URLPREFIX: URL_PREFIX,
-      channelthumb: "", // 栏目主题图片
+      channelthumb: "",
+      channelid: "",
+      path: "",
       apiData: {
         name: "",
         telphone: "",
@@ -80,14 +82,15 @@ export default {
     commitMessage: ({ apply }) => apply.message,
     channelist: ({ channel }) => channel.channelist
   }),
-  beforeRouteEnter(to, from, next) {
-    // console.log(to, "to");
-    // console.log(from, "from");
-    next(vm => {
-      vm.getChannelData.apply(vm, [to.params.id, to.path.substring(1)]);
-    });
-  },
   watch: {
+    channelist(channelist) {
+      this.channelid = channelist.filter(
+        item => item.path === this.path
+      )[0].channelid;
+      // console.log(this.channelid, "channelid");
+      // console.log(channelist, "channelist");
+      this.getPageData(this.channelid, channelist);
+    },
     // 监听apiData
     apiData: {
       handler() {
@@ -96,7 +99,26 @@ export default {
       deep: true
     }
   },
+  beforeRouteEnter(to, from, next) {
+    // console.log(to, "to");
+    // console.log(from, "from");
+    next(vm => {
+      vm.init.apply(vm, [to.params.id, to.path.substring(1)]);
+    });
+  },
   methods: {
+    // 初始化
+    init(id, path) {
+      this.channelid = id;
+      this.path = path;
+      if (this.channelist.length) {
+        this.getPageData(this.channelid, this.channelist);
+      }
+    },
+    // 获取数据
+    getPageData(channelid, channelist) {
+      this.channelthumb = getChannelThumb(channelid, channelist);
+    },
     async commitClick() {
       const { dispatch } = this.$store;
       //   console.log(this.apiData, "apiData");
@@ -125,20 +147,6 @@ export default {
         message: ""
       };
       this.isCommit = false;
-    },
-    // 获取channel数据
-    async getChannelData(id, path) {
-      const { dispatch } = this.$store;
-      if (this.channelist.length) {
-        await dispatch({
-          type: "channel/getChannelList"
-        });
-      }
-
-      const channelid =
-        id || this.channelist.filter(item => item.path === path)[0].channelid;
-
-      this.channelthumb = getChannelThumb(channelid, this.channelist);
     }
   }
 };

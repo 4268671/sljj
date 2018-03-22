@@ -28,7 +28,9 @@ export default {
   name: "shop",
   data() {
     return {
-      URLPREFIX: URL_PREFIX
+      URLPREFIX: URL_PREFIX,
+      channelid: "",
+      path: ""
     };
   },
   computed: mapState({
@@ -36,30 +38,38 @@ export default {
     shoplist: ({ shop }) => shop.shoplist,
     channelist: ({ channel }) => channel.channelist
   }),
+  watch: {
+    channelist(channelist) {
+      this.channelid = channelist.filter(
+        item => item.path === this.path
+      )[0].channelid;
+      // console.log(this.channelid, "channelid");
+      // console.log(channelist, "channelist");
+      this.getPageData(this.channelid, channelist);
+    }
+  },
   beforeRouteEnter(to, from, next) {
     // console.log(to, "to");
     // console.log(from, "from");
     next(vm => {
-      vm.getShopData.apply(vm, [to.params.id, to.path.substring(1)]);
+      vm.init.apply(vm, [to.params.id, to.path.substring(1)]);
     });
   },
   components: { yoLoading },
   methods: {
-    // 获取shop数据
-    async getShopData(id, path) {
+    // 初始化
+    init(id, path) {
+      this.channelid = id;
+      this.path = path;
+      this.getPageData();
+    },
+    // 获取数据
+    getPageData() {
       const { dispatch } = this.$store;
-      if (this.channelist.length) {
-        await dispatch({
-          type: "channel/getChannelList"
-        });
-      }
       // 请求api获取数据
-      await dispatch({
+      dispatch({
         type: "shop/getShopList"
       });
-
-      const channelid =
-        id || this.channelist.filter(item => item.path === path)[0].channelid;
     }
   }
 };
