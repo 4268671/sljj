@@ -64,7 +64,7 @@ export default {
   methods: {
     // 获取product数据
     async getProductData(id, path) {
-      const { dispatch, commit } = this.$store;
+      const { dispatch } = this.$store;
       await dispatch({
         type: "channel/getChannelList"
       });

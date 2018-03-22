@@ -73,7 +73,12 @@ export default {
     },
     // 获取article数据
     async getDetailData(id) {
-      const { dispatch, commit } = this.$store;
+      const { dispatch } = this.$store;
+      if (this.channelist.length) {
+        await dispatch({
+          type: "channel/getChannelList"
+        });
+      }
 
       await dispatch({
         type: "article/getArticleDetail",

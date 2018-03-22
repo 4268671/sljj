@@ -42,10 +42,12 @@
             <span class="w3-large">More Product</span>
           </h3>
           <div v-for="(item,index) in moreProductList.slice(0,5)" :key="index" style="width:20%" class="w3-left w3-padding w3-center">
-            <div class="click-product" @click="getDetailData(item.id)">
-              <img :src="`${URLPREFIX}${item.thumb}`" alt="" class="w3-block w3-padding">
-              <p class="w3-margin-top w3-text-gray">{{item.title}}</p>
-            </div>
+            <router-link :to="{name: 'productdetail', params: { id: item.id }}">
+              <div @click="getDetailData(item.id)">
+                <img :src="`${URLPREFIX}${item.thumb}`" alt="" class="w3-block w3-padding">
+                <p class="w3-margin-top w3-text-gray">{{item.title}}</p>
+              </div>
+            </router-link>
           </div>
         </div>
       </div>
@@ -113,7 +115,12 @@ export default {
     },
     // 获取product详情数据
     async getDetailData(id) {
-      const { dispatch, commit } = this.$store;
+      const { dispatch } = this.$store;
+      if (this.channelist.length) {
+        await dispatch({
+          type: "channel/getChannelList"
+        });
+      }
 
       await dispatch({
         type: "product/getProductDetail",
@@ -131,7 +138,7 @@ export default {
     },
     // 获取product更多产品数据
     async getMoreProduct(id) {
-      const { dispatch, commit } = this.$store;
+      const { dispatch } = this.$store;
 
       await dispatch({
         type: "product/getProductListByid",

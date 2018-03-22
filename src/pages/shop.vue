@@ -48,8 +48,13 @@ export default {
     // 获取shop数据
     async getShopData(id, path) {
       const { dispatch } = this.$store;
+      if (this.channelist.length) {
+        await dispatch({
+          type: "channel/getChannelList"
+        });
+      }
       // 请求api获取数据
-      dispatch({
+      await dispatch({
         type: "shop/getShopList"
       });
 

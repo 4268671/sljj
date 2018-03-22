@@ -127,7 +127,14 @@ export default {
       this.isCommit = false;
     },
     // 获取channel数据
-    getChannelData(id, path) {
+    async getChannelData(id, path) {
+      const { dispatch } = this.$store;
+      if (this.channelist.length) {
+        await dispatch({
+          type: "channel/getChannelList"
+        });
+      }
+
       const channelid =
         id || this.channelist.filter(item => item.path === path)[0].channelid;
 

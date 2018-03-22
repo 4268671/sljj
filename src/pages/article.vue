@@ -70,10 +70,12 @@ export default {
   methods: {
     // 获取article数据
     async getArticleData(id, path) {
-      const { dispatch, commit } = this.$store;
-      await dispatch({
-        type: "channel/getChannelList"
-      });
+      const { dispatch } = this.$store;
+      if (this.channelist.length) {
+        await dispatch({
+          type: "channel/getChannelList"
+        });
+      }
 
       const channelid =
         id || this.channelist.filter(item => item.path === path)[0].channelid;
