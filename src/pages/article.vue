@@ -82,9 +82,10 @@ export default {
   methods: {
     // 初始化
     init(id, path) {
-      this.channelid = id;
       this.path = path;
       if (this.channelist.length) {
+        this.channelid =
+          id || this.channelist.filter(item => item.path === path)[0].channelid;
         this.getPageData(this.channelid, this.channelist);
       }
     },
