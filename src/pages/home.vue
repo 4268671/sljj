@@ -28,7 +28,11 @@
         </div>
         <!--  -->
         <div class="w3-padding-32 w3-row" style="max-width:1500px;margin:auto">
-            <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[0].url}`" alt="" class="w3-block wow bounceIn" data-wow-delay="0.6s">
+            <a :href="`http://${homeData.adv[0].topath}`" target="_">
+
+                <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[0].url}`" alt="" class="w3-block wow bounceIn" data-wow-delay="0.6s">
+            </a>
+
         </div>
         <!--  -->
         <div class="w3-row w3-margin-top" style="max-width:1500px;margin:auto">
@@ -37,8 +41,11 @@
                     <p class="w3-medium">—— Latest News ——</p>
                 </h2>
             </div>
+            {{homeData.adv }}
             <div class="w3-quarter w3-padding">
-                <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[1].url}`" alt="" class="w3-block wow fadeInLeft">
+                <a :href="`http://${homeData.adv[1].topath}`" target="_">
+                    <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[1].url}`" alt="" class="w3-block wow fadeInLeft">
+                </a>
             </div>
             <div class="w3-half">
                 <ul class="w3-ul w3-padding wow fadeInUp">
@@ -56,7 +63,9 @@
                 </ul>
             </div>
             <div class="w3-quarter w3-padding">
-                <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[2].url}`" alt="" class="w3-block wow fadeInRight">
+                <a :href="`http://${homeData.adv[2].topath}`" target="_">
+                    <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[2].url}`" alt="" class="w3-block wow fadeInRight">
+                </a>
             </div>
         </div>
     </div>
