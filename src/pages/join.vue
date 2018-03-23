@@ -20,15 +20,15 @@
           <input type="text" class="w3-input w3-round w3-border" placeholder="姓名：" id="name" v-model="apiData.name">
         </div>
         <div class="w3-third w3-padding">
-          <input type="text" class="w3-input w3-round w3-border" placeholder="手机号码：" id="telphone" v-model="apiData.telphone">
+          <input type="number" class="w3-input w3-round w3-border" placeholder="手机号码：" id="telphone" v-model="apiData.telphone">
         </div>
         <div class="w3-third w3-padding">
-          <input type="text" class="w3-input w3-round w3-border" placeholder="电子邮箱：" id="email" v-model="apiData.email">
+          <input type="email" class="w3-input w3-round w3-border" placeholder="电子邮箱：" id="email" v-model="apiData.email">
         </div>
       </div>
       <div class="w3-row w3-panel">
         <div class="w3-third w3-padding">
-          <input type="text" class="w3-input w3-round w3-border" placeholder="QQ号码：" id="qq" v-model="apiData.qq">
+          <input type="number" class="w3-input w3-round w3-border" placeholder="QQ号码：" id="qq" v-model="apiData.qq">
         </div>
         <div class="w3-rest w3-padding">
           <input type="text" class="w3-input w3-round w3-border" placeholder="意向城市：" id="city" v-model="apiData.city">
