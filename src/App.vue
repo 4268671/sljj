@@ -70,18 +70,7 @@ export default {
       dispatch({
         type: "channel/getChannelList"
       });
-      console.log(this.getBashRedirect(), "1111");
     });
-  },
-  methods: {
-    getBashRedirect() {
-      // According to the url parameter to redirect
-      // 这里是重定向的,重定向到 url 的 redirect 参数所示地址
-      const urlParams = new URL(window.location.href);
-      console.log(urlParams, "urlParams");
-
-      this.$router.push("/home");
-    }
   }
 };
 </script>
