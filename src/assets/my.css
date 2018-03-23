@@ -28,3 +28,14 @@ a {
 .w3-ul li {
   border-bottom: none;
 }
+
+#quill p {
+  line-height: 30px;
+  font-size: 16px;
+}
+
+#quill img {
+  clear: both;
+  display: block;
+  margin: auto;
+}

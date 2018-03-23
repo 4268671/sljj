@@ -35,7 +35,7 @@
         </div>
         <div class="w3-clear"></div>
         <!--  -->
-        <div class="w3-text-gray w3-padding-24" style="padding:0 100px" v-html="item.content" />
+        <div id="quill" class="w3-text-gray w3-padding-24" style="padding:0 100px" v-html="item.content" />
         <!--  -->
         <div class="w3-padding">
           <h3 class="w3-border-bottom w3-padding-16 w3-center">更多产品 /

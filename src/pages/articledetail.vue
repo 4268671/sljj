@@ -20,7 +20,7 @@
             <i class="fa fa-quote-right"></i>
           </p>
         </div>
-        <div class="w3-text-gray w3-padding-24" style="padding:0 100px" v-html="item.content" />
+        <div id="quill" class="w3-text-gray w3-padding-24" style="padding:0 100px" v-html="item.content" />
       </div>
     </div>
   </div>
