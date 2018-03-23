@@ -55,7 +55,7 @@ export default {
         "5a9f87e1d2467c1d20c8ca65": { id: 2, name: "product" },
         "5a9f87f1d2467c1d20c8ca66": { id: 3, name: "shop" },
         "5a9f8806d2467c1d20c8ca67": { id: 4, name: "join" },
-        "5ab47780d9e4ec29ac81cf04": { id: 999, name: false }
+        "5ab4f80c79cfed0a18d5bb7f": { id: 999, name: false }
       };
       const newArr = arr.map(item => {
         const result = {

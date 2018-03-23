@@ -22,7 +22,7 @@ export const home = {
       });
       const response = await getHomeData();
       const { status, message, count, data } = await parseResponse(response);
-      await console.log(data, "home data");
+      // await console.log(data, "home data");
       if (status > 0) {
         commit({
           type: "changeHomeData",
