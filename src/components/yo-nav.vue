@@ -8,17 +8,21 @@
       </li>
 
       <li class="w3-left" v-for="(item,key) in sortNav" :key="key">
-        <router-link :to="{name: item.topath, params: { id: item.id }}">
+        <router-link :to="{name: item.topath, params: { id: item.id }}" v-if="!item.href">
           <span class="w3-large">{{item.name}}</span>
         </router-link>
+        <a :href="`http://${item.href}`" target="_blank" v-else>
+          <span class="w3-large">{{item.name}}</span>
+          <div class="w3-tag w3-red w3-tiny w3-round-xlarge">hot</div>
+        </a>
       </li>
-      <li class="w3-left">
+      <!-- <li class="w3-left">
         <a :href="toUrl" target="_">
           <span class="w3-large">旗舰店购买
           </span>
           <div class="w3-tag w3-red w3-tiny w3-round-xlarge">hot</div>
         </a>
-      </li>
+      </li> -->
     </ul>
   </div>
 </template>
@@ -27,7 +31,7 @@
 export default {
   data() {
     return {
-      toUrl: "http://www.baidu.com" //跳转地址
+      // toUrl: "http://www.baidu.com" //跳转地址
     };
   },
   props: {
@@ -50,14 +54,20 @@ export default {
         "5a9f87cdd2467c1d20c8ca64": { id: 1, name: "news" },
         "5a9f87e1d2467c1d20c8ca65": { id: 2, name: "product" },
         "5a9f87f1d2467c1d20c8ca66": { id: 3, name: "shop" },
-        "5a9f8806d2467c1d20c8ca67": { id: 4, name: "join" }
+        "5a9f8806d2467c1d20c8ca67": { id: 4, name: "join" },
+        "5ab47780d9e4ec29ac81cf04": { id: 999, name: false }
       };
-      const newArr = arr.map(item => ({
-        id: item.channelid,
-        name: item.name,
-        weight: channelSort[item.channelid].id,
-        topath: channelSort[item.channelid].name
-      }));
+      const newArr = arr.map(item => {
+        const result = {
+          id: item.channelid,
+          name: item.name,
+          weight: channelSort[item.channelid].id,
+          topath: channelSort[item.channelid].name
+        };
+        if (!result.topath) result.href = item.href;
+
+        return result;
+      });
       return newArr;
     }
   }
