@@ -41,7 +41,6 @@
                     <p class="w3-medium">—— Latest News ——</p>
                 </h2>
             </div>
-            {{homeData.adv }}
             <div class="w3-quarter w3-padding">
                 <a :href="`http://${homeData.adv[1].topath}`" target="_">
                     <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[1].url}`" alt="" class="w3-block wow fadeInLeft">
