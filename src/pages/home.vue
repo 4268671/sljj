@@ -28,7 +28,7 @@
         </div>
         <!--  -->
         <div class="w3-padding-32 w3-row" style="max-width:1500px;margin:auto">
-            <a :href="`http://${homeData.adv[0].topath}`" target="_">
+            <a :href="`http://${homeData.adv && homeData.adv[0].topath}`" target="_">
 
                 <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[0].url}`" alt="" class="w3-block wow bounceIn" data-wow-delay="0.6s">
             </a>
@@ -42,7 +42,7 @@
                 </h2>
             </div>
             <div class="w3-quarter w3-padding">
-                <a :href="`http://${homeData.adv[1].topath}`" target="_">
+                <a :href="`http://${homeData.adv && homeData.adv[1].topath}`" target="_">
                     <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[1].url}`" alt="" class="w3-block wow fadeInLeft">
                 </a>
             </div>
@@ -62,7 +62,7 @@
                 </ul>
             </div>
             <div class="w3-quarter w3-padding">
-                <a :href="`http://${homeData.adv[2].topath}`" target="_">
+                <a :href="`http://${homeData.adv && homeData.adv[2].topath}`" target="_">
                     <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[2].url}`" alt="" class="w3-block wow fadeInRight">
                 </a>
             </div>
@@ -78,7 +78,7 @@ import { getDateFormat } from "../utils/fns";
 import { URL_PREFIX } from "../utils/consts";
 import yoSlideshow from "../components/yo-slideshow.vue";
 export default {
-  name: "slindex",
+  name: "home",
   data() {
     return {
       URLPREFIX: URL_PREFIX
