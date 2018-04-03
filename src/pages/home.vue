@@ -28,11 +28,14 @@
         </div>
         <!--  -->
         <div class="w3-padding-32 w3-row" style="max-width:1500px;margin:auto">
-            <a :href="`http://${homeData.adv && homeData.adv[0].topath}`" target="_">
-
-                <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[0].url}`" alt="" class="w3-block wow bounceIn" data-wow-delay="0.6s">
-            </a>
-
+            <div class="w3-half w3-container">
+                <a :href="`http://${homeData.adv && homeData.adv[0].topath}`" target="_">
+                    <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[0].url}`" alt="" height="403px" class="w3-block wow bounceIn" data-wow-delay="0.6s">
+                </a>
+            </div>
+            <div class="w3-half w3-container">
+                <video id="homevideo" src="../../static/sl.mp4" poster="../../static/default.png" autoplay controls="controls" class="w3-block wow bounceInRight"></video>
+            </div>
         </div>
         <!--  -->
         <div class="w3-row w3-margin-top" style="max-width:1500px;margin:auto">
@@ -109,6 +112,9 @@ export default {
         type: "home/getHomeData"
       });
     }
+  },
+  mounted() {
+    document.getElementById("homevideo").volume = 0.3; //视频默认音量大小
   }
 };
 </script>
