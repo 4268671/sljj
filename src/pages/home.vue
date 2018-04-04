@@ -34,7 +34,7 @@
                 </a>
             </div>
             <div class="w3-half w3-container">
-                <video id="homevideo" :src="`${URLPREFIX}/videos/sl.mp4`" :poster="`${URLPREFIX}/images/default.png`" autoplay class="w3-block wow bounceInRight"></video>
+                <video id="homevideo" :src="`${URLPREFIX}${homeData.adv && homeData.adv[3].video}`" :poster="`${URLPREFIX}${homeData.adv && homeData.adv[3].url}`" autoplay class="w3-block wow bounceInRight"></video>
             </div>
         </div>
         <!--  -->
