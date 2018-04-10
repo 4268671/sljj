@@ -34,7 +34,7 @@
                 </a>
             </div>
             <div class="w3-half w3-container">
-                <video id="homevideo" :src="`${URLPREFIX}${homeData.adv && homeData.adv[3].video}`" :poster="`${URLPREFIX}${homeData.adv && homeData.adv[3].url}`" autoplay class="w3-block wow bounceInRight"></video>
+                <video id="homevideo" :src="`${URLPREFIX}${homeData.adv && homeData.adv[6].video}`" :poster="`${URLPREFIX}${homeData.adv && homeData.adv[6].url}`" autoplay class="w3-block wow bounceInRight"></video>
             </div>
         </div>
         <!--  -->
@@ -47,23 +47,23 @@
             <div class="w3-red">
                 <div class="w3-container" style="max-width:1200px;margin:auto">
                     <div class="w3-twothird w3-margin-top w3-margin-bottom">
-                        <a :href="`http://${homeData.adv && homeData.adv[2].topath}`" target="_">
-                            <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[2].url}`" alt="" class="w3-block animated" style="height:290px">
+                        <a :href="`http://${homeData.adv && homeData.adv[1].topath}`" target="_">
+                            <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[1].url}`" alt="" class="w3-block animated" style="height:290px">
                         </a>
                         <div class="w3-half w3-margin-top">
-                            <a :href="`http://${homeData.adv && homeData.adv[0].topath}`" target="_">
-                                <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[0].url}`" alt="" class="w3-block animated" style="height:218px">
+                            <a :href="`http://${homeData.adv && homeData.adv[2].topath}`" target="_">
+                                <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[2].url}`" alt="" class="w3-block animated" style="height:218px">
                             </a>
                         </div>
                         <div class="w3-half w3-margin-top">
-                            <a :href="`http://${homeData.adv && homeData.adv[0].topath}`" target="_">
-                                <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[0].url}`" alt="" class="w3-block animated" style="height:218px">
+                            <a :href="`http://${homeData.adv && homeData.adv[3].topath}`" target="_">
+                                <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[3].url}`" alt="" class="w3-block animated" style="height:218px">
                             </a>
                         </div>
                     </div>
                     <div class="w3-third w3-panel">
-                        <a :href="`http://${homeData.adv && homeData.adv[1].topath}`" target="_">
-                            <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[1].url}`" alt="" class="w3-block animated" style="height:520px">
+                        <a :href="`http://${homeData.adv && homeData.adv[4].topath}`" target="_">
+                            <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[4].url}`" alt="" class="w3-block animated" style="height:520px">
                         </a>
                     </div>
                 </div>
@@ -78,8 +78,8 @@
                 </h2>
             </div>
             <div class="w3-third w3-padding">
-                <a :href="`http://${homeData.adv && homeData.adv[1].topath}`" target="_">
-                    <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[1].url}`" alt="" class="w3-block wow fadeInLeft" style="height:512px">
+                <a :href="`http://${homeData.adv && homeData.adv[5].topath}`" target="_">
+                    <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[5].url}`" alt="" class="w3-block wow fadeInLeft" style="height:512px">
                 </a>
             </div>
             <div class="w3-twothird">
