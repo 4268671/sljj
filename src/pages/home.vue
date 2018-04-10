@@ -38,23 +38,56 @@
             </div>
         </div>
         <!--  -->
-        <div class="w3-row w3-margin-top" style="max-width:1500px;margin:auto">
+        <div class="w3-row w3-margin-top">
+            <div class=" wow flipInY">
+                <h2 class="w3-center w3-panel">产品推荐
+                    <p class="w3-medium">—— Our Product ——</p>
+                </h2>
+            </div>
+            <div class="w3-red">
+                <div class="w3-container" style="max-width:1200px;margin:auto">
+                    <div class="w3-twothird w3-margin-top w3-margin-bottom">
+                        <a :href="`http://${homeData.adv && homeData.adv[2].topath}`" target="_">
+                            <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[2].url}`" alt="" class="w3-block animated" style="height:290px">
+                        </a>
+                        <div class="w3-half w3-margin-top">
+                            <a :href="`http://${homeData.adv && homeData.adv[0].topath}`" target="_">
+                                <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[0].url}`" alt="" class="w3-block animated" style="height:218px">
+                            </a>
+                        </div>
+                        <div class="w3-half w3-margin-top">
+                            <a :href="`http://${homeData.adv && homeData.adv[0].topath}`" target="_">
+                                <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[0].url}`" alt="" class="w3-block animated" style="height:218px">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="w3-third w3-panel">
+                        <a :href="`http://${homeData.adv && homeData.adv[1].topath}`" target="_">
+                            <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[1].url}`" alt="" class="w3-block animated" style="height:520px">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--  -->
+        <div class="w3-row w3-margin-top" style="max-width:1200px;margin:auto">
             <div class=" wow flipInY">
                 <h2 class="w3-center w3-panel">最新动态
                     <p class="w3-medium">—— Latest News ——</p>
                 </h2>
             </div>
-            <div class="w3-quarter w3-padding">
+            <div class="w3-third w3-padding">
                 <a :href="`http://${homeData.adv && homeData.adv[1].topath}`" target="_">
-                    <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[1].url}`" alt="" class="w3-block wow fadeInLeft">
+                    <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[1].url}`" alt="" class="w3-block wow fadeInLeft" style="height:512px">
                 </a>
             </div>
-            <div class="w3-half">
+            <div class="w3-twothird">
                 <ul class="w3-ul w3-padding wow fadeInUp">
                     <a href="">
-                        <li id="newslist" class="w3-margin-bottom w3-text-gray" v-for="(item, key) in homeData.article" :key="key">
+                        <li id="newslist" class="w3-margin-bottom w3-text-gray w3-light-gray w3-hover-red" v-for="(item, key) in homeData.article" :key="key">
                             <router-link :to="{name: 'articledetail', params: { id: item.id }}">
-                                <h2 class="w3-col" style="width:100px;margin-top:24px">{{item.updateDate | dateFormat}}</h2>
+                                <h2 class="w3-col" style="width:100px;margin-top:28px">&nbsp;{{item.updateDate | dateFormat}}</h2>
                                 <div class="w3-rest w3-border-left w3-padding">
                                     <h4>{{item.title}}</h4>
                                     <div>{{item.subtitle | filteredItems}}</div>
@@ -64,11 +97,11 @@
                     </a>
                 </ul>
             </div>
-            <div class="w3-quarter w3-padding">
+            <!-- <div class="w3-quarter w3-padding">
                 <a :href="`http://${homeData.adv && homeData.adv[2].topath}`" target="_">
                     <img :src="`${URLPREFIX}${homeData.adv && homeData.adv[2].url}`" alt="" class="w3-block wow fadeInRight">
                 </a>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
@@ -135,7 +168,7 @@ a {
 
 #newslist:hover {
   color: white !important;
-  background-color: #e84441;
+  /* background-color: #e84441; */
   transition: all 0.5s;
   /* box-shadow: 2px 2px 10px #aaaaaa; */
 }
@@ -146,5 +179,10 @@ a {
   background-color: #eeeeee !important;
   color: #e84441 !important;
   transition: all 0.5s;
+}
+.w3-twothird img:hover,
+.w3-third img:hover {
+  -webkit-animation-name: flash;
+  animation-name: flash;
 }
 </style>
