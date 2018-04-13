@@ -34,7 +34,9 @@
                 </a>
             </div>
             <div class="w3-half w3-container">
-                <video id="homevideo" :src="`${URLPREFIX}${homeData.adv && homeData.adv[6].video}`" :poster="`${URLPREFIX}${homeData.adv && homeData.adv[6].url}`" autoplay class="w3-block wow bounceInRight"></video>
+                <video v-if="homeData.adv && homeData.adv[6].topath && homeData.adv && homeData.adv[6].topath.indexOf !== 1" id="homevideo" :src="`${homeData.adv && homeData.adv[6].topath}`" :poster="`${URLPREFIX}/images/videoposter.jpg`" autoplay class="w3-block wow bounceInRight"></video>
+
+                <video v-else id="homevideo" :src="`${URLPREFIX}${homeData.adv && homeData.adv[6].video}`" :poster="`${URLPREFIX}/images/videoposter.jpg`" autoplay class="w3-block wow bounceInRight"></video>
             </div>
         </div>
         <!--  -->
@@ -147,7 +149,9 @@ export default {
     }
   },
   mounted() {
-    document.getElementById("homevideo").volume = 0.3; //视频默认音量大小
+    this.$nextTick(() => {
+      document.getElementById("homevideo").volume = 0.3; //视频默认音量大小
+    });
   }
 };
 </script>
