@@ -34,7 +34,7 @@
                 </a>
             </div>
             <div class="w3-half w3-container">
-                <video id="homevideo" :src="`${URLPREFIX}${homeData.adv && homeData.adv[6].video}`" :poster="`${URLPREFIX}${homeData.adv && homeData.adv[6].url}`" autoplay class="w3-block wow bounceInRight"></video>
+                <video id="homevideo" :src="homeData.adv && homeData.adv[6].topath && homeData.adv[6].topath.indexOf('http') !== -1  ? homeData.adv[6].topath : `${URLPREFIX}${homeData.adv[6].video}`" :poster="`${URLPREFIX}/images/videoposter.jpg`" autoplay class="w3-block wow bounceInRight"></video>
             </div>
         </div>
         <!--  -->
