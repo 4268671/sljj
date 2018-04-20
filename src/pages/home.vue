@@ -1,6 +1,6 @@
 <template>
     <div>
-        <yo-slideshow :slideData="homeData.slide" class="wow flipInX"></yo-slideshow>
+        <yo-slideshow :slideData="homeData.slide" class="animated flipIn"></yo-slideshow>
         <!--  -->
         <div class="w3-padding-32 w3-row" style="max-width:1500px;margin:auto">
             <router-link :to="{name: 'brand'}">
