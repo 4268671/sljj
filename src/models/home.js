@@ -1,5 +1,5 @@
 // 接口
-import { getHomeData } from "@/services/api";
+import { getDocumenTitle, getHomeData } from "@/services/api";
 // 方法
 import { parseResponse } from "@/utils/parse";
 
@@ -8,7 +8,8 @@ export const home = {
 
   state: {
     isLoading: true,
-    homeData: []
+    homeData: [],
+    pageTitle: "..."
   },
 
   getters: {},
@@ -33,6 +34,18 @@ export const home = {
         type: "changeLoading",
         payload: false
       });
+    },
+    async getDocumenTitle({ commit }) {
+      const response = await getDocumenTitle();
+      const { status, data } = await parseResponse(response);
+      if (status > 0) {
+        const { title, subtitle } = data[0];
+        // console.log(`${title} -- ${subtitle}`, "page title");
+        commit({
+          type: "changeDocumenTitle",
+          payload: `${subtitle} -- ${title}`
+        });
+      }
     }
   },
 
@@ -44,6 +57,9 @@ export const home = {
     },
     changeHomeData(state, { payload }) {
       state.homeData = payload;
+    },
+    changeDocumenTitle(state, { payload }) {
+      state.pageTitle = payload;
     }
   }
 };

@@ -1,5 +1,6 @@
 <template>
   <div id="main">
+    <document-title :title="pageTitle" />
     <yo-sidebar :style="sidebarstyle"></yo-sidebar>
     <yo-top :style="topstyle" class="w3-card"></yo-top>
     <yo-nav :style="navstyle" :channelist='channelist'></yo-nav>
@@ -13,6 +14,7 @@
 <script>
 new WOW().init();
 import { mapState } from "vuex";
+import DocumentTitle from "vue-headful";
 
 import yoTop from "./components/yo-top.vue";
 import yoSidebar from "./components/yo-sidebar.vue";
@@ -55,22 +57,38 @@ export default {
     };
   },
   computed: mapState({
+    pageTitle: ({ home }) => home.pageTitle,
     channelist: ({ channel }) => channel.channelist
   }),
   components: {
+    DocumentTitle,
     yoTop,
     yoSidebar,
     yoFooter,
     yoNav
   },
+  created() {
+    this.getDocumenTitle();
+  },
   mounted() {
     this.$nextTick(() => {
+      this.getChannelList();
+    });
+  },
+  methods: {
+    getChannelList() {
       const { dispatch } = this.$store;
       // 请求api获取数据
       dispatch({
         type: "channel/getChannelList"
       });
-    });
+    },
+    getDocumenTitle() {
+      const { dispatch } = this.$store;
+      dispatch({
+        type: "home/getDocumenTitle"
+      });
+    }
   }
 };
 </script>
